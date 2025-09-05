@@ -1,0 +1,459 @@
+<style>
+  /* Base styles */
+  /* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    color: #1d1d1f;
+    background-color: #fff;
+    line-height: 1.5;
+  } */
+
+  /* Container */
+  .faq-content-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .faq-content-container {
+      padding: 0;
+      gap: 1.5rem;
+    }
+  }
+
+  /* Typography */
+  .heading-primary {
+    font-size: 1.375rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .heading-primary {
+      font-size: 2.5rem;
+      margin-bottom: 0;
+    }
+  }
+
+  /* Method tabs container */
+  .method-tabs-container {
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    margin: 0 auto;
+  }
+
+  /* Method buttons */
+  .method-btn {
+    display: flex;
+    flex-grow: 1;
+    scroll-snap-align: start;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #1d1d1f;
+    background-color: white;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .method-btn:hover {
+    background-color: #f3f4f6;
+  }
+
+  .method-btn:active {
+    transform: scale(0.95);
+  }
+
+  .method-btn.active {
+    background-color: #e60023;
+    color: white;
+    border-color: #e60023;
+  }
+
+  /* Tab navigation */
+  .tab-nav {
+    width: 100%;
+    display: flex;
+    font-weight: 700;
+    border-bottom: 1px solid #e5e7eb;
+    overflow-x: auto;
+  }
+
+  .tab-item {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-bottom: 2px solid #1d1d1f;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  /* Content area */
+  .content-area {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #8b8b8b;
+    border-top: 6px solid #ef4444;
+    border-radius: 0.25rem;
+    color: #1d1d1f;
+  }
+
+  @media (min-width: 768px) {
+    .content-area {
+      padding: 1.5rem 2rem;
+    }
+  }
+
+  /* Method content */
+  .method-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    font-weight: 700;
+    text-align: left;
+    place-items: center;
+  }
+
+  @media (min-width: 640px) {
+    .method-content {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .method-content {
+      gap: 1.25rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .method-content {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .method-content.hidden {
+    display: none;
+  }
+
+  /* Step card */
+  .step-card {
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .step-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .step-text {
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .step-text {
+      min-height: 70px;
+    }
+  }
+</style>
+<div class="faq-content-container">
+  <h1 class="heading-primary">วิธีการเข้าสู่ระบบ</h1>
+
+  <!-- Method tab -->
+  <div class="method-tabs-container">
+    <button id="phone" onclick="methodChange('phone')" class="method-btn active">
+      เข้าสู่ระบบเบียนด้วยเบอร์โทรศัพท์
+    </button>
+    <button id="email" onclick="methodChange('email')" class="method-btn">
+      เข้าสู่ระบบด้วยอีเมล
+    </button>
+    <button id="the1" onclick="methodChange('the1')" class="method-btn">
+      เข้าสู่ระบบด้วยบัญชี The1
+    </button>
+    <button id="apple" onclick="methodChange('apple')" class="method-btn">
+      เข้าสู่ระบบด้วยบัญชี Apple (เฉพาะบนอุปกรณ์ iOS)
+    </button>
+    <button id="google" onclick="methodChange('google')" class="method-btn">
+      เข้าสู่ระบบด้วยบัญชี Google
+    </button>
+    <button id="facebook" onclick="methodChange('facebook')" class="method-btn">
+      เข้าสู่ระบบด้วยบัญชี Facebook
+    </button>
+  </div>
+
+  <!-- TAB -->
+  <div class="tab-nav">
+    <div class="tab-item">Mobile</div>
+  </div>
+
+  <div class="content-area">
+    <!-- phone -->
+    <div id="phone-content" class="method-content"></div>
+
+    <!-- email -->
+    <div id="email-content" class="hidden method-content"></div>
+
+    <!-- the1 -->
+    <div id="the1-content" class="hidden method-content"></div>
+
+    <!-- apple -->
+    <div id="apple-content" class="hidden method-content"></div>
+
+    <!-- google -->
+    <div id="google-content" class="hidden method-content"></div>
+
+    <!-- facebook -->
+    <div id="facebook-content" class="hidden method-content"></div>
+  </div>
+</div>
+
+<script>
+  // Steps data
+  const stepsData = {
+    email: [
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_email/login_email-1.jpeg",
+        "text": "1. แตะที่บัญชีของฉัน"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_email/login_email-2.jpeg",
+        "text": "2. เลือกเข้าสู่ระบบด้วยอีเมล"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_email/login_email-3.jpeg",
+        "text": "3. เลือกดำเนินการต่อ"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_email/login_email-4.jpeg",
+        "text": "4. คลิกเพื่อยืนยันอีเมล"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_email/login_email-5.jpeg",
+        "text": "5. เข้าสู่ระบบด้วยอีเมลสำเร็จ"
+      }
+    ],
+    the1: [
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_the1/login_the1-1.jpeg",
+        "text": "1. แตะที่บัญชีของฉัน"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_the1/login_the1-2.jpeg",
+        "text": "2. เลือกเข้าสู่ระบบ"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_the1/login_the1-3.jpeg",
+        "text": "3. เลือก The1"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_the1/login_the1-4.jpeg",
+        "text": "4. กรอกหมายเลขโทรศัพท์มือถือของคุณ"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_the1/login_the1-5.jpeg",
+        "text": "5. แตะปุ่มเข้าสู่ระบบ"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_the1/login_the1-6.jpeg",
+        "text": "6. กรอกรหัส OTP ที่ได้รับทาง SMS"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_the1/login_the1-7.jpeg",
+        "text": "7. คลิกดำเนินการต่อ"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_the1/login_the1-8.jpeg",
+        "text": "8. เลือกบัญชี The1 ที่ผูกกับเบอร์โทรศัพท์"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_the1/login_the1-9.jpeg",
+        "text": "9. เข้าสู่ระบบสำเร็จ"
+      }
+    ],
+    facebook: [
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_facebook/login_facebook-1.jpeg",
+        "text": "1. แตะที่บัญชีของฉัน"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_facebook/login_facebook-2.jpeg",
+        "text": "2. แตะปุ่มเข้าสู่ระบบ"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_facebook/login_facebook-3.jpeg",
+        "text": "3. แตะปุ่ม Facebook"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_facebook/login_facebook-4.jpeg",
+        "text": "4. แตะปุ่ม Continue เพื่ออนุญาตให้ Central ใช้ Facebook"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_facebook/login_facebook-5.jpeg",
+        "text": "5. แตะปุ่ม Open"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_facebook/login_facebook-6.jpeg",
+        "text": "6. แตะปุ่ม Continue"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_facebook/login_facebook-7.jpeg",
+        "text": "7. เลือกดำเนินการต่อ"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_facebook/login_facebook-8.jpeg",
+        "text": "8. เข้าสู่ระบบสำเร็จ"
+      }
+    ],
+    google: [
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_google/login_google-1.jpeg",
+        "text": "1. แตะที่บัญชีของฉัน"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_google/login_google-2.jpeg",
+        "text": "2. แตะปุ่มเข้าสู่ระบบ"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_google/login_google-3.jpeg",
+        "text": "3. แตะปุ่ม Google"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_google/login_google-4.jpeg",
+        "text": "4. เลือกบัญชีอีเมล"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_google/login_google-5.jpeg",
+        "text": "5. เลือกดำเนินการต่อ"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_google/login_google-6.jpeg",
+        "text": "6. เข้าสู่ระบบสำเร็จ"
+      }
+    ],
+    apple: [
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_apple/login_apple-1.jpeg",
+        "text": "1. แตะที่บัญชีของฉัน"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_apple/login_apple-2.jpeg",
+        "text": "2. แตะปุ่มเข้าสู่ระบบ"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_apple/login_apple-3.jpeg",
+        "text": "3. เลือกเข้าสู่ระบบด้วย Apple"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_apple/login_apple-4.jpeg",
+        "text": "4. กด Continue"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_apple/login_apple-5.jpeg",
+        "text": "5. เข้าสู่ระบบสำเร็จ"
+      }
+    ],
+    phone: [
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_how-to/How_To_Login1.jpeg",
+        "text": "1. แตะที่บัญชีของฉัน"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_how-to/How_To_Login2.jpeg",
+        "text": "2. แตะปุ่มเข้าสู่ระบบ"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_how-to/How_To_Login3.jpeg",
+        "text": "3. เลือกหมายเลขโทรศัพท์"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_how-to/How_To_Login4.jpeg",
+        "text": "4. กรอกเบอร์โทรศัพท์"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_how-to/How_To_Login5.jpeg",
+        "text": "5. กดที่ปุ่มดำเนินการต่อ"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_how-to/How_To_Login6.jpeg",
+        "text": "6. กรอกรหัส OTP ที่ได้จาก SMS"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Login/login_how-to/How_To_Login7.jpeg",
+        "text": "7. เข้าสู่ระบบสำเร็จ"
+      }
+    ],
+  };
+
+  // Method change function
+  function methodChange(methodName) {
+    const methodBtns = document.querySelectorAll(".method-btn");
+    methodBtns.forEach((el) => {
+      el.classList.remove("active");
+    });
+
+    const activeBtn = document.getElementById(methodName);
+    activeBtn.classList.add("active");
+
+    const allContent = document.querySelectorAll(".method-content");
+    allContent.forEach((el) => el.classList.add("hidden"));
+
+    const targetContent = document.getElementById(`${methodName}-content`);
+    targetContent.classList.remove("hidden");
+  }
+
+  // Render steps
+  function renderSteps(method, steps) {
+    const container = document.getElementById(`${method}-content`);
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    steps.forEach((step) => {
+      const div = document.createElement("div");
+      div.className = "step-card";
+      div.innerHTML = `
+                    <img src="${step.img}" class="step-image" />
+                    <p class="step-text">${step.text}</p>
+                `;
+      container.appendChild(div);
+    });
+  }
+
+  // Initialize on DOM load
+  document.addEventListener("DOMContentLoaded", () => {
+    Object.entries(stepsData).forEach(([method, steps]) => {
+      renderSteps(method, steps);
+    });
+
+    methodChange("phone");
+  });
+</script>

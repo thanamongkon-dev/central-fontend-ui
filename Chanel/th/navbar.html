@@ -1,0 +1,361 @@
+
+<style>
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .text-\[10px\] {
+    font-size: 10px;
+  }
+
+  /* Layout container */
+  .menu-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 10px 0;
+    list-style: none;
+    overflow: visible;
+    color: inherit;
+  }
+
+  .desktop-menu {
+    display: block;
+  }
+
+  /* Menu item */
+  .menu-item {
+    font-weight: 700;
+    white-space: nowrap;
+    font-size: 0.875rem;
+    /* text-sm */
+    padding: 10px 32px;
+    cursor: pointer;
+  }
+
+  .gap-y-4 {
+    row-gap: 1rem;
+  }
+
+  .submenu-item {
+    font-weight: 700;
+    font-size: 10px;
+    font-family: "Chanel Gras C21 Et Plus", "CPN" !important;
+  }
+
+  /* Dropdown */
+  .dropdown-menu {
+    position: absolute;
+    left: 0;
+    display: none;
+    width: 100%;
+    justify-content: center;
+    padding-top: 14px;
+    padding-right: 10px;
+    margin-top: 10px;
+    z-index: 10;
+    background-color: white;
+  }
+
+  .dropdown-menu li {
+    padding: 0 20px;
+    list-style: none;
+    white-space: nowrap;
+  }
+
+  /* Show dropdown on hover */
+  .group:hover .dropdown-menu {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+  }
+
+  @media (max-width: 768px) {
+    .menu-container {
+      justify-content: flex-start;
+    }
+
+    .desktop-menu {
+      display: none;
+    }
+  }
+</style>
+<div class="desktop-menu">
+  <ul class="menu-container font-chanel">
+    <li class="menu-item"><a class="font-chanel">SUBLIMAGE</a></li>
+
+    <li class="menu-item group">
+      <a href="https://prod-web.central.co.th/th/chanel/women-s-fragrance" class="font-cpn">น้ำหอมผู้หญิง</a>
+      <ul class="dropdown-menu gap-y-4">
+        <li class="submenu-item">
+          <a href="https://prod-web.censtral.co.th/th/promotion-campaign/n-5" class="font-chanel">N°5</a>
+        </li>
+        <li class="submenu-item">
+          <a href="https://prod-web.central.co.th/th/promotion-campaign/coco-mademoiselle" class="font-chanel">COCO
+            MADEMOISELLE</a>
+        </li>
+        <li class="submenu-item">
+          <a href="https://prod-web.central.co.th/th/promotion-campaign/chance" class="font-chanel">CHANCE</a>
+        </li>
+        <li class="submenu-item">
+          <a href="https://prod-web.central.co.th/th/promotion-campaign/gabrielle-chanel" class="font-chanel">GABRIELLE
+            CHANEL</a>
+        </li>
+        <li class="submenu-item">
+          <a href="https://prod-web.central.co.th/th/promotion-campaign/coco-noir" class="font-chanel">COCO</a>
+        </li>
+        <li class="submenu-item">
+          <a href="https://prod-web.central.co.th/th/promotion-campaign/allure" class="font-chanel">ALLURE</a>
+        </li>
+        <li class="submenu-item">
+          <a href="https://prod-web.central.co.th/th/promotion-campaign/allure-sensuelle" class="font-chanel">ALLURE
+            SENSUELLE</a>
+        </li>
+        <li class="submenu-item">
+          <a href="https://prod-web.central.co.th/th/promotion-campaign/les-eaux-de-chanel-women" class="font-chanel">LES EAUX
+            DE CHANEL</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="menu-item group">
+      <a class="font-cpn" href="https://prod-web.central.co.th/th/chanel/men-s-fragrance">น้ำหอมผู้ชาย</a>
+      <ul class="dropdown-menu">
+        <li class="submenu-item">
+          <a class="font-chanel" href="https://prod-web.central.co.th/th/promotion-campaign/bleu-de-chanel">BLEU DE
+            CHANEL</a>
+        </li>
+        <li class="submenu-item">
+          <a class="font-chanel" href="https://prod-web.central.co.th/th/promotion-campaign/allure-homme-sport">ALLURE
+            HOMME SPORT</a>
+        </li>
+        <li class="submenu-item">
+          <a class="font-chanel" href="https://prod-web.central.co.th/th/promotion-campaign/allure-homme">ALLURE
+            HOMME</a>
+        </li>
+        <li class="submenu-item">
+          <a class="font-chanel" href="https://prod-web.central.co.th/th/promotion-campaign/platinum-egoiste">ÉGOÏSTE</a>
+        </li>
+        <li class="submenu-item">
+          <a class="font-chanel" href="https://prod-web.central.co.th/th/promotion-campaign/les-eaux-de-chanel-men">LES EAUX
+            DE CHANEL</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="menu-item group">
+      <a class="font-cpn" href="https://prod-web.central.co.th/th/chanel/makeup">เครื่องสำอาง</a>
+      <ul class="dropdown-menu">
+        <li class="submenu-item">
+          <a class="font-chanel" href="https://prod-web.central.co.th/th/promotion-campaign/complexion">COMPLEXION</a>
+        </li>
+        <li class="submenu-item">
+          <a class="font-chanel" href="https://prod-web.central.co.th/th/promotion-campaign/eyes">EYES</a>
+        </li>
+        <li class="submenu-item">
+          <a class="font-chanel" href="https://prod-web.central.co.th/th/promotion-campaign/lips">LIPS</a>
+        </li>
+        <li class="submenu-item">
+          <a class="font-chanel" href="https://prod-web.central.co.th/th/promotion-campaign/nails">NAILS</a>
+        </li>
+        <li class="submenu-item">
+          <a class="font-chanel" href="https://prod-web.central.co.th/th/promotion-campaign/accessories">ACCESSORIES</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="menu-item group">
+      <a class="font-cpn" href="https://prod-web.central.co.th/th/chanel/skincare">ผลิตภัณฑ์บำรุงผิว</a>
+      <ul class="dropdown-menu">
+        <li class="submenu-item">
+          <a class="font-chanel" href="https://prod-web.central.co.th/th/promotion-campaign/n-1-de-chanel">N°1 DE
+            CHANEL</a>
+        </li>
+        <li class="submenu-item">
+          <a class="font-chanel" href="https://prod-web.central.co.th/th/promotion-campaign/sublimage">SUBLIMAGE</a>
+        </li>
+        <li class="submenu-item">
+          <a class="font-chanel" href="https://prod-web.central.co.th/th/promotion-campaign/le-lift">LE LIFT &amp; LE
+            LIFT PRO</a>
+        </li>
+        <li class="submenu-item">
+          <a class="font-chanel" href="https://prod-web.central.co.th/th/promotion-campaign/hydra-beauty">HYDRA
+            BEAUTY</a>
+        </li>
+        <li class="submenu-item">
+          <a class="font-chanel" href="https://prod-web.central.co.th/th/promotion-campaign/cc-cream">CC CREAM</a>
+        </li>
+        <li class="submenu-item">
+          <a class="font-chanel" href="https://prod-web.central.co.th/th/promotion-campaign/eclat-premier">ECLAT
+            PREMIER</a>
+        </li>
+        <li class="submenu-item">
+          <a class="font-chanel" href="https://prod-web.central.co.th/th/promotion-campaign/le-blanc">LE BLANC</a>
+        </li>
+        <li class="submenu-item">
+          <a class="font-chanel" href="https://prod-web.central.co.th/th/promotion-campaign/uv-essentiel">UV
+            ESSENTIEL</a>
+        </li>
+        <li class="submenu-item">
+          <a class="font-chanel" href="https://prod-web.central.co.th/th/promotion-campaign/la-creme-main">LA CRÈME
+            MAIN</a>
+        </li>
+        <li class="submenu-item">
+          <a class="font-chanel" href="https://prod-web.central.co.th/th/promotion-campaign/others">THE CLEANSING
+            COLLECTION</a>
+        </li>
+      </ul>
+    </li>
+
+  </ul>
+</div>
+
+<!-- Mobile Menu -->
+<nav class="flex px-4 border-b mobile-menu md:hidden font-chanel color-text">
+  <ul class="flex justify-start p-0 mx-0 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory">
+    <li class="font-bold snap-start text-nowrap text-sm px-6 py-2.5">
+      <a href="https://prod-web.central.co.th/th/chanel/sublimage" class="font-chanel">SUBLIMAGE</a>
+    </li>
+
+    <li class="snap-start text-nowrap text-sm px-6 py-2.5" onclick="return showSubmenu(event,'womens-fragrance')">
+      <a class="font-bold font-cpn-bold font-cpn" href="https://prod-web.central.co.th/th/chanel/women-s-fragrance">น้ำหอมผู้หญิง</a>
+    </li>
+
+    <li class="snap-start text-nowrap text-sm px-6 py-2.5" onclick="return showSubmenu(event,'mens-fragrance')">
+      <a class="font-bold font-cpn-bold font-cpn" href="https://prod-web.central.co.th/th/chanel/men-s-fragrance">น้ำหอมผู้ชาย</a>
+    </li>
+
+    <li class="snap-start text-nowrap text-sm px-6 py-2.5" onclick="return showSubmenu(event,'makeup')">
+      <a href="https://prod-web.central.co.th/th/chanel/makeup" class="font-bold font-cpn-bold font-cpn">เครื่องสำอาง</a>
+    </li>
+
+    <li class="snap-start text-nowrap text-sm px-6 py-2.5" onclick="return showSubmenu(event,'skincare')">
+      <a href="https://prod-web.central.co.th/th/chanel/skincare" class="font-bold font-cpn-bold font-cpn">ผลิตภัณฑ์บำรุงผิว</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Mobile Submenus -->
+<div id="submenu-container" class="font-chanel flex items-center justify-center md:hidden text-start color-text font-bold w-full px-4 py-1.5 min-h-8 bg-white z-50 overflow-y-auto">
+  <!-- Women -->
+  <ul id="submenu-womens-fragrance" class="z-50 hidden w-full overflow-x-auto text-[10px] bg-white submenu no-scrollbar scroll-smooth snap-x snap-mandatory">
+    <li class="px-6 py-0 snap-start whitespace-nowrap"><a href="https://prod-web.central.co.th/th/promotion-campaign/n-5" class="font-chanel">N°5</a></li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/th/promotion-campaign/coco-mademoiselle" class="font-chanel">COCO
+        MADEMOISELLE</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap"><a href="https://prod-web.central.co.th/th/promotion-campaign/chance" class="font-chanel">CHANCE</a></li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/th/promotion-campaign/gabrielle" class="font-chanel">GABRIELLE CHANEL</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap"><a href="https://prod-web.central.co.th/th/promotion-campaign/coco-noir" class="font-chanel">COCO</a></li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap"><a href="https://prod-web.central.co.th/th/promotion-campaign/allure" class="font-chanel">ALLURE</a></li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/th/promotion-campaign/allure-sensuelle" class="font-chanel">ALLURE
+        SENSUELLE</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/th/promotion-campaign/les-eaux-de-chanel" class="font-chanel">LES EAUX DE
+        CHANEL</a>
+    </li>
+  </ul>
+
+  <!-- Men -->
+  <ul id="submenu-mens-fragrance" class="z-50 hidden w-full overflow-x-auto text-[10px] bg-white submenu no-scrollbar scroll-smooth snap-x snap-mandatory">
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/th/promotion-campaign/bleu-de-chanel" class="font-chanel">BLEU DE
+        CHANEL</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/th/promotion-campaign/allure-homme-sport" class="font-chanel">ALLURE HOMME
+        SPORT</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap"><a href="https://prod-web.central.co.th/th/promotion-campaign/allure-homme" class="font-chanel">ALLURE HOMME</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap"><a href="https://prod-web.central.co.th/th/promotion-campaign/platinum-egoiste" class="font-chanel">ÉGOÏSTE</a></li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/th/promotion-campaign/les-eaux-de-chanel" class="font-chanel">LES EAUX DE
+        CHANEL</a>
+    </li>
+  </ul>
+
+  <!-- Makeup -->
+  <ul id="submenu-makeup" class="z-50 hidden w-full overflow-x-auto text-[10px] bg-white submenu no-scrollbar scroll-smooth snap-x snap-mandatory">
+    <li class="px-6 py-0 snap-start whitespace-nowrap"><a href="https://prod-web.central.co.th/th/promotion-campaign/complexion" class="font-chanel">COMPLEXION</a></li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap"><a href="https://prod-web.central.co.th/th/promotion-campaign/eyes" class="font-chanel">EYES</a></li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap"><a href="https://prod-web.central.co.th/th/promotion-campaign/lips" class="font-chanel">LIPS</a></li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap"><a href="https://prod-web.central.co.th/th/promotion-campaign/nails" class="font-chanel">NAILS</a></li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap"><a href="https://prod-web.central.co.th/th/promotion-campaign/accessories" class="font-chanel">ACCESSORIES</a></li>
+  </ul>
+
+  <!-- Skincare -->
+  <ul id="submenu-skincare" class="z-50 hidden w-full overflow-x-auto text-[10px] bg-white submenu no-scrollbar scroll-smooth snap-x snap-mandatory">
+    <li class="px-6 py-0 snap-start whitespace-nowrap"><a href="https://prod-web.central.co.th/th/promotion-campaign/n-1-de-chanel" class="font-chanel">N°1 DE CHANEL</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap"><a href="https://prod-web.central.co.th/th/promotion-campaign/sublimage" class="font-chanel">SUBLIMAGE</a></li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/th/promotion-campaign/le-lift" class="font-chanel">LE LIFT &amp; LE LIFT
+        PRO</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap"><a href="https://prod-web.central.co.th/th/promotion-campaign/hydra-beauty" class="font-chanel">HYDRA BEAUTY</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap"><a href="https://prod-web.central.co.th/th/promotion-campaign/cc-cream" class="font-chanel">CC CREAM</a></li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap"><a href="https://prod-web.central.co.th/th/promotion-campaign/eclat-premier" class="font-chanel">ECLAT PREMIER</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap"><a href="https://prod-web.central.co.th/th/promotion-campaign/le-blanc" class="font-chanel">LE BLANC</a></li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap"><a href="https://prod-web.central.co.th/th/promotion-campaign/uv-essentiel" class="font-chanel">UV ESSENTIEL</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap"><a href="https://prod-web.central.co.th/th/promotion-campaign/la-creme-main" class="font-chanel">LA CRÈME MAIN</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/th/promotion-campaign/others" class="font-chanel">THE CLEANSING
+        COLLECTION</a>
+    </li>
+  </ul>
+</div>
+<script>
+  let lastOpenedSubmenu = "";
+
+  console.log("Submenu script loaded");
+
+  function showSubmenu(event, name) {
+    const submenu = document.getElementById("submenu-" + name);
+    const submenuContainer = document.querySelectorAll(".submenu");
+
+    /* ถ้ากดซ้ำเมนูเดิม ให้ปล่อยให้ href ทำงาน */
+    if (lastOpenedSubmenu === name && submenu.classList.contains("flex")) {
+      return true; /* ไม่กัน default behavior */
+    }
+
+    event.preventDefault(); /* กันไม่ให้ href ทำงาน */
+
+    /* ปิดทุกเมนูย่อยก่อน */
+    submenuContainer.forEach((el) => {
+      el.classList.add("hidden");
+      el.classList.remove("flex");
+    });
+
+    /* แสดงเมนูย่อยของตัวที่เลือก */
+    submenu.classList.remove("hidden");
+    submenu.classList.add("flex");
+
+    /* อัปเดตค่าชื่อ submenu ล่าสุด */
+    lastOpenedSubmenu = name;
+
+    return false;
+  }
+</script>

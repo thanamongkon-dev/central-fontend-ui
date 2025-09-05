@@ -1,0 +1,397 @@
+<style>
+  /* Base styles */
+  /* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    color: #1d1d1f;
+    background-color: #fff;
+    line-height: 1.5;
+  } */
+
+  /* Container */
+  .faq-content-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .faq-content-container {
+      padding: 0;
+      gap: 1.5rem;
+    }
+  }
+
+  /* Typography */
+  .heading-primary {
+    font-size: 1.375rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .heading-primary {
+      font-size: 2.5rem;
+      margin-bottom: 0;
+      line-height: 3rem;
+    }
+  }
+
+  .heading-sub {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  @media (min-width: 768px) {
+    .heading-sub {
+      font-size: 1.125rem;
+    }
+  }
+
+  /* Tab navigation */
+  .tab-nav {
+    width: 100%;
+    display: flex;
+    font-weight: 700;
+    border-bottom: 1px solid #e5e7eb;
+    overflow-x: auto;
+  }
+
+  .tab-button {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-bottom: 2px solid transparent;
+    text-align: center;
+    white-space: nowrap;
+    color: #6b7280;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .tab-button:hover {
+    color: #1d1d1f;
+    border-bottom: 2px solid #1d1d1f;
+    font-weight: 700;
+  }
+
+  .tab-button.active {
+    color: #1d1d1f;
+    border-bottom: 2px solid #1d1d1f;
+    font-weight: 700;
+  }
+
+  /* Content area */
+  .content-area {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #8b8b8b;
+    border-top: 6px solid #ef4444;
+    border-radius: 0.25rem;
+    color: #1d1d1f;
+  }
+
+  @media (min-width: 768px) {
+    .content-area {
+      padding: 1.5rem 2rem;
+    }
+  }
+
+  /* Tab content */
+  .tab-content {
+    display: grid;
+    gap: 0.5rem;
+    font-weight: 700;
+    text-align: left;
+    place-items: center;
+  }
+
+  .tab-content.hidden {
+    display: none;
+  }
+
+  /* Desktop container */
+  #Desktop-container {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    #Desktop-container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  /* Mobile container */
+  #Mobile-container {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    #Mobile-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 768px) {
+    #Mobile-container {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    #Mobile-container {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* Step card */
+  .step-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .desktop-step-card {
+    width: 100%;
+  }
+
+  .mobile-step-card {
+    max-width: 240px;
+  }
+
+  .step-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .step-text {
+    width: 100%;
+  }
+
+  .desktop-step-text {
+    min-height: 80px;
+  }
+
+  .mobile-step-text {
+    min-height: 120px;
+  }
+
+  @media (min-width: 768px) {
+    .md\:text-base {
+      font-size: 1rem /* 16px */;
+      line-height: 1.5rem /* 24px */;
+    }
+    .md\:w-1\/2 {
+      width: 50%;
+    }
+  }
+</style>
+
+<div class="faq-content-container">
+  <h1 class="heading-primary">วิธีการขอใบกำกับภาษี</h1>
+
+  <!-- Video -->
+  <div class="flex items-center justify-center w-full my-4">
+    <iframe
+      id="mainVideo"
+      class="w-full h-auto rounded shadow-lg md:w-1/2 aspect-video"
+      src="https://www.youtube.com/embed/NL5Bq-1ImrI"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    >
+    </iframe>
+  </div>
+
+  <!-- Tab -->
+  <div class="tab-nav">
+    <button
+      class="tab-button active"
+      id="Desktop"
+      onclick="tabChange('Desktop')"
+    >
+      Desktop
+    </button>
+    <button class="tab-button" id="Mobile" onclick="tabChange('Mobile')">
+      Mobile
+    </button>
+  </div>
+
+  <div class="content-area">
+    <!-- Desktop container 2 cols -->
+    <div id="Desktop-container" class="tab-content"></div>
+
+    <!-- Mobile container 4 cols -->
+    <div id="Mobile-container" class="hidden tab-content"></div>
+  </div>
+</div>
+
+<script>
+  // Tab change function
+  function tabChange(tabName) {
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    // Update buttons
+    tabButtons.forEach((button) => {
+      button.classList.remove("active");
+    });
+
+    const activeButton = document.getElementById(tabName);
+    activeButton.classList.add("active");
+
+    // Update content visibility
+    tabContents.forEach((content) => {
+      content.classList.add("hidden");
+    });
+
+    const activeContent = document.getElementById(`${tabName}-container`);
+    activeContent.classList.remove("hidden");
+  }
+
+  // Detect device type on load
+  window.addEventListener("load", () => {
+    const isMobile =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      );
+
+    if (isMobile) {
+      tabChange("Mobile");
+    } else {
+      tabChange("Desktop");
+    }
+  });
+
+  // Steps data
+  const DesktopSteps = [
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/request-tax-invoice1.jpeg?quality=60&preferwebp=true&width=1024",
+      text: "1. เมื่อเลือกสินค้าครบแล้ว คลิกที่ไอคอนถุงช้อปปิ้ง",
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/request-tax-invoice2.jpeg?quality=60&preferwebp=true&width=1024",
+      text: '2. คลิกที่ตัวเลือก "ต้องการใบกำกับภาษีเต็มรูปแบบหรือไม่?"',
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/request-tax-invoice3.jpeg?quality=60&preferwebp=true&width=1024",
+      text: "3. ตรวจสอบรายการสินค้า แล้วคลิก ดำเนินการชำระเงิน",
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/request-tax-invoice4.jpeg?quality=60&preferwebp=true&width=1024",
+      text: "4. หากต้องการขอใบกำกับภาษีบุคคลธรรมดา ให้เลือกตัวเลือก บุคคลธรรมดา",
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/request-tax-invoice5.jpeg?quality=60&preferwebp=true&width=1024",
+      text: '5. เลื่อนตัวเลือก "ต้องการใบกำกับภาษีเต็มรูปแบบหรือไม่?" ให้เป็นสีเขียว',
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/request-tax-invoice6.jpeg?quality=60&preferwebp=true&width=1024",
+      text: "6. หลังจากเลือกขอใบกำกับภาษี รายละเอียดใบกำกับภาษีจะปรากฏขึ้น กด ใช่ เพื่อยืนยัน",
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/request-tax-invoice7.jpeg?quality=60&preferwebp=true&width=1024",
+      text: "7. กดที่ เปลี่ยนที่อยู่",
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/request-tax-invoice8.jpeg?quality=60&preferwebp=true&width=1024",
+      text: "8. กดที่ แก้ไข",
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/request-tax-invoice9.jpeg?quality=60&preferwebp=true&width=1024",
+      text: "9. แก้ไขรายละเอียดที่จำเป็นในช่อง เพิ่มรายละเอียดที่อยู่ แล้วกด ใช้ที่อยู่นี้",
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/request-tax-invoice10.jpeg?quality=60&preferwebp=true&width=1024",
+      text: "10. เลือกที่อยู่ที่อัปเดตแล้ว จากนั้นกด ใช้ที่อยู่นี้",
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/request-tax-invoice11.jpeg?quality=60&preferwebp=true&width=1024",
+      text: "11. กด ยืนยัน",
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/request-tax-invoice12.jpeg?quality=60&preferwebp=true&width=1024",
+      text: "12. ที่อยู่ใบกำกับภาษีจะถูกอัปเดตตามที่คุณเลือก",
+    },
+  ];
+
+  const mobileSteps = [
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/request-tax-invoice13.jpeg",
+      text: "1. เมื่อเลือกสินค้าครบแล้ว แตะที่ไอคอนถุงช้อปปิ้ง",
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/request-tax-invoice14.jpeg",
+      text: "2. ตรวจสอบรายการสินค้า แล้วแตะที่ ดำเนินการชำระเงิน",
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/request-tax-invoice15.jpeg",
+      text: '3. แตะที่ตัวเลือก "ต้องการใบกำกับภาษีเต็มรูปแบบหรือไม่?"',
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/request-tax-invoice16.jpeg",
+      text: "4. เลือกประเภทใบกำกับภาษีที่ต้องการขอ: บุคคลธรรมดา หรือ นิติบุคคล",
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/request-tax-invoice17.jpeg",
+      text: "5. หากมีที่อยู่ที่บันทึกไว้แล้ว แตะที่ เปลี่ยนที่อยู่ เพื่อเลือกที่อยู่ที่ต้องการใช้สำหรับขอใบกำกับภาษี",
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/request-tax-invoice18.jpeg",
+      text: "6. แตะที่อยู่ที่ต้องการใช้สำหรับใบกำกับภาษี หากยังไม่มีที่อยู่ ให้แตะ เพิ่มที่อยู่ใหม่ แล้วเลือกที่อยู่ที่ต้องการ",
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/request-tax-invoice19.jpeg",
+      text: "7. หน้าจอจะแสดงข้อมูลการขอใบกำกับภาษีที่กรอกครบถ้วนแล้ว",
+    },
+  ];
+
+  // Render steps function
+  function renderStep(steps, containerId) {
+    const container = document.getElementById(containerId);
+
+    steps.forEach((step) => {
+      const div = document.createElement("div");
+
+      // Apply appropriate classes based on container
+      if (containerId === "Desktop-container") {
+        div.className = "step-card desktop-step-card";
+        div.innerHTML = `
+                        <img src="${step.img}" class="step-image" />
+                        <p class="step-text desktop-step-text">${step.text}</p>
+                    `;
+      } else {
+        div.className = "step-card mobile-step-card";
+        div.innerHTML = `
+                        <img src="${step.img}" class="step-image" />
+                        <p class="step-text mobile-step-text">${step.text}</p>
+                    `;
+      }
+
+      container.appendChild(div);
+    });
+  }
+
+  // Initialize on DOM load
+  window.addEventListener("DOMContentLoaded", () => {
+    renderStep(DesktopSteps, "Desktop-container");
+    renderStep(mobileSteps, "Mobile-container");
+  });
+</script>

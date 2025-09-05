@@ -1,0 +1,429 @@
+<style>
+  .qa-content-container {
+    width: 100%;
+    max-width: 1440px;
+    margin-bottom: 3rem;
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .qa-content-container {
+      padding: 3rem 0;
+      gap: 1.5rem;
+    }
+  }
+
+  .qa-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    align-content: center;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .qa-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  .qa-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+    border: 1px solid #8b8b8b;
+    border-top: 6px solid #ef4444;
+    border-radius: 0.25rem;
+    padding: 0.75rem 0.75rem 1.5rem 0.75rem;
+    gap: 0.75rem;
+    height: 100%;
+  }
+
+  .qa-card a {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    display: block;
+    color: #1d1d1f;
+    text-decoration: none;
+  }
+
+  .qa-card a:hover {
+    text-decoration: underline;
+  }
+
+  .qa-card h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .qa-card {
+        padding: 1.5rem;
+        gap: 1.5rem;
+        min-height: 300px;
+    }
+
+    .qa-card a {
+        font-size: 1rem;
+    }
+  }
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<div class="qa-content-container">
+    <div class="qa-grid"></div>
+</div>
+
+<script>
+  function renderQA() {
+    const qaData = [
+      {
+        header: "บัญชีของฉัน",
+        questions: [
+          {
+            text: "วิธีการลงทะเบียน",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-register",
+          },
+          {
+            text: "วิธีเข้าสู่ระบบบัญชีของฉัน",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-login-my-account",
+          },
+          {
+            text: "วิธียกเลิกการรับจดหมายข่าวทางอีเมล",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-unsubscribe-news-letter-email",
+          },
+          {
+            text: "วิธีเพิ่ม/ลบที่อยู่ของฉัน",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-add-remove-my-address",
+          },
+          {
+            text: "วิธีเพิ่ม/ลบบัตรเครดิตของฉัน",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-add-remove-my-credit-card",
+          },
+          {
+            text: "วิธีปิดบัญชีของฉันใน Central",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-close-my-account-in-central",
+          },
+          {
+            text: "วิธีเปิด/ปิดการแจ้งเตือน",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-turn-on-and-off-notification",
+          },
+        ],
+      },
+      {
+        header: "การชำระเงิน",
+        questions: [
+          {
+            text: "วิธีชำระเงินด้วยบัตรเครดิต / เดบิต",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-pay-by-credit-card-debit-card",
+          },
+          {
+            text: "วิธีชำระเงินผ่านการโอนเงิน / QR code",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-pay-by-bank-transfer-qr-code",
+          },
+          {
+            text: "วิธีชำระเงินด้วยคะแนน The1",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-pay-by-the1-points",
+          },
+          {
+            text: "วิธีชำระเงินเมื่อรับสินค้า",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-pay-by-pay-on-delivery",
+          },
+          // {
+          //   text: "วิธีชำระเงินแบบผ่อนชำระ (บริการไม่พร้อมใช้งาน)",
+          //   link: "",
+          // },
+          // {
+          //   text: "วิธีชำระเงินที่ร้านค้า (บริการไม่พร้อมใช้งาน)",
+          //   link: "",
+          // },
+        ],
+      },
+      {
+        header: "สินค้า",
+        questions: [
+          {
+            text: "วิธีค้นหาสินค้าตามแบรนด์หรือหมวดหมู่",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-find-product-by-brand-or-category",
+          },
+          {
+            text: "วิธีดูรายละเอียดสินค้าและขนาด",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-see-product-discription-and-size",
+          },
+          {
+            text: "วิธีดูประเภทของผู้ขาย",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-see-type-of-seller",
+          },
+          {
+            text: "วิธีรับข้อมูลการรับประกัน",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-get-warranty-information",
+          },
+        ],
+      },
+      {
+        header: "คูปอง",
+        questions: [
+          {
+            text: "วิธีเก็บคูปอง",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-collect-coupon",
+          },
+          {
+            text: "วิธีตรวจสอบคูปองที่เก็บไว้",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-check-my-collected-coupons",
+          },
+          {
+            text: "วิธีใช้คูปองส่วนลด",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-use-coupon",
+          },
+          {
+            text: "วิธีใช้คูปองที่ร้านค้า",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-use-coupon-at-store",
+          },
+          {
+            text: "วิธีดูเงื่อนไขของคูปอง",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-see-coupon-condition",
+          },
+        ],
+      },
+      {
+        header: "บริการในห้าง",
+        questions: [
+          {
+            text: "Central Chat & Shop",
+            link: "https://prod-web.central.co.th/th/faqs/chat-and-shop",
+          },
+          // {
+          //   text: "Central Personal Shopper",
+          //   link: "https://prod-web.central.co.th/th/faqs/central-robinson-personal-shopper-1425",
+          // },
+          {
+            text: "Western Union",
+            link: "https://www.westernunion.com/th/en/web/user/login",
+          },
+          {
+            text: "Central Gift Card",
+            link: "https://prod-web.central.co.th/th/faqs/central-gift-card",
+          },
+          {
+            text: "ที่ตั้งและเวลาทำการของร้านค้า",
+            link: "https://prod-web.central.co.th/th/faqs/store-locations",
+          },
+          {
+            text: "โปรโมชั่นและกิจกรรมในร้านค้า",
+            link: "https://www.central.co.th/e-shopping/instore-promo",
+          },
+          {
+            text: "คู่มือสำหรับนักท่องเที่ยว",
+            link: "https://www.central.co.th/th/tourist",
+          },
+        ],
+      },
+      {
+        header: "โปรโมชั่น",
+        questions: [
+            {
+            text: "วิธีการตรวจสอบรายการของแถม",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-check-my-free-gift",
+            },
+            {
+            text: "โปรโมชั่นบัตรเครดิต",
+            link: "https://prod-web.central.co.th/th/faqs/credit-card-promotions",
+            },
+          // {
+          //   text: "How to apply installment promotion (Out of Service)",
+          //   link: "",
+          // },
+        ],
+      },
+      {
+        header: "บริการ",
+        questions: [
+          {
+            text: "รับสินค้าที่สาขาอย่างรวดเร็ว",
+            link: "https://prod-web.central.co.th/th/faqs/click-and-collect",
+          },
+          // {
+          //   text: "จัดส่งภายใน 3 ชั่วโมง (บริการไม่พร้อมใช้งาน)",
+          //   link: "",
+          // },
+          {
+            text: "Click and Collect",
+            link: "https://prod-web.central.co.th/th/faqs/click-and-collect",
+          },
+          {
+            text: "การจัดส่งมาตรฐาน",
+            link: "https://prod-web.central.co.th/th/faqs/standard-delivery",
+          },
+        ],
+      },
+      {
+        header: "The1",
+        questions: [
+          {
+            text: "วิธีการเก็บแต้ม",
+            link: "https://www.central.co.th/th/faqs/how-to-collect-the1-points",
+          },
+          {
+            text: "วิธีการแลกแต้ม",
+            link: "https://www.central.co.th/th/faqs/how-to-redeem-the1-points",
+          },
+          {
+            text: "วิธีการเชื่อมสมาชิก The1",
+            link: "https://www.central.co.th/th/faqs/how-to-connect-my-account-with-the1",
+          },
+          {
+            text: "สิทธิประโชยน์สมาชิก The1 Excusive",
+            link: "https://www.the1.co.th/the1Exclusive/privileges",
+          },
+        ],
+      },
+      {
+        header: "นโยบาย",
+        questions: [
+          {
+            text: "นโยบายการจัดส่งสินค้า",
+            link: "https://prod-web.central.co.th/th/faqs/delivery-policy",
+          },
+          {
+            text: "นโยบายการยกเลิกคำสั่งซื้อ",
+            link: "https://prod-web.central.co.th/th/faqs/cancel-policy",
+          },
+          {
+            text: "นโยบายการคืนสินค้าและการคืนเงิน",
+            link: "https://prod-web.central.co.th/th/faqs/return-policy",
+          },
+          {
+            text: "นโยบายความเป็นส่วนตัว",
+            link: "https://prod-web.central.co.th/th/faqs/privacy-policy",
+          },
+          {
+            text: "นโยบายคุกกี้",
+            link: "https://prod-web.central.co.th/th/faqs/cookie-policy",
+          },
+          {
+            text: "นโยบายการห่อของขวัญ",
+            link: "https://prod-web.central.co.th/th/faqs/gift-wrap-policy",
+          },
+          {
+            text: "ข้อกำหนดและเงื่อนไข",
+            link: "https://prod-web.central.co.th/th/faqs/terms-conditions",
+          },
+          {
+            text: "ช่องทางร้องเรียนและแจ้งเบาะแส",
+            link: "https://prod-web.central.co.th/th/faqs/whistle-blowing-complaints",
+          },
+          // {
+          //   text: "นโยบาย e-Tax ปี 2025",
+          //   link: "https://prod-web.central.co.th/th/faqs/easy-e-receipt",
+          // },
+        ],
+      },
+      {
+        header: "การสั่งซื้อ",
+        questions: [
+          {
+            text: "วิธีการสั่งซื้อสินค้า",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-place-an-order",
+          },
+          {
+            text: "วิธีติดตามสถานะคำสั่งซื้อ",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-track-my-order",
+          },
+          {
+            text: "วิธียกเลิกคำสั่งซื้อ",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-cancel-my-order",
+          },
+          {
+            text: "วิธีการคืนสินค้า",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-return",
+          },
+          {
+            text: "วิธีขอใบกำกับภาษี",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-request-tax-invoice",
+          },
+          {
+            text: "วิธีแก้ไขรายละเอียดใบกำกับภาษี",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-change-tax-invoice-details",
+          },
+          {
+            text: "วิธีซื้อสินค้าร่วมแคมเปญ e-Tax",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-purchase-etax-campaign-products",
+          },
+          {
+            text: "วิธีขอบริการห่อของขวัญ",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-request-gift-wrapping#how-to-apply-discount-coupon-item-6ebf776b3f",
+          },
+          {
+            text: "วิธีเปลี่ยนที่อยู่จัดส่ง",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-change-shopping-address",
+          },
+          {
+            text: "ทำไมได้รับพัสดุหลายกล่องและไม่พร้อมกัน",
+            link: "https://prod-web.central.co.th/th/faqs/why-i-received-multiple-parcels-in-different-time",
+          },
+          {
+            text: "ทำไมติดตามพัสดุจากเว็บไซต์ขนส่งไม่ได้",
+            link: "https://prod-web.central.co.th/th/faqs/why-i-can-t-track-my-order-on-the-courier-tracking-page",
+          },
+          {
+            text: "วิธีจัดส่งไปต่างประเทศ",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-ship-to-an-international-address",
+          },
+        ],
+      },
+      {
+        header: "แบบฟอร์มต่าง ๆ",
+        questions: [
+          {
+            text: "ใบกำกับภาษี (ขอใหม่, ติดตาม, แก้ไข, ออกใบลดหนี้)",
+            link: "https://prod-web.central.co.th/th/faqs/tax-invoice-new-request-follow-up-edit-credit-note",
+          },
+          {
+            text: "รายงานความจริงเกี่ยวกับเว็บไซต์/เพจ Facebook",
+            link: "https://prod-web.central.co.th/th/faqs/report-fact-web-facebook-page#Login-item-e9150ab97f",
+          },
+        ],
+      },
+      {
+        header: "ติดต่อเรา",
+        questions: [
+          {
+            text: "วิธีติดต่อฝ่ายบริการลูกค้า",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-contact-customer-service",
+          },
+        ],
+      },
+    ];
+    
+    const qaContainer = document.querySelector(".qa-grid");
+
+    qaData.forEach((item) => {
+      const qaItem = document.createElement("div");
+      qaItem.className =
+        "qa-card";
+
+      const header = document.createElement("h2");
+      header.textContent = item.header;
+      qaItem.appendChild(header);
+
+      item.questions.forEach((q) => {
+        const link = document.createElement("a");
+        link.href = q.link || "#";
+        link.textContent = q.text;
+        qaItem.appendChild(link);
+      });
+
+      qaContainer.appendChild(qaItem);
+    });
+  }
+
+  renderQA();
+</script>

@@ -1,0 +1,107 @@
+
+<style>
+    /* ซ่อน desktop บน mobile */
+    .desktop-container {
+        display: none;
+    }
+
+    .mobile-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 auto;
+        padding: 0 16px;
+    }
+
+    .desktop-container img,
+    .mobile-container img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .video-trigger {
+        cursor: pointer;
+    }
+
+    /* Video responsive 16:9 */
+    .video-wrapper {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; /* 16:9 */
+        overflow: hidden;
+    }
+
+    .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    /* Desktop breakpoint */
+    @media (min-width: 768px) {
+        .desktop-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .mobile-container {
+            display: none;
+        }
+    }
+</style>
+
+<!-- Desktop -->
+<div class="desktop-container">
+    <img loading="lazy" src="https://assets.central.co.th/is/image/cenergy/revised-202511_content-page_web_th-chanel-01?$JPG$">
+    <img loading="lazy" src="https://assets.central.co.th/is/image/cenergy/202511_content-page_web_th-chanel-02?$JPG$">
+    <img loading="lazy" src="https://assets.central.co.th/is/image/cenergy/202511_content-page_web_th-chanel-03?$JPG$">
+    <img loading="lazy" src="https://assets.central.co.th/is/image/cenergy/202511_content-page_web_th-chanel-04?$JPG$">
+    <img loading="lazy" src="https://assets.central.co.th/is/image/cenergy/202511_content-page_web_th-chanel-05?$JPG$">
+    <img loading="lazy" src="https://assets.central.co.th/is/image/cenergy/202511_content-page_web_th-chanel-06?$JPG$">
+    <img loading="lazy" id="chanel-video" class="video-trigger"
+        src="https://assets.central.co.th/is/image/cenergy/202511_content-page_web_th-chanel-07?$JPG$"
+        onclick="replaceWithVideo('chanel-video','https://www.youtube.com/embed/x57ZPK494CQ')">
+    <img loading="lazy" src="https://assets.central.co.th/is/image/cenergy/202511_content-page_web_th-chanel-08?$JPG$">
+    <a href="https://www.central.co.th/th/promotion-campaign/n-1-de-chanel">
+        <img loading="lazy" src="https://assets.central.co.th/is/image/cenergy/202511_content-page_web_th-chanel-09?$JPG$">
+    </a>
+</div>
+
+<!-- Mobile -->
+<div class="mobile-container">
+    <img loading="lazy" src="https://assets.central.co.th/is/image/cenergy/revised-202511_content-page_mb_th-chanel-01?$JPG$">
+    <img loading="lazy" src="https://assets.central.co.th/is/image/cenergy/202511_content-page_mb_th-chanel-02?$JPG$">
+    <img loading="lazy" src="https://assets.central.co.th/is/image/cenergy/202511_content-page_mb_th-chanel-03?$JPG$">
+    <img loading="lazy" src="https://assets.central.co.th/is/image/cenergy/202511_content-page_mb_th-chanel-04?$JPG$">
+    <img loading="lazy" src="https://assets.central.co.th/is/image/cenergy/202511_content-page_mb_th-chanel-05?$JPG$">
+    <img loading="lazy" src="https://assets.central.co.th/is/image/cenergy/202511_content-page_mb_th-chanel-06?$JPG$">
+    <img loading="lazy" id="chanel-video-mobile" class="video-trigger"
+        src="https://assets.central.co.th/is/image/cenergy/202511_content-page_web_th-chanel-07?$JPG$"
+        onclick="replaceWithVideo('chanel-video-mobile','https://www.youtube.com/embed/x57ZPK494CQ')">
+    <img loading="lazy" src="https://assets.central.co.th/is/image/cenergy/202511_content-page_mb_th-chanel-08?$JPG$">
+    <a href="https://www.central.co.th/th/promotion-campaign/n-1-de-chanel">
+        <img loading="lazy" src="https://assets.central.co.th/is/image/cenergy/202511_content-page_mb_th-chanel-09?$JPG$">
+    </a>
+</div>
+
+<script>
+    function replaceWithVideo(elementId, videoUrl) {
+        const img = document.getElementById(elementId);
+        if (!img) return;
+
+        const wrapper = document.createElement("div");
+        wrapper.className = "video-wrapper";
+        wrapper.innerHTML = `
+        <iframe src="${videoUrl}?autoplay=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    `;
+        img.replaceWith(wrapper);
+    }
+</script>

@@ -1,0 +1,56 @@
+<style>
+  html,
+  body {
+    touch-action: manipulation;
+    /* ปิด pinch-to-zoom */
+    overscroll-behavior: contain;
+  }
+
+  .hr-custom {
+    height: 6px;
+    /* md:h-2 = 0.5rem = 8px แต่เราสามารถใช้ 6px ตาม h-1.5 ถ้าต้องการตรงกลาง */
+    background-color: black;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.75rem;
+    /* my-3 */
+    margin-bottom: 0.75rem;
+  }
+
+  .logo-img {
+    width: 5rem;
+    /* w-20 */
+    height: auto;
+  }
+
+  /* Responsive - md */
+  @media (min-width: 768px) {
+    .wrapper {
+      margin-top: 33px;
+      margin-bottom: 42px;
+    }
+
+    .logo-img {
+      width: 100%;
+      max-height: 29px;
+    }
+
+    .hr-custom {
+      height: 8px;
+      /* md:h-2 = 0.5rem */
+    }
+  }
+</style>
+
+<hr class="hr-custom">
+
+<div class="wrapper">
+  <a href="https://prod-web.central.co.th/th/chanel">
+    <img src="https://prod-assets.central.co.th/file-assets/assets/CMS/chanel/logo/chanel-logo.png" class="logo-img">
+  </a>
+</div>

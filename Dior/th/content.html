@@ -1,0 +1,433 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+
+    .dior-container {
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2rem;
+        max-width: 1440px;
+        gap: 2rem;
+    }
+
+    .dior-phrase {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2rem;
+        justify-content: center;
+        text-align: center;
+        padding: 0 1rem;
+        width: 100%;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .dior-phrase p {
+        font-size: 1rem;
+        line-height: 1.625rem;
+        letter-spacing: 0.5px;
+    }
+
+    .dior-content {
+        display: flex;
+        flex-direction: column;
+        padding: 0 1rem;
+        width: 100%;
+        height: 100%;
+    }
+
+    .image-section {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -0.125rem;
+        margin-right: -0.125rem;
+        height: 100%;
+    }
+
+    .left-img,
+    .right-img {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        max-height: 317px;
+        align-items: stretch;
+        overflow: hidden;
+    }
+
+    .left-side {
+        width: 66.6667%;
+    }
+
+    .right-side {
+        width: 33.3333%;
+    }
+
+    .dior-quote {
+        display: none;
+        padding: 1rem 0;
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    .dior-container img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .mobile-view {
+        display: block;
+        width: 100%;
+        padding: 0.25rem 0;
+        margin-top: 0.5rem;
+        text-align: center;
+    }
+
+    .mobile-view h4 {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        font-weight: 500;
+    }
+
+    .dior-new {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2.25rem;
+        text-align: center;
+        color: #1d1d1d;
+    }
+
+    .dior-title {
+        margin-bottom: 2rem;
+        font-weight: 500;
+        font-size: 1.5rem;
+        line-height: 1.25rem;
+    }
+
+    .dior-new-products {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 0 0.75rem;
+        font-size: 13px;
+        text-align: center;
+        row-gap: 1rem;
+        column-gap: 1.5rem;
+    }
+
+    .dior-card {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0.75rem;
+    }
+
+    .dior-flot {
+        position: relative;
+        margin-bottom: 1rem;
+    }
+
+    .dior-flot .preview-img {
+        width: 100%;
+        height: 100%;
+        max-height: 160px;
+        border: 1px solid #dee2e6;
+        object-fit: cover;
+    }
+
+    .dior-flot .tag-img {
+        position: absolute;
+        top: 0.5rem;
+        left: 0.375rem;
+        width: 20%;
+        height: auto;
+        z-index: 1;
+        object-fit: contain;
+    }
+
+    .dior-details {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    @media (min-width: 768px) {
+        .dior-container {
+            gap: 3rem;
+        }
+
+        .dior-phrase {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .dior-phrase p {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+        }
+
+        .dior-content {
+            padding: 0;
+        }
+
+        .image-section {
+            max-height: 580px;
+        }
+
+        .dior-quote {
+            display: block;
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            padding: 30px 0;
+        }
+
+        .left-img,
+        .right-img {
+            max-height: 580px;
+        }
+
+        .mobile-view {
+            display: none;
+        }
+
+        .dior-title {
+            font-size: 26px;
+        }
+
+        .dior-new-products {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
+
+        .dior-flot .preview-img {
+            max-height: 300px;
+        }
+    }
+</style>
+
+<div class="dior-container font-century">
+    <div class="dior-phrase">
+        <p>
+            DIOR was born of a dream.<br />
+            The dream of a man who revolutionized couture and beauty<br />
+            with timeless creations that have become icons.<br />
+            Each of the Maison's creations carries a part of his dream<br />
+            for a happier and more beautiful world.
+        </p>
+    </div>
+
+    <div class="dior-content">
+        <div class="image-section">
+
+            <div class="left-side">
+                <div class="left-img">
+                    <a href="https://www.central.co.th/en/dior/products?brand_id=842&sort=created_at_desc">
+                        <img src="https://prod-assets.central.co.th/file-assets/assets/CMS/dior/banner/revise_20250827_dior_boutique_left.jpg"
+                            alt="Brand Logo">
+                    </a>
+                </div>
+                <h4 class="dior-quote">
+                    NEW DIOR ADDICT<br />
+                    INCREDIBLE SHINE BY DIOR
+                </h4>
+            </div>
+            <div class="right-side">
+                <div class="right-img">
+                    <a href="https://www.central.co.th/en/dior/products?brand_id=842&sort=created_at_desc">
+                        <img src="https://prod-assets.central.co.th/file-assets/assets/CMS/dior/banner/20250827_dior_boutique_right.jpg"
+                            alt="Brand Logo">
+                    </a>
+                </div>
+                <h4 class="dior-quote">
+                    NEW DIOR ADDICT<br />
+                    INCREDIBLE SHINE BY DIOR
+                </h4>
+            </div>
+
+            <div class="mobile-view">
+                <h4>
+                    NEW DIOR ADDICT<br />
+                    INCREDIBLE SHINE BY DIOR
+                </h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="dior-new">
+        <h3 class="dior-title">NEW ARRIVALS</h3>
+
+        <div class="dior-new-products">
+
+            <div class="dior-card">
+                <div class="dior-flot">
+                    <a
+                        href="https://www.central.co.th/en/dior-dior-addict-case-limited-edition-refillable-case-tutu-cds21673429">
+                        <img src="https://prod-assets.central.co.th/file-assets/assets/CMS/dior/new-arrivals/20250827_dior_sku_newarrivals_01.jpg"
+                            class="preview-img" />
+                        <img src="https://aem-prod.central.co.th/content/dam/cds/marketing/boutique/dior/home/icon_new.png"
+                            class="tag-img" />
+                    </a>
+                </div>
+                <div class="dior-details">
+                    <p>DIOR ADDICT CASE<br />LIMITED EDITIONREFILLABLE CASE</p>
+                    <p>฿1,500</p>
+                </div>
+            </div>
+
+            <!-- thumbnail2 -->
+            <div class="dior-card">
+                <div class="dior-flot">
+                    <a
+                        href="https://www.central.co.th/en/dior-le-baume-toile-de-jouy-limited-edition-and-balm-holder-50-ml-cds21673245">
+                        <img src="https://prod-assets.central.co.th/file-assets/assets/CMS/dior/new-arrivals/20250827_dior_sku_newarrivals_02.jpg"
+                            class="preview-img" />
+                        <img src="https://aem-prod.central.co.th/content/dam/cds/marketing/boutique/dior/home/icon_new.png"
+                            class="tag-img" />
+                    </a>
+                </div>
+                <div class="dior-details">
+                    <p>LE BAUME TOILE DE JOUY<br />LIMITED EDITION AND BALM HOLDER</p>
+                    <p>฿3,270</p>
+                </div>
+            </div>
+
+            <!-- thumbnail3 -->
+            <div class="dior-card">
+                <div class="dior-flot">
+                    <a href="https://www.central.co.th/en/dior-miss-dior-blooming-bouquet-hair-mist-30-ml-cds21673184">
+                        <img src="https://prod-assets.central.co.th/file-assets/assets/CMS/dior/new-arrivals/20250827_dior_sku_newarrivals_03.jpg"
+                            class="preview-img" />
+                        <img src="https://aem-prod.central.co.th/content/dam/cds/marketing/boutique/dior/home/icon_new.png"
+                            class="tag-img" />
+                    </a>
+                </div>
+                <div class="dior-details">
+                    <p>MISS DIOR BLOOMING<br />BOUQUET HAIR MIST</p>
+                    <p>฿2,250</p>
+                </div>
+            </div>
+
+            <!-- thumbnail4 -->
+            <div class="dior-card">
+                <div class="dior-flot">
+                    <a
+                        href="https://www.central.co.th/en/dior-dior-addict-shine-lipstick-90-natural-origin-refillable-grcds0922030230#Y29uZmlndXJhYmxlLzE5NTYvOTA0NTY=">
+                        <img src="https://prod-assets.central.co.th/file-assets/assets/CMS/dior/new-arrivals/20250827_dior_sku_newarrivals_04.jpg"
+                            class="preview-img" />
+                        <img src="https://aem-prod.central.co.th/content/dam/cds/marketing/boutique/dior/home/icon_new.png"
+                            class="tag-img" />
+                    </a>
+                </div>
+                <div class="dior-details">
+                    <p>
+                        DIOR ADDICT - SHINE LIPSTICK<br />90% NATURAL ORIGIN - REFILLABLE
+                    </p>
+                    <p>฿1,800</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+      <!-- BEST SELLERS -->
+  <div
+    class="dior-new"
+  >
+    <h3 class="dior-title">
+      BEST SELLERS
+    </h3>
+
+    <div
+      class="dior-new-products"
+    >
+      <!-- thumbnail1 -->
+      <div class="dior-card">
+        <div class="dior-flot">
+          <a
+            href="https://www.central.co.th/en/dior-dior-addict-lip-glow-48-hour-hydrating-lip-balm-ph-activated-color-32-g-grcds20924120003"
+          >
+            <img
+              src="https://prod-assets.central.co.th/file-assets/assets/CMS/dior/bestsellers/20250827_dior_sku_bestsellers_01.jpg"
+              class="preview-img"
+            />
+            <img
+              src="https://aem-prod.central.co.th/content/dam/cds/marketing/boutique/dior/home/icon_new.png"
+              class="tag-img"
+            />
+          </a>
+        </div>
+        <div class="dior-details">
+          <p>DIOR ADDICT LIP GLOW</p>
+          <p>฿1,700</p>
+        </div>
+      </div>
+
+      <!-- thumbnail2 -->
+      <div class="dior-card">
+        <div class="dior-flot">
+          <a
+            href="https://www.central.co.th/en/dior-dior-backstage-glow-face-palette-multi-use-illuminating-makeup-palette-highlight-blush-grcds0920100137#Y29uZmlndXJhYmxlLzE5NTYvNDMyNTQ="
+          >
+            <img
+              src="https://prod-assets.central.co.th/file-assets/assets/CMS/dior/bestsellers/20250827_dior_sku_bestsellers_02.jpg"
+              class="preview-img"
+            />
+            <img
+              src="https://aem-prod.central.co.th/content/dam/cds/marketing/boutique/dior/home/icon_new.png"
+              class="tag-img"
+            />
+          </a>
+        </div>
+        <div class="dior-details">
+          <p>DIOR BACKSTAGE GLOW FACE PALETTE</p>
+          <p>฿2,300</p>
+        </div>
+      </div>
+
+      <!-- thumbnail3 -->
+      <div class="dior-card">
+        <div class="dior-flot">
+          <a
+            href="https://www.central.co.th/en/dior-rosy-glow-grcds115230502030#Y29uZmlndXJhYmxlLzE5NTYvMjY5OTU2"
+          >
+            <img
+              src="https://prod-assets.central.co.th/file-assets/assets/CMS/dior/bestsellers/20250827_dior_sku_bestsellers_03.jpg"
+              class="preview-img"
+            />
+            <img
+              src="https://aem-prod.central.co.th/content/dam/cds/marketing/boutique/dior/home/icon_new.png"
+              class="tag-img"
+            />
+          </a>
+        </div>
+        <div class="dior-details">
+          <p>ROSY GLOW</p>
+          <p>฿1,700</p>
+        </div>
+      </div>
+
+      <!-- thumbnail4 -->
+      <div class="dior-card">
+        <div class="dior-flot">
+          <a
+            href="https://www.central.co.th/en/dior-dior-forever-glow-maximizer-grcds20924020282#Y29uZmlndXJhYmxlLzE5NTYvNTg0NjE4"
+          >
+            <img
+              src="https://prod-assets.central.co.th/file-assets/assets/CMS/dior/bestsellers/20250827_dior_sku_bestsellers_04.jpg"
+              class="preview-img"
+            />
+            <img
+              src="https://aem-prod.central.co.th/content/dam/cds/marketing/boutique/dior/home/icon_new.png"
+              class="tag-img"
+            />
+          </a>
+        </div>
+        <div class="dior-details">
+          <p>DIOR FOREVER GLOW MAXIMIZER</p>
+          <p>฿2,000</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

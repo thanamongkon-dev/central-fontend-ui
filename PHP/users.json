@@ -1,0 +1,57 @@
+[
+    {
+        "username": "admin",
+        "password": "$2y$10$5DOnWlTLgDY9A5a40y99VeL6Qfba5WB7kjI.kEu5L5roSpHXKW4Pq",
+        "team": "admin",
+        "menu": {
+            "accordion": "accordion-creater.php",
+            "carousel": "carousel-creater.php",
+            "promotions": "promotions-creater.php",
+            "store-top": "top-discover-creater.php",
+            "store-bottom": "store-bottom-creater.php",
+            "extract-url": ".\/sku-tools\/extract-url.php",
+            "context-rule": ".\/sku-tools\/context-rule.php",
+            "product-stock": ".\/sku-tools\/sku.php",
+            "management": ".\/json\/index.php",
+            "users-management": ".\/json\/users-manage.php"
+        }
+    },
+    {
+        "username": "setup",
+        "password": "$2y$10$XliPvPcgsb.4XMqDWBSI8.BCkqa5IHsx1H0Q98Ezoxc6EHSwFK4xK",
+        "team": "setup",
+        "menu": {
+            "accordion": "accordion-creater.php",
+            "carousel": "carousel-creater.php",
+            "promotions": "promotions-creater.php",
+            "store-top": "top-discover-creater.php",
+            "store-bottom": "store-bottom-creater.php",
+            "extract-url": ".\/sku-tools\/extract-url.php",
+            "context-rule": ".\/sku-tools\/context-rule.php",
+            "product-stock": ".\/sku-tools\/sku.php"
+        }
+    },
+    {
+        "username": "seo",
+        "password": "$2y$10$NK\/n7UaeRvvT5Fpheg5LS.9Srouga1xxI3lVrnk8\/uBz1Vwn6KsWO",
+        "team": "seo",
+        "menu": {
+            "accordion": "accordion-creater.php",
+            "carousel": "carousel-creater.php",
+            "promotions": "promotions-creater.php",
+            "store-top": "top-discover-creater.php",
+            "store-bottom": "store-bottom-creater.php"
+        }
+    },
+    {
+        "username": "test",
+        "password": "$2y$10$3SSHlOgTV00YMrn2ZhdyrOuO\/N0vBMHK4Bqkyb6s.tBnuYDpyTpCS",
+        "team": "default",
+        "menu": {
+            "accordion": "accordion-creater.php",
+            "promotions": "promotions-creater.php",
+            "store-bottom": "store-bottom-creater.php",
+            "context-rule": ".\/sku-tools\/context-rule.php"
+        }
+    }
+]

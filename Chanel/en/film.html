@@ -1,0 +1,146 @@
+<style>
+    .the-film-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        justify-content: center;
+        text-align: center;
+        max-width: 1440px;
+        margin-top: 100px;
+        margin-bottom: 50px;
+    }
+
+    .the-film {
+        margin-bottom: 2.5rem;
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        text-align: center;
+        letter-spacing: 2px;
+        color: #1D1D1F;
+    }
+
+    .overflow {
+        overflow-x: auto;
+    }
+
+    .card-wrapper {
+        display: flex;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        margin-left: 0.5rem;
+        flex-grow: 1;
+        width: max-content;
+        font-size: 0.75rem;
+        line-height: 1.2rem;
+        font-weight: 300;
+        text-align: center;
+        color: #1D1D1F;
+    }
+
+    .card {
+        width: 8rem;
+    }
+
+    .card-label {
+        display: flex;
+        margin-top: 0.625rem;
+        justify-content: center;
+        height: 2rem;
+        text-align: center;
+    }
+
+    @media (min-width: 768px) {
+        .the-film {
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+        }
+
+        .overflow {
+            overflow: visible;
+        }
+
+        .card-wrapper {
+            padding-left: 0;
+            padding-right: 0;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .card {
+            width: 100%;
+            /* Adjusted for larger screens */
+        }
+
+        .card-label {
+            height: 1.25rem;
+        }
+
+    }
+</style>
+
+<!-- The Film -->
+<div class="container the-film-container">
+    <h1 class="font-chanel the-film">
+        THE FILMS
+    </h1>
+
+    <!-- Main Video Embed -->
+    <div class="flex flex-col flex-grow w-full h-auto mx-auto mb-6">
+        <iframe id="mainVideo" class="w-full h-full shadow-lg aspect-video"
+            src="https://www.youtube.com/embed/uRDrixpp62U" title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen="">
+        </iframe>
+
+        <!-- Thumbnails -->
+        <div class="overflow">
+            <div class="card-wrapper font-chanel">
+                <!-- Thumbnail 1 -->
+                <button class="w-32 transition md:w-full" onclick="switchVideo('uRDrixpp62U')">
+                    <img class="w-full h-auto" src="https://img.youtube.com/vi/uRDrixpp62U/maxresdefault.jpg">
+                    <p class="card-label">
+                        SUBLIMAGE
+                    </p>
+                </button>
+
+                <!-- Thumbnail 2 -->
+                <button class="flex flex-col items-center w-32 transition md:w-full"
+                    onclick="switchVideo('E9LACofU4Mw')">
+                    <img class="w-full h-auto" src="https://img.youtube.com/vi/E9LACofU4Mw/maxresdefault.jpg">
+                    <p class="card-label">
+                        LIMITED EDITION LES PERLES
+                    </p>
+                </button>
+
+                <!-- Thumbnail 3 -->
+                <button class="w-32 transition md:w-full" onclick="switchVideo('wyK5NU6m2QI')">
+                    <img class="w-full h-auto" src="https://img.youtube.com/vi/wyK5NU6m2QI/maxresdefault.jpg">
+                    <p class="card-label">
+                        N°1 DE CHANEL
+                    </p>
+                </button>
+
+                <!-- Thumbnail 4 -->
+                <button class="w-32 transition md:w-full" onclick="switchVideo('suRZbPRFLlo')">
+                    <img class="w-full h-auto" src="https://img.youtube.com/vi/suRZbPRFLlo/maxresdefault.jpg">
+                    <p class="card-label">N°5</p>
+                </button>
+
+                <!-- Thumbnail 5 -->
+                <button class="w-32 transition md:w-full" onclick="switchVideo('7HnYmMEkx_c')">
+                    <img class="w-full h-auto" src="https://img.youtube.com/vi/7HnYmMEkx_c/maxresdefault.jpg">
+                    <p class="card-label">
+                        ALLURE HOMME SPORT
+                    </p>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function switchVideo(videoId) {
+        const iframe = document.getElementById("mainVideo");
+        iframe.src = `https://www.youtube.com/embed/${videoId}`;
+    }
+</script>

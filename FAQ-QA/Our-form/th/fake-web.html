@@ -1,0 +1,308 @@
+<style>
+  /* Base styles */
+  /* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    color: #1d1d1f;
+    background-color: #fff;
+    line-height: 1.5;
+  } */
+
+  /* Container */
+  .faq-content-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .faq-content-container {
+      padding: 0;
+      gap: 1.5rem;
+    }
+  }
+
+  /* Typography */
+  .heading-primary {
+    font-size: 1.375rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .heading-primary {
+      font-size: 2.5rem;
+      margin-bottom: 0;
+      line-height: 3rem;
+    }
+  }
+
+  /* Tab navigation */
+  .tab-nav {
+    width: 100%;
+    display: flex;
+    font-weight: 700;
+    border-bottom: 1px solid #e5e7eb;
+    overflow-x: auto;
+  }
+
+  .tab-button {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-bottom: 2px solid transparent;
+    text-align: center;
+    white-space: nowrap;
+    color: #6b7280;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .tab-button:hover {
+    color: #1d1d1f;
+    border-bottom: 2px solid #1d1d1f;
+    font-weight: 700;
+  }
+
+  .tab-button.active {
+    color: #1d1d1f;
+    border-bottom: 2px solid #1d1d1f;
+    font-weight: 700;
+  }
+
+  /* Content area */
+  .content-area {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #8b8b8b;
+    border-top: 6px solid #ef4444;
+    border-radius: 0.25rem;
+    color: #1d1d1f;
+  }
+
+  @media (min-width: 768px) {
+    .content-area {
+      padding: 1.5rem 2rem;
+    }
+  }
+
+  /* Tab content */
+  .tab-content {
+    display: grid;
+    gap: 0.5rem;
+    font-weight: 700;
+    text-align: left;
+    place-items: center;
+  }
+
+  .tab-content.hidden {
+    display: none;
+  }
+
+  /* Desktop container */
+  #Desktop-container {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    #Desktop-container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  /* Mobile container */
+  #Mobile-container {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    #Mobile-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 768px) {
+    #Mobile-container {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    #Mobile-container {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* Step card */
+  .step-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .desktop-step-card {
+    width: 100%;
+  }
+
+  .mobile-step-card {
+    max-width: 240px;
+  }
+
+  .step-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .step-text {
+    width: 100%;
+  }
+
+  .desktop-step-text {
+    min-height: 80px;
+  }
+
+  .mobile-step-text {
+    min-height: 120px;
+  }
+
+  @media (min-width: 768px) {
+    .md\:text-lg {
+      font-size: 1.125rem /* 18px */;
+      line-height: 1.75rem /* 28px */;
+    }
+    .md\:text-base {
+      font-size: 1rem /* 16px */;
+      line-height: 1.5rem /* 24px */;
+    }
+    .md\:mt-8 {
+      margin-top: 2rem /* 32px */;
+    }
+    .md\:text-3xl {
+      font-size: 1.875rem /* 30px */;
+      line-height: 2.25rem /* 36px */;
+    }
+  }
+</style>
+
+<div class="faq-content-container">
+  <h1 class="heading-primary">ขั้นตอนการแจ้งรายงานเพจปลอม</h1>
+
+  <h2 class="text-base font-bold md:text-lg">
+    กรณีได้รับความเสียหายจากช่องทางที่แอบอ้างเซ็นทรัลออนไลน์
+  </h2>
+
+  <div class="space-y-4 text-sm md:text-base">
+    <ul class="pl-6 list-decimal">
+      <li>นำเอกสารหรือหลักฐานความเสียหายไปแจ้งความที่สถานีตำรวจ</li>
+      <li>
+        ติดต่อ Call Center โทร 1425 กด 2 วันจันทร์-อาทิตย์ เวลา 09:00-21:00 น.
+      </li>
+      <li>
+        ส่งเอกสารทางอีเมล :
+        <a href="mailto:contact@central.co.th" class="text-blue-500 underline"
+          >contact@central.co.th</a
+        >
+        วันจันทร์-อาทิตย์ เวลา 09:00-21:00 น. ดังนี้
+      </li>
+    </ul>
+
+    <ul class="pl-6 list-disc">
+      <li>เอกสารแจ้งความ</li>
+      <li>หลักฐานการโอนเงินหรือความเสียหายที่เกิดขึ้น</li>
+      <li>ข้อมูลของผู้ร้องเรียนหรือผู้เสียหาย</li>
+      <li>ชื่อเพจและ URL ของเพจนั้น</li>
+    </ul>
+  </div>
+
+  <p class="text-base font-bold md:text-lg">
+    หมายเหตุ: หลังจากได้รับข้อมูลร้องเรียนแล้ว
+    จะดำเนินการส่งต่อให้ฝ่ายกฎหมายดำเนินการต่อไป
+  </p>
+
+  <h2 class="text-base font-bold md:text-lg">
+    กรณีไม่ได้รับความเสียหายจากการแอบอ้างเซ็นทรัลออนไลน์
+  </h2>
+  <div>
+    <ul class="pl-6 text-sm list-decimal md:text-base">
+      <li>แจ้งรายละเอียดของเพจนั้น</li>
+      <li>
+        ติดต่อ Call Center โทร 1425 กด 2 วันจันทร์-อาทิตย์ เวลา 09:00-21:00 น.
+      </li>
+    </ul>
+  </div>
+
+  <div class="w-full mt-4 space-y-4 text-center md:mt-8">
+    <h2 class="text-xl font-bold md:text-3xl">
+      เพื่อให้แน่ใจว่าเป็นเพจทางการของเซ็นทรัล แนะนำให้ตรวจสอบดังนี้
+    </h2>
+    <div class="content-area">
+      <!-- Mobile container 4 cols -->
+      <div id="Mobile-container" class="tab-content"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const mobileSteps = [
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Report-Fake-Page_th1.png",
+      text: "1. ชื่อบัญชี Central Online shop ยอดผู้ติดตาม 1.3M",
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Report-Fake-Page_th2.png",
+      text: "2. Central Department Store ยอดผู้ติดตาม 2.6M",
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Report-Fake-Page_th3.png",
+      text: "3. สำหรับเพจต้องต้องได้รับการการันตีเพจทางการ Verified Badge        เป็นสัญลักษณ์วงกลมสีฟ้าพร้อมเครื่องหมายถูก",
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Report-Fake-Page_th4.png",
+      text: "4. เมื่อคลิกลิงก์จากเพจเพื่อไปยังหน้าซื้อสินค้า URL จะต้องเป็น        Central.co.th เท่านั้น",
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Report-Fake-Page_th5.png",
+      text: "5. เว็บไซต์ หรือเซ็นทรัลแอปพลิเคชัน",
+    },
+  ];
+
+  // Render steps function
+  function renderStep(steps, containerId) {
+    const container = document.getElementById(containerId);
+
+    steps.forEach((step) => {
+      const div = document.createElement("div");
+
+      // Apply appropriate classes based on container
+      div.className = "step-card mobile-step-card";
+      div.innerHTML = `
+          <img src="${step.img}" class="step-image" />
+          <p class="step-text mobile-step-text">${step.text}</p>
+          `;
+
+      container.appendChild(div);
+    });
+  }
+
+  // Initialize on DOM load
+  window.addEventListener("load", () => {
+    renderStep(mobileSteps, "Mobile-container");
+  });
+</script>

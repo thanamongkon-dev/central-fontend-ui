@@ -1,0 +1,162 @@
+<style>
+  .text-\[\#1d1d1f\] {
+    color: #1d1d1f;
+  }
+
+  .text-\[22px\] {
+    font-size: 22px;
+  }
+
+  .leading-\[48px\] {
+    line-height: 48px;
+  }
+
+  @media (min-width: 768px) {
+    .md\:text-base {
+      font-size: 1rem /* 16px */;
+      line-height: 1.5rem /* 24px */;
+    }
+    .md\:text-lg {
+      font-size: 1.125rem /* 18px */;
+      line-height: 1.75rem /* 28px */;
+    }
+    .md\:px-0 {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    .md\:text-\[40px\] {
+      font-size: 40px;
+    }
+  }
+</style>
+<div
+  class="container md:textbase text-sm font-cpn mx-auto max-w-[1440px] flex flex-col items-left justify-center text-left mt-6 text-[#1d1d1f] gap-4 px-4 md:px-0"
+>
+  <h1 class="md:text-[40px] text-[22px] text-left font-bold leading-[48px]">การจัดส่งสินค้า</h1>
+
+  <p>
+    เมื่อเลือกสินค้าชิ้นที่ถูกใจลงถุงช้อปปิ้งเรียบร้อยแล้ว
+    ระบบจะนำท่านเข้าสู่ขั้นตอนเลือกวิธีการจัดส่ง
+    ซึ่งสามารถเลือกได้ตามความสะดวกดังนี้
+  </p>
+
+  <div class="overflow-x-auto overflow-y-hidden">
+    <h2 class="text-base font-bold md:text-lg">จัดส่งถึงบ้าน</h2>
+    <table class="w-full text-sm text-left border border-gray-300 table-auto">
+      <thead class="bg-gray-200 text-[#1d1d1f]">
+        <tr>
+          <th class="px-4 py-2 border">บริการจัดส่ง</th>
+          <th class="px-4 py-2 border">วิธีการจัดส่ง</th>
+          <th class="px-4 py-2 border">พื้นที่จัดส่ง</th>
+          <th class="px-4 py-2 border">ระยะเวลาจัดส่ง</th>
+          <th class="px-4 py-2 border">ยอดสั่งซื้อ</th>
+          <th class="px-4 py-2 border">อัตราค่าบริการ</th>
+        </tr>
+      </thead>
+      <tbody class="text-[#1d1d1f]">
+        <tr>
+          <td class="px-4 py-2 border" rowspan="4">จัดส่งถึงบ้าน</td>
+          <td class="px-4 py-2 border" rowspan="2">จัดส่งถึงบ้าน (ปกติ)</td>
+          <td class="px-4 py-2 border">
+            พื้นที่กรุงเทพ, ปทุมธานี, นนทบุรี, สมุทรปราการ
+          </td>
+          <td class="px-4 py-2 border">3-5 วัน</td>
+          <td class="px-4 py-2 border">699 บาท ขึ้นไป</td>
+          <td class="px-4 py-2 border">ฟรี</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-2 border">
+            พื้นที่กรุงเทพ, ปทุมธานี, นนทบุรี, สมุทรปราการ
+          </td>
+          <td class="px-4 py-2 border">3-5 วัน</td>
+          <td class="px-4 py-2 border">ต่ำกว่า 699 บาท</td>
+          <td class="px-4 py-2 border">60 บาท</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-2 border" rowspan="2">ต่างจังหวัด</td>
+          <td class="px-4 py-2 border">4-6 วัน</td>
+          <td class="px-4 py-2 border">699 บาท ขึ้นไป</td>
+          <td class="px-4 py-2 border">ฟรี</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-2 border">4-6 วัน</td>
+          <td class="px-4 py-2 border">ต่ำกว่า 699 บาท</td>
+          <td class="px-4 py-2 border">70 บาท</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      สำหรับสินค้าที่จัดจำหน่ายโดยร้านค้า
+      (จะมีข้อความระบุในหน้ารายละเอียดสินค้าและถุงช้อปปิ้งว่า “จัดจำหน่ายโดย”)
+      ไม่สามารถใช้บริการชำระเงินปลายทางได้
+    </p>
+    <p>
+      สินค้าบางรายการที่จัดส่งเองโดยร้านค้า
+      หรือสินค้าบางประเภทที่ใช้ระยะเวลาการจัดส่งนานกว่าปกติ
+      สามารถดูระยะเวลาการจัดส่งได้ที่หน้ารายละเอียดสินค้า
+    </p>
+  </div>
+
+  <div class="space-y-4 text-[#1d1d1f]">
+    <p><strong>รับสินค้าที่สาขา</strong></p>
+    <p>
+      You can pick up your items by select your preferable branch of Central
+      Department Stores, Robinson Department Stores for free delivery charge.
+    </p>
+    <p class="text-xs text-gray-500">
+      ** เปิดให้บริการเฉพาะบางสาขา สามารถตรวจสอบได้ในขั้นตอนเลือกวิธีจัดส่ง **
+    </p>
+
+    <div class="overflow-x-auto overflow-y-hidden">
+      <table class="w-full text-left border border-gray-300 table-auto">
+        <thead class="bg-gray-200">
+          <tr>
+            <th class="px-4 py-2 border">รับสินค้าที่สาขา</th>
+            <th class="px-4 py-2 border">ยอดสั่งซื้อ (บาท)</th>
+            <th class="px-4 py-2 border">อัตราค่าบริการ (บาท)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="px-4 py-2 border">เซ็นทรัล, โรบินสัน</td>
+            <td class="px-4 py-2 border">ทุกรายการสั่งซื้อ</td>
+            <td class="px-4 py-2 border">ฟรี</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mt-6 space-y-2">
+      <p><strong>เงื่อนไขการรับสินค้า</strong></p>
+      <ul class="pl-6 space-y-1 list-disc">
+        <li>
+          รหัสรับสินค้าจะถูกจัดส่งทาง SMS และอีเมล ที่ระบุไว้ขณะทำรายการสั่งซื้อ
+        </li>
+        <li>คุณสามารถรับสินค้า ณ สาขาที่เลือกไว้เท่านั้น</li>
+        <li>
+          บริษัทฯ จะต้องมอบสินค้าให้ภายใน 7 วัน นับตั้งแต่ได้รับแจ้งเตือน SMS
+          หรือรหัสรับสินค้า
+        </li>
+      </ul>
+
+      <p>
+        <strong>ระยะเวลาการจัดส่งสินค้าเข้าสู่บริการ CLICK & COLLECT</strong>
+      </p>
+      <ul class="pl-6 space-y-1 list-disc">
+        <li>กรุงเทพฯ และปริมณฑล: ภายใน 3-5 วันทำการ</li>
+        <li>ต่างจังหวัด: ภายใน 4-6 วันทำการ</li>
+      </ul>
+
+      <p><strong>หลักฐานในการรับสินค้า</strong></p>
+      <ul class="pl-6 space-y-1 list-disc">
+        <li>รหัสรับสินค้า/อีเมลแจ้งเตือนที่ได้รับ</li>
+        <li>กรณีรับสินค้าโดยผู้อื่นแทน ผู้รับแทนต้องแสดงรหัสรับสินค้า</li>
+      </ul>
+
+      <p class="underline cursor-pointer">
+        วิธีการสั่งซื้อโดยเลือกรับสินค้าที่สาขา
+      </p>
+    </div>
+  </div>
+</div>

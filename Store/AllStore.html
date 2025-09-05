@@ -1,0 +1,243 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link
+  href="https://uat-gcp-assets.central.co.th/file-assets/assets/CMS/chanel/html/font.css"
+  rel="stylesheet"
+/>
+<div
+  class="container text-sm md:text-base font-cpn mx-auto max-w-[1440px] flex flex-col items-center justify-center text-left my-6 text-[#1d1d1f] md:gap-6 gap-4 px-4 md:px-0"
+>
+  <!-- Tab Buttons -->
+  <div class="flex w-full font-bold border-b border-gray-200 font-cpn">
+    <button
+      class="tab-button w-full px-4 py-2 border-b-2 border-[#1D1D1F] text-[#1D1D1F]"
+      id="Central"
+      onclick="tabChange('Central')"
+    >
+      Central
+    </button>
+    <button
+      class="w-full px-4 py-2 text-gray-500 border-b-2 border-transparent tab-button hover:text-black hover:border-black"
+      id="Robinson"
+      onclick="tabChange('Robinson')"
+    >
+      Robinson
+    </button>
+  </div>
+
+  <div
+    id="Central-container"
+    class="w-full mb-4 p-3 md:p-6 content border-t-[6px] border-l-[#8b8b8b] border-r-[#8b8b8b] border-b-[#8b8b8b] border-b border-l border-r rounded border-t-red-500 font-cpn text-[#1D1D1F]"
+  >
+    <div id="central-store" class="grid grid-cols-1 gap-3 md:gap-6 sm:grid-cols-2 ">
+     
+    </div>
+  </div>
+
+  <div
+    id="Robinson-container"
+    class="w-full content mb-4 p-3 md:p-6 border-t-[6px] border-l-[#8b8b8b] border-r-[#8b8b8b]  border-b-[#8b8b8b] border-b border-l border-r rounded border-t-green-500 font-cpn text-[#1D1D1F]"
+  >
+    <div id="robinson-store" class="grid grid-cols-1 gap-3 md:gap-6 sm:grid-cols-2 ">
+     
+    </div>
+  </div>
+</div>
+
+<script>
+  function tabChange(tabName) {
+    let activeTab = document.getElementById(tabName);
+    let tabBtn = document.querySelectorAll(".tab-button");
+    let container = document.getElementById(tabName + "-container");
+    let content = document.querySelectorAll(".content");
+
+    tabBtn.forEach((el) =>
+      el.classList.add(
+        "text-gray-500",
+        "border-transparent",
+        "hover:text-black",
+        "hover:border-black"
+      )
+    );
+    content.forEach((el) => el.classList.add("hidden"));
+
+    activeTab.classList.remove(
+      "text-gray-500",
+        "border-transparent",
+        "hover:text-black",
+        "hover:border-black"
+    );
+    activeTab.classList.add("border-[#1D1D1F]", "text-[#1D1D1F]");
+
+    container.classList.remove("hidden");
+    container.classList.add("grid");
+  }
+  tabChange("Central");
+</script>
+
+<script>
+  const stores = [
+    {
+      storeName: "เซ็นทรัล ชิดลม",
+      image:
+        "https://assets.central.co.th/is/image/cenergy/10102-central-chidlom-pink?$JPG$",
+      location: "1027 ถนนเพลินจิต แขวงลุมพินี เขตปทุมวัน กรุงเทพฯ 10330",
+      tel: "02-7937777",
+      opening: "ทุกวัน เวลา 10:00 - 22:00 น.",
+      locationLink: "https://maps.app.goo.gl/ZcQFJ2AoRyQ2rUAJ9", // Replace with actual map link
+      storeLink: "https://www.central.co.th/th/store/central-chidlom",
+    },
+    {
+      storeName: "เซ็นทรัล สีลม คอมเพล็กซ์",
+      image:
+        "https://assets.central.co.th/is/image/cenergy/10103_Central_Silom_Complex?$JPEG$",
+      location: "191 ถนนสีลม แขวงสีลม เขตบางรัก กรุงเทพฯ 10500",
+      tel: "02-7937777",
+      opening: "ทุกวัน เวลา 11:00 - 21:00 น.",
+      locationLink: "https://www.google.com/maps/place/%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B8%B1%E0%B8%A5+%E0%B8%AA%E0%B8%B5%E0%B8%A5%E0%B8%A1%E0%B8%84%E0%B8%AD%E0%B8%A1%E0%B9%80%E0%B8%9E%E0%B8%A5%E0%B9%87%E0%B8%81%E0%B8%8B%E0%B9%8C/@13.7266441,100.5305863,16z/data=!4m6!3m5!1s0x30e29f2c010aa10f:0x62027b6d83836ce2!8m2!3d13.7278527!4d100.5350931!16s%2Fg%2F1hm3jn4l6?entry=tts&g_ep=EgoyMDI1MDIxOS4xIPu8ASoASAFQAw%3D%3D",
+      storeLink: "https://www.central.co.th/th/store/central-silom-complex",
+    },
+    {
+      storeName: "เซ็นทรัล ลาดพร้าว",
+      image:
+        "https://assets.central.co.th/is/image/cenergy/10104_Central_Lardprao?$JPEG$",
+      location: "1691 ถนนพหลโยธิน แขวงจตุจักร เขตจตุจักร กรุงเทพฯ 10900",
+      tel: "02-5411111",
+      opening: "ทุกวัน เวลา 10:00 - 22:00 น.",
+      locationLink: "https://www.google.com/maps/place/%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B8%B1%E0%B8%A5+%E0%B8%A5%E0%B8%B2%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%A7/@13.8171647,100.557064,17z/data=!3m1!5s0x30e29c5a5557dd0b:0x486cece46bb43070!4m7!3m6!1s0x30e29c5a53d05aab:0x313d533c3d15a124!8m2!3d13.8171677!4d100.5615817!15sCjHguYDguIvguYfguJnguJfguKPguLHguKUg4Lil4Liy4LiU4Lie4Lij4LmJ4Liy4LinIgOIAQFaMyIx4LmA4LiL4LmH4LiZ4LiX4Lij4Lix4LilIOC4peC4suC4lOC4nuC4o-C5ieC4suC4p5IBD3Nob3BwaW5nX2NlbnRlcuABAA!16zL20vMGcwanFu?entry=tts&g_ep=EgoyMDI1MDIxOS4xIPu8ASoASAFQAw%3D%3D", // Replace with actual map link
+      storeLink: "https://www.central.co.th/th/store/central-ladprao",
+    },
+    {
+      storeName: "เซ็นทรัล รามอินทรา",
+      image: "https://assets.central.co.th/is/image/cenergy/new_version_central_ramindra?$JPEG$",
+      location: "109/10 ถนนรามอินทรา แขวงอนุสาวรีย์ เขตบางเขน กรุงเทพฯ 10220",
+      tel: "02-7978000",
+      opening: "ทุกวัน เวลา 11:00 - 21:00 น.",
+      locationLink: "https://maps.app.goo.gl/4tLmpNhTcqcvvPy27",
+      storeLink: "https://www.central.co.th/th/store/central-ramindra",
+    },
+  ];
+
+  const robinson = [
+    {
+      storeName: "โรบินสัน รังสิต",
+      image: "https://assets.central.co.th/is/image/cenergy/20110_Rangsit?$JPEG$",
+      location: "94 ถ. พหลโยธิน ตำบล ประชาธิปัตย์ อำเภอธัญบุรี ปทุมธานี 12130",
+      tel: "02-9580800",
+      opening: "จันทร์ - ศุกร์ เวลา 10:30 - 21:00 น. / เสาร์ - อาทิตย์ เวลา 10:00 - 21:00 น.",
+      locationLink: "https://maps.app.goo.gl/dUyv2aCaoCbvZvcu9",
+      storeLink: "https://www.central.co.th/th/store/robinson-rangsit",
+    },
+    {
+      storeName: "โรบินสัน ศรีราชา",
+      image: "https://assets.central.co.th/is/image/cenergy/20114_Sriracha?$JPEG$",
+      location: "90/1 ถ. สุขุมวิท ตำบล ศรีราชา อำเภอศรีราชา ชลบุรี 20110",
+      tel: "038-771001",
+      opening: "จันทร์ - ศุกร์ เวลา 11:00 - 21:00 น. / เสาร์ - อาทิตย์ เวลา 10:00 - 21:00 น.",
+      locationLink: "https://maps.app.goo.gl/m7VBiFcKvCTzq34P9",
+      storeLink: "https://www.central.co.th/th/store/robinson-sriracha",
+    },
+    {
+      storeName: "โรบินสัน อยุธยา 2",
+      image: "https://assets.central.co.th/is/image/cenergy/20118_Ayutthaya?$JPEG$",
+      location: "ตำบล คลองสวนพลู ตำบลคลองสวนพลู อำเภอ พระนครศรีอยุธยา จังหวัดพระนครศรีอยุธยา 13000",
+      tel: "035-800888",
+      opening: "จันทร์ - พฤหัสบดี เวลา 10:00 - 21:00 น. / ศุกร์ - เสาร์ เวลา 10:00 - 22:00 น.",
+      locationLink: "https://maps.app.goo.gl/w4xXSG4pKaLJasyK7",
+      storeLink: "https://www.central.co.th/th/store/robinson-ayutthaya",
+    },
+    {
+      storeName: "โรบินสัน ชลบุรี",
+      image: "https://assets.central.co.th/is/image/cenergy/20167_Lifestyle_Chonburi?$JPEG$",
+      location: "55 หมู่ที่ 1 ถ. สุขุมวิท ตำบล เสม็ด อำเภอเมืองชลบุรี ชลบุรี 20000",
+      tel: "033-003444",
+      opening: "จันทร์ - พฤหัสบดี เวลา 10:30 - 21:30 น. <br> ศุกร์ เวลา 10:30 - 22:00 น. <br> เสาร์ เวลา 10:00 - 22:00 น. <br> อาทิตย์ เวลา 10:00 - 21:30 น.",
+      locationLink: "https://maps.app.goo.gl/HyGRrQnpisMEC5Sz8",
+      storeLink: "https://www.central.co.th/th/store/robinson-chonburi",
+    },
+  ];
+
+  function renderStores(stores, storename) {
+    const container = document.getElementById(storename);
+    container.innerHTML = "";
+
+    stores.forEach((store) => {
+      const wrapper = document.createElement("div");
+      wrapper.className = "relative flex flex-col w-full border border-[#b1b1b1] rounded-b h-full flex-grow cursor-pointer"; // add cursor-pointer
+
+      wrapper.innerHTML = `
+        <a href="${store.storeLink}" target="_blank" class="absolute inset-0 z-10"></a>
+        <div class="w-full overflow-hidden">
+          <img
+            src="${store.image}"
+            alt="${store.storeName}"
+            class="w-full md:h-[280px] h-auto object-cover"
+          />
+        </div>
+        <div class="flex flex-col flex-1 p-3 gap-[10px]">
+          <h2 class="text-base font-bold text-left md:text-lg">${store.storeName}</h2>
+
+          <!-- Desktop layout -->
+          <div class="flex-1 hidden grid-cols-1 gap-3 text-sm text-left md:grid md:grid-cols-2">
+            <div>
+              <div class="flex md:flex-col">
+                <strong>ที่ตั้ง: </strong>
+                <p>${store.location.replace(/\n/g, "<br>")}</p>
+              </div>
+              <div class="flex md:flex-col">
+                <strong>แผนที่: </strong>
+                <p><a href="${
+                  store.locationLink
+                }" class="relative z-20 text-blue-700 underline hover:text-blue-900" target="_blank">คลิกที่นี่</a></p>
+              </div>
+            </div>
+            <div>
+              <div class="flex md:flex-col">
+                <strong>โทรศัพท์: </strong>
+                <p>${store.tel}</p>
+              </div>
+              <div class="flex md:flex-col">
+                <strong>เปิดทำการ: </strong>
+                <p>${store.opening}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile layout -->
+          <table class="flex-1 block w-full py-2 text-sm text-left md:hidden">
+            <tbody>
+              <tr>
+                <th class="pr-4 font-bold align-top text-nowrap">ที่ตั้ง:</th>
+                <td>${store.location}</td>
+              </tr>
+              <tr>
+                <th class="pr-4 font-bold align-top text-nowrap">โทรศัพท์:</th>
+                <td>${store.tel}</td>
+              </tr>
+              <tr>
+                <th class="pr-4 font-bold align-top text-nowrap">แผนที่:</th>
+                <td><a href="${
+                  store.locationLink
+                }" class="relative z-20 text-blue-700 underline hover:text-blue-900" target="_blank">คลิกที่นี่</a></td>
+              </tr>
+              <tr>
+                <th class="pr-4 font-bold align-top text-nowrap">เปิดทำการ:</th>
+                <td>${store.opening}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="w-full mt-auto text-sm text-right underline">
+            <a href="${store.storeLink}" target="_blank">ข้อมูลเพิ่มเติม</a>
+          </div>
+        </div>
+      `;
+
+      container.appendChild(wrapper);
+    });
+  }
+
+  // Call the function
+  renderStores(stores,"central-store");
+  renderStores(robinson,"robinson-store");
+</script>

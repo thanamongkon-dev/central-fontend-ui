@@ -1,0 +1,473 @@
+<style>
+  /* Base styles */
+  /* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    color: #1d1d1f;
+    background-color: #fff;
+    line-height: 1.5;
+  } */
+
+  /* Container */
+  .faq-content-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .faq-content-container {
+      padding: 0;
+      gap: 1.5rem;
+    }
+  }
+
+  /* Typography */
+  .heading-primary {
+    font-size: 1.375rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  @media (min-width: 768px) {
+    .heading-primary {
+      font-size: 2.5rem;
+      line-height: 3rem;
+    }
+  }
+
+  /* Method tabs container */
+  .method-tabs-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .method-tabs-inner {
+    display: flex;
+    gap: 0.5rem;
+    margin: 0 auto;
+    width: max-content;
+    min-width: fit-content;
+  }
+
+  /* Method buttons */
+  .method-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #1d1d1f;
+    background-color: white;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .method-btn:hover {
+    background-color: #f3f4f6;
+  }
+
+  .method-btn:active {
+    transform: scale(0.95);
+  }
+
+  .method-btn.active {
+    background-color: #e60023;
+    color: white;
+    border-color: #e60023;
+  }
+
+  /* Tab navigation */
+  .tab-nav {
+    width: 100%;
+    display: flex;
+    font-weight: 700;
+    border-bottom: 1px solid #e5e7eb;
+    overflow-x: auto;
+  }
+
+  .tab-button {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-bottom: 2px solid transparent;
+    text-align: center;
+    white-space: nowrap;
+    color: #6b7280;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .tab-button:hover {
+    color: #1d1d1f;
+    border-bottom: 2px solid #1d1d1f;
+    font-weight: 700;
+  }
+
+  .tab-button.active {
+    color: #1d1d1f;
+    border-bottom: 2px solid #1d1d1f;
+    font-weight: 700;
+  }
+
+  /* Content area */
+  .content-area {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #8b8b8b;
+    border-top: 6px solid #ef4444;
+    border-radius: 0.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .content-area {
+      padding: 1.5rem 2rem;
+    }
+  }
+
+  /* Method content */
+  .method-content {
+    display: block;
+  }
+
+  .method-content.hidden {
+    display: none;
+  }
+
+  /* Tab content */
+  .tab-content {
+    display: grid;
+    gap: 0.5rem;
+    font-weight: 700;
+    text-align: left;
+    place-items: center;
+  }
+
+  .tab-content.hidden {
+    display: none;
+  }
+
+  /* Desktop container */
+  .desktop-grid {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    .desktop-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  /* Mobile container */
+  .mobile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    .mobile-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .mobile-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .mobile-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* Step card */
+  .step-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .desktop-step-card {
+    width: 100%;
+  }
+
+  .mobile-step-card {
+    max-width: 240px;
+  }
+
+  .step-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .step-text {
+    width: 100%;
+  }
+
+  .desktop-step-text {
+    min-height: 80px;
+  }
+
+  .mobile-step-text {
+    min-height: 120px;
+  }
+</style>
+
+<div class="faq-content-container">
+  <h1 class="heading-primary">วิธีการเพิ่ม-ลบที่อยู่</h1>
+
+  <!-- Method tab -->
+  <div class="method-tabs-container">
+    <div class="method-tabs-inner">
+      <button id="add" onclick="methodChange('add')" class="method-btn active">
+        วิธีเพิ่มที่อยู่
+      </button>
+      <button id="remove" onclick="methodChange('remove')" class="method-btn">
+        วิธีลบที่อยู่
+      </button>
+    </div>
+  </div>
+
+  <!-- TAB -->
+  <div class="tab-nav">
+    <button
+      class="tab-button active"
+      id="Desktop"
+      onclick="tabChange('Desktop')"
+    >
+      Desktop
+    </button>
+    <button class="tab-button" id="Mobile" onclick="tabChange('Mobile')">
+      Mobile
+    </button>
+  </div>
+
+  <div class="content-area">
+    <!-- Add address section -->
+    <div id="add-content" class="method-content">
+      <div id="Desktop-container" class="tab-content desktop-grid"></div>
+      <div id="Mobile-container" class="hidden tab-content mobile-grid"></div>
+    </div>
+
+    <!-- Remove address section -->
+    <div id="remove-content" class="hidden method-content">
+      <div id="Desktop-container" class="tab-content desktop-grid"></div>
+      <div id="Mobile-container" class="hidden tab-content mobile-grid"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function methodChange(methodName) {
+    const methodBtns = document.querySelectorAll(".method-btn");
+    methodBtns.forEach((el) => {
+      el.classList.remove("active");
+    });
+
+    const activeBtn = document.getElementById(methodName);
+    activeBtn.classList.add("active");
+
+    const allContent = document.querySelectorAll(".method-content");
+    allContent.forEach((el) => el.classList.add("hidden"));
+
+    const targetContent = document.getElementById(`${methodName}-content`);
+    targetContent.classList.remove("hidden");
+
+    window.currentMethod = methodName;
+
+    tabChange("Desktop");
+  }
+
+  function tabChange(tabName) {
+    const allTabs = document.querySelectorAll(".tab-button");
+    allTabs.forEach((el) => {
+      el.classList.remove("active");
+    });
+
+    const activeTab = document.getElementById(tabName);
+    activeTab.classList.add("active");
+
+    const currentContainer = document.getElementById(
+      `${window.currentMethod}-content`
+    );
+    const allTabContents = currentContainer.querySelectorAll(".tab-content");
+    allTabContents.forEach((el) => {
+      el.classList.add("hidden");
+    });
+
+    const tabContent = currentContainer.querySelector(`#${tabName}-container`);
+    if (tabContent) {
+      tabContent.classList.remove("hidden");
+    }
+  }
+</script>
+
+<script>
+  // Steps data
+  const StepsData = {
+    add: {
+      Desktop: [
+        {
+          img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Address/th/Desktop_Address_th-1.jpeg",
+          text: "1. คลิกที่บัญชีผู้ใช้",
+        },
+        {
+          img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Address/th/Desktop_Address_th-2.jpeg",
+          text: "2. เลือกบัญชีของฉัน",
+        },
+        {
+          img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Address/th/Desktop_Address_th-3.jpeg",
+          text: "3. เลือกสมุดที่อยู่และคลิกเพิ่มที่อยู่ใหม่",
+        },
+        {
+          img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Address/th/Desktop_Address_th-4.jpeg",
+          text: "4. กรอกรายละเอียดที่อยู่",
+        },
+        {
+          img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Address/th/Desktop_Address_th-5.jpeg",
+          text: "5. เมื่อกรอกเสร็จแล้วคลิกบันทึกการเปลี่ยนแปลง",
+        },
+        {
+          img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Address/th/Desktop_Address_th-6.jpeg",
+          text: "6. หลังจากคลิกบันทึก ที่อยู่ที่บันทึกไว้จะแสดงขึ้น",
+        },
+      ],
+      Mobile: [
+        {
+          img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Address/th/Mobile_Address_th-1.jpeg",
+          text: "1. แตะที่บัญชีผู้ใช้",
+        },
+        {
+          img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Address/th/Mobile_Address_th-2.jpeg",
+          text: "2. เลือกที่อยู่",
+        },
+        {
+          img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Address/th/Mobile_Address_th-3.jpeg",
+          text: "3. คลิกเพิ่มที่อยู่ใหม่",
+        },
+        {
+          img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Address/th/Mobile_Address_th-4.jpeg",
+          text: "4. กรอกรายละเอียดที่อยู่ให้ครบถ้วนแล้วคลิกบันทึก",
+        },
+        {
+          img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Address/th/Mobile_Address_th-5.jpeg",
+          text: "5. หลังจากคลิกบันทึก ที่อยู่ที่บันทึกไว้จะแสดงขึ้น",
+        },
+      ],
+    },
+    remove: {
+      Desktop: [
+        {
+          img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Address/th/remove_desktop-address_th-1.jpeg",
+          text: "1. คลิกที่ชื่อบัญชีผู้ใช้และเลือกบัญชีของฉัน",
+        },
+        {
+          img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Address/th/remove_desktop-address_th-2.jpeg",
+          text: "2. เลือกสมุดที่อยู่",
+        },
+        {
+          img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Address/th/remove_desktop-address_th-3.jpeg",
+          text: "3. คลิกที่ไอคอน ⋯",
+        },
+        {
+          img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Address/th/remove_desktop-address_th-4.jpeg",
+          text: "4. เลือกลบ",
+        },
+        {
+          img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Address/th/remove_desktop-address_th-5.jpeg",
+          text: "5. ที่อยู่จะถูกลบ",
+        },
+      ],
+      Mobile: [
+        {
+          img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Address/th/remove_mobile-address_th-1.jpeg",
+          text: "1. แตะที่บัญชีผู้ใช้",
+        },
+        {
+          img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Address/th/remove_mobile-address_th-2.jpeg",
+          text: "2. เลือกที่อยู่",
+        },
+        {
+          img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Address/th/remove_mobile-address_th-3.jpeg",
+          text: "3. คลิกไอคอน ︙ เพื่อลบที่อยู่",
+        },
+        {
+          img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Address/th/remove_mobile-address_th-4.jpeg",
+          text: "4. เลือกแก้ไข",
+        },
+        {
+          img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Address/th/remove_mobile-address_th-5.jpeg",
+          text: "5. หลังจากลบที่อยู่แล้ว ที่อยู่จะถูกลบออก",
+        },
+      ],
+    },
+  };
+
+  // Render steps for a specific method and tab
+  function renderTabSteps(method, tabId, steps) {
+    const container = document.querySelector(
+      `#${method}-content #${tabId}-container`
+    );
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    steps.forEach((step) => {
+      const div = document.createElement("div");
+
+      if (tabId === "Desktop") {
+        div.className = "step-card desktop-step-card";
+        div.innerHTML = `
+                        <img src="${step.img}" class="step-image" />
+                        <p class="step-text desktop-step-text">${step.text}</p>
+                    `;
+      } else {
+        div.className = "step-card mobile-step-card";
+        div.innerHTML = `
+                        <img src="${step.img}" class="step-image" />
+                        <p class="step-text mobile-step-text">${step.text}</p>
+                    `;
+      }
+
+      container.appendChild(div);
+    });
+  }
+
+  // Initialize on DOM load
+  window.addEventListener("DOMContentLoaded", () => {
+    // Render all steps for all methods/tabs
+    Object.keys(StepsData).forEach((method) => {
+      Object.keys(StepsData[method]).forEach((tabId) => {
+        renderTabSteps(method, tabId, StepsData[method][tabId]);
+      });
+    });
+
+    // Set initial state
+    methodChange("add");
+  });
+</script>

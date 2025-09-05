@@ -1,0 +1,480 @@
+<style>
+  /* Base styles */
+  /* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    color: #1d1d1f;
+    background-color: #fff;
+    line-height: 1.5;
+  } */
+
+  /* Container */
+  .faq-content-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .faq-content-container {
+      padding: 0;
+      gap: 1.5rem;
+    }
+  }
+
+  /* Typography */
+  .heading-primary {
+    font-size: 1.375rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .heading-primary {
+      font-size: 2.5rem;
+      margin-bottom: 0;
+    }
+  }
+
+  /* Method tabs container */
+  .method-tabs-container {
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    margin: 0 auto;
+  }
+
+  /* Method buttons */
+  .method-btn {
+    display: flex;
+    flex-grow: 1;
+    scroll-snap-align: start;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #1d1d1f;
+    background-color: white;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .method-btn:hover {
+    background-color: #f3f4f6;
+  }
+
+  .method-btn:active {
+    transform: scale(0.95);
+  }
+
+  .method-btn.active {
+    background-color: #e60023;
+    color: white;
+    border-color: #e60023;
+  }
+
+  /* Tab navigation */
+  .tab-nav {
+    width: 100%;
+    display: flex;
+    font-weight: 700;
+    border-bottom: 1px solid #e5e7eb;
+    overflow-x: auto;
+  }
+
+  .tab-item {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-bottom: 2px solid #1d1d1f;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  /* Content area */
+  .content-area {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #8b8b8b;
+    border-top: 6px solid #ef4444;
+    border-radius: 0.25rem;
+    color: #1d1d1f;
+  }
+
+  @media (min-width: 768px) {
+    .content-area {
+      padding: 1.5rem 2rem;
+    }
+  }
+
+  /* Method content */
+  .method-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    font-weight: 700;
+    text-align: left;
+    place-items: center;
+  }
+
+  @media (min-width: 640px) {
+    .method-content {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .method-content {
+      gap: 1.25rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .method-content {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .method-content.hidden {
+    display: none;
+  }
+
+  /* Step card */
+  .step-card {
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .step-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .step-text {
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .step-text {
+      min-height: 70px;
+    }
+  }
+</style>
+
+<div class="faq-content-container">
+  <h1 class="heading-primary">HOW TO REGISTER</h1>
+
+  <!-- Method tab -->
+  <div class="method-tabs-container">
+    <button id="phone" onclick="methodChange('phone')" class="method-btn active">
+      Register via mobile number
+    </button>
+    <button id="email" onclick="methodChange('email')" class="method-btn">
+      Register via email address
+    </button>
+    <button id="the1" onclick="methodChange('the1')" class="method-btn">
+      Register via The1 account
+    </button>
+    <button id="apple" onclick="methodChange('apple')" class="method-btn">
+      Register via Apple account (only on iOS device)
+    </button>
+    <button id="google" onclick="methodChange('google')" class="method-btn">
+      Register via Google account
+    </button>
+    <button id="facebook" onclick="methodChange('facebook')" class="method-btn">
+      Register via Facebook account
+    </button>
+  </div>
+
+  <!-- TAB -->
+  <div class="tab-nav">
+    <div class="tab-item">Mobile</div>
+  </div>
+
+  <div class="content-area">
+    <!-- phone -->
+    <div id="phone-content" class="method-content"></div>
+
+    <!-- email -->
+    <div id="email-content" class="hidden method-content"></div>
+
+    <!-- the1 -->
+    <div id="the1-content" class="hidden method-content"></div>
+
+    <!-- apple -->
+    <div id="apple-content" class="hidden method-content"></div>
+
+    <!-- google -->
+    <div id="google-content" class="hidden method-content"></div>
+
+    <!-- facebook -->
+    <div id="facebook-content" class="hidden method-content"></div>
+  </div>
+</div>
+
+<script>
+  // Steps data
+  const stepsData = {
+    email: [
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/email1eng.webp?quality=60&preferwebp=true&width=425",
+        "text": "1. Tap on my account"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/email2eng.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "2. Tap on Login button"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/email3eng.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "3. Select on Email address"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/email4eng.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "4. Fill in your email address"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/email5eng.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "5. Tap on Continue button"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/email6eng.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "6. You will receive the verification email"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/email7eng.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "7. Tap on Verify Email button"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/email8eng.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "8. Fill in your information"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/email9eng.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "9. The App redirects to customer profile"
+      }
+    ],
+    the1: [
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/theoneeng1.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "1. Tap on my account"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/theoneeng2.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "2. Tap on Login button"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/theoneeng3.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "3. Tap on The1 button"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/theoneeng4.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "4. Fill in your Phone number or tap on email to login via email"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/theoneeng5.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "5. Tap on Sign in button"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/theoneeng6.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "6. Fill in your PIN"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/theoneeng7.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "7. Tap on Continue button"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/theoneeng8.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "8. Fill in your information"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/theoneeng9.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "9. The App redirects you to customer profile"
+      }
+    ],
+    facebook: [
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/facebookeng1.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "1. Tap on my account"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/facebookeng2.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "2. Tap on Login button"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/facebookeng3.jpeg?preferwebp=true&quality=60&width=425",
+        "text": "3. Tap on Facebook button"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/facebookeng4.jpeg?preferwebp=true&quality=60&width=425",
+        "text": "4. Tap on Continue to allow Central to use Facebook sigin"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/facebookeng5.jpeg?preferwebp=true&quality=60&width=425",
+        "text": "5. Tap on Open"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/facebookeng6.jpeg?preferwebp=true&quality=60&width=425",
+        "text": "6. Tap on Continue"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/facebookeng7.jpeg?preferwebp=true&quality=60&width=425",
+        "text": "7. Fill in your information"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/facebookeng8.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "8. The App redirects to customer profile"
+      }
+    ],
+    google: [
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/google1.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "1. Tap on my account"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/google2.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "2. Tap on Login button"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/google3.jpeg?preferwebp=true&quality=60&width=425",
+        "text": "3. Tap on Google button"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/google4.webp?preferwebp=true&quality=60&width=425",
+        "text": "4. Tap on Continue to allow Central to use Google sigin"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/google5.jpeg?preferwebp=true&quality=60&width=425",
+        "text": "5. Select on email account"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/google6.jpeg?preferwebp=true&quality=60&width=425",
+        "text": "6. Fill in your information"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/googleeng7.jpeg?preferwebp=true&quality=60&width=425",
+        "text": "7. The App redirects to customer profile"
+      }
+    ],
+    apple: [
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/appleeng1.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "1. Click on My Account"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/appleeng2.jpeg",
+        "text": "2. Select Log in"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/appleeng3.jpeg",
+        "text": "3. Select Log in with Apple"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/appleeng4.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "4. Click Continue"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/appleeng6.jpeg?preferwebp=true&quality=60&width=425",
+        "text": "5. Login successful"
+      }
+    ],
+    phone: [
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/register1eng.png",
+        "text": "1. Tap on my account"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/register2eng.png",
+        "text": "2. Tap on Login button"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/register3eng.png",
+        "text": "3. Select on Mobile Number"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/register4eng.png",
+        "text": "4. Fill in your Mobile number"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/register5eng.png",
+        "text": "5. Click the Continue button"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/register6eng.png",
+        "text": "6. Enter the OTP code received via SMS."
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/register7eng.jpeg",
+        "text": "7. After that, the app will direct you to your account page"
+      }
+    ],
+  };
+
+  // Method change function
+  function methodChange(methodName) {
+    const methodBtns = document.querySelectorAll(".method-btn");
+    methodBtns.forEach((el) => {
+      el.classList.remove("active");
+    });
+
+    const activeBtn = document.getElementById(methodName);
+    activeBtn.classList.add("active");
+
+    const allContent = document.querySelectorAll(".method-content");
+    allContent.forEach((el) => el.classList.add("hidden"));
+
+    const targetContent = document.getElementById(`${methodName}-content`);
+    targetContent.classList.remove("hidden");
+  }
+
+  // Render steps
+  function renderSteps(method, steps) {
+    const container = document.getElementById(`${method}-content`);
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    steps.forEach((step) => {
+      const div = document.createElement("div");
+      div.className = "step-card";
+      div.innerHTML = `
+                    <img src="${step.img}" class="step-image" />
+                    <p class="step-text">${step.text}</p>
+                `;
+      container.appendChild(div);
+    });
+  }
+
+  // Initialize on DOM load
+  document.addEventListener("DOMContentLoaded", () => {
+    Object.entries(stepsData).forEach(([method, steps]) => {
+      renderSteps(method, steps);
+    });
+
+    methodChange("phone");
+  });
+</script>

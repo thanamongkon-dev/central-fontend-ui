@@ -1,0 +1,484 @@
+<style>
+  /* Base styles */
+  /* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    color: #1d1d1f;
+    background-color: #fff;
+    line-height: 1.5;
+  } */
+
+  /* Container */
+  .faq-content-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .faq-content-container {
+      padding: 0;
+      gap: 1.5rem;
+    }
+  }
+
+  /* Typography */
+  .heading-primary {
+    font-size: 1.375rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .heading-primary {
+      font-size: 2.5rem;
+      margin-bottom: 0;
+    }
+  }
+
+  /* Method tabs container */
+  .method-tabs-container {
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    margin: 0 auto;
+  }
+
+  /* Method buttons */
+  .method-btn {
+    display: flex;
+    flex-grow: 1;
+    scroll-snap-align: start;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #1d1d1f;
+    background-color: white;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .method-btn:hover {
+    background-color: #f3f4f6;
+  }
+
+  .method-btn:active {
+    transform: scale(0.95);
+  }
+
+  .method-btn.active {
+    background-color: #e60023;
+    color: white;
+    border-color: #e60023;
+  }
+
+  /* Tab navigation */
+  .tab-nav {
+    width: 100%;
+    display: flex;
+    font-weight: 700;
+    border-bottom: 1px solid #e5e7eb;
+    overflow-x: auto;
+  }
+
+  .tab-item {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-bottom: 2px solid #1d1d1f;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  /* Content area */
+  .content-area {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #8b8b8b;
+    border-top: 6px solid #ef4444;
+    border-radius: 0.25rem;
+    color: #1d1d1f;
+  }
+
+  @media (min-width: 768px) {
+    .content-area {
+      padding: 1.5rem 2rem;
+    }
+  }
+
+  /* Method content */
+  .method-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    font-weight: 700;
+    text-align: left;
+    place-items: center;
+  }
+
+  @media (min-width: 640px) {
+    .method-content {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .method-content {
+      gap: 1.25rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .method-content {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .method-content.hidden {
+    display: none;
+  }
+
+  /* Step card */
+  .step-card {
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .step-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .step-text {
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .step-text {
+      min-height: 70px;
+    }
+  }
+</style>
+
+<div class="faq-content-container">
+  <h1 class="heading-primary">HOW TO REGISTER</h1>
+
+  <!-- Method tab -->
+  <div class="method-tabs-container">
+    <button
+      id="phone"
+      onclick="methodChange('phone')"
+      class="method-btn active"
+    >
+      Register via mobile number
+    </button>
+    <button id="email" onclick="methodChange('email')" class="method-btn">
+      Register via email address
+    </button>
+    <button id="the1" onclick="methodChange('the1')" class="method-btn">
+      Register via The1 account
+    </button>
+    <button id="apple" onclick="methodChange('apple')" class="method-btn">
+      Register via Apple account (only on iOS device)
+    </button>
+    <button id="google" onclick="methodChange('google')" class="method-btn">
+      Register via Google account
+    </button>
+    <button id="facebook" onclick="methodChange('facebook')" class="method-btn">
+      Register via Facebook account
+    </button>
+  </div>
+
+  <!-- TAB -->
+  <div class="tab-nav">
+    <div class="tab-item">Mobile</div>
+  </div>
+
+  <div class="content-area">
+    <!-- phone -->
+    <div id="phone-content" class="method-content"></div>
+
+    <!-- email -->
+    <div id="email-content" class="hidden method-content"></div>
+
+    <!-- the1 -->
+    <div id="the1-content" class="hidden method-content"></div>
+
+    <!-- apple -->
+    <div id="apple-content" class="hidden method-content"></div>
+
+    <!-- google -->
+    <div id="google-content" class="hidden method-content"></div>
+
+    <!-- facebook -->
+    <div id="facebook-content" class="hidden method-content"></div>
+  </div>
+</div>
+
+<script>
+  // Steps data
+  const stepsData = {
+    email: [
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--b83606a3-2ecd-4de4-bf68-5aa90b9317c8/my-profile.jpg?quality=60&preferwebp=true&width=425",
+        text: "1. Tap on my account",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--30ec325c-3752-4b03-9da8-4819ecaa9ae0/slide2.jpg?quality=60&preferwebp=true&width=425",
+        text: "2. Tap on Login button",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--2c888d69-e74c-460c-9c99-c41b28b93ea0/slide3.jpg?quality=60&preferwebp=true&width=425",
+        text: "3. Select on Email address",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--2ca9b4a3-3912-43e9-a0de-189cf2d246ac/slide4.jpg?quality=60&preferwebp=true&width=425",
+        text: "4. Fill in your email address",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--d4181690-9ced-48c0-b6cf-07059e2b63f2/slide5.jpg?quality=60&preferwebp=true&width=425",
+        text: "5. Tap on Continue button",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--e13e1e58-7349-4aa7-86cb-1f5e947d6019/slide6.jpg?quality=60&preferwebp=true&width=425",
+        text: "6. You will receive the verification email",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--c0207577-e567-485b-8db5-131b05ef111b/slide7.jpg?quality=60&preferwebp=true&width=425",
+        text: "7. Tap on Verify Email button",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--571dbc10-38a2-425e-a13f-8e06a2101889/slide8.jpg?quality=60&preferwebp=true&width=425",
+        text: "8. Fill in your information",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--6446a7fb-dfe7-4dd7-beb4-0991cb1f3632/slide8.jpg?quality=60&preferwebp=true&width=425",
+        text: "9. The App redirects to customer profile",
+      },
+    ],
+    the1: [
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--b83606a3-2ecd-4de4-bf68-5aa90b9317c8/my-profile.jpg?quality=60&preferwebp=true&width=425",
+        text: "1. Tap on my account",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--30ec325c-3752-4b03-9da8-4819ecaa9ae0/slide2.jpg?quality=60&preferwebp=true&width=425",
+        text: "2. Tap on Login button",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--f7284ea5-acc4-4b7d-bdc8-47c1b6134d54/slide3.jpg?quality=60&preferwebp=true&width=425",
+        text: "3. Tap on The1 button",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--74a0e5fa-bdcd-454e-b28f-b99a1844bff6/slide4.jpg?quality=60&preferwebp=true&width=425",
+        text: "4. Fill in your Phone number or tap on email to login via email",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--6811932d-1c6b-45fe-af5d-4bd784a3bdc5/slide5.jpg?quality=60&preferwebp=true&width=425",
+        text: "5. Tap on Sign in button",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--250d61be-511a-4c2b-af28-20900a9f8fd9/slide6.jpg?quality=60&preferwebp=true&width=425",
+        text: "6. Fill in your PIN",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--10e5f491-3b15-4dc3-b045-d01bb51733a7/slide7.jpg?quality=60&preferwebp=true&width=425",
+        text: "7. Tap on Continue button",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--571dbc10-38a2-425e-a13f-8e06a2101889/slide8.jpg?quality=60&preferwebp=true&width=425",
+        text: "8. Fill in your information",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--63383ab1-8dd1-47d0-b1b5-eb4058031f0d/slide8.jpg?quality=60&preferwebp=true&width=425",
+        text: "9. The App redirects you to customer profile",
+      },
+    ],
+    facebook: [
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--b83606a3-2ecd-4de4-bf68-5aa90b9317c8/my-profile.jpg?quality=60&preferwebp=true&width=425",
+        text: "1. Tap on my account",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--30ec325c-3752-4b03-9da8-4819ecaa9ae0/slide2.jpg?quality=60&preferwebp=true&width=425",
+        text: "2. Tap on Login button",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--e18e7ee9-175b-4983-ba52-355b5eda15c4/slide3.jpg?preferwebp=true&quality=60&width=425",
+        text: "3. Tap on Facebook button",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--80f58e08-06e3-4f7e-885b-8a61a1368f55/slide4.jpg?preferwebp=true&quality=60&width=425",
+        text: "4. Tap on Continue to allow Central to use Facebook sigin",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--d6925e46-73fe-4aa9-a09d-12fbb753dd8c/slide5.jpg?preferwebp=true&quality=60&width=425",
+        text: "5. Tap on Open",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--6a1a5161-d842-4031-b872-dc4bacea6592/slide6.jpg?preferwebp=true&quality=60&width=425",
+        text: "6. Tap on Continue",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--571dbc10-38a2-425e-a13f-8e06a2101889/slide8.jpg?preferwebp=true&quality=60&width=425",
+        text: "7. Fill in your information",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--63383ab1-8dd1-47d0-b1b5-eb4058031f0d/slide8.jpg?quality=60&preferwebp=true&width=425",
+        text: "8. The App redirects to customer profile",
+      },
+    ],
+    google: [
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--b83606a3-2ecd-4de4-bf68-5aa90b9317c8/my-profile.jpg?quality=60&preferwebp=true&width=425",
+        text: "1. Tap on my account",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--30ec325c-3752-4b03-9da8-4819ecaa9ae0/slide2.jpg?quality=60&preferwebp=true&width=425",
+        text: "2. Tap on Login button",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--f3ab1059-b60b-4eb5-96f5-ee3df06c0dee/slide3.jpg?preferwebp=true&quality=60&width=425",
+        text: "3. Tap on Google button",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--6d22a231-8408-4c51-b6e3-360d92977910/slide4.jpg?preferwebp=true&quality=60&width=425",
+        text: "4. Tap on Continue to allow Central to use Google sigin",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--55156541-c351-4bbf-8a2e-65065f852950/slide5.jpg?preferwebp=true&quality=60&width=425",
+        text: "5. Select on email account",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--571dbc10-38a2-425e-a13f-8e06a2101889/slide8.jpg?preferwebp=true&quality=60&width=425",
+        text: "6. Fill in your information",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--bca204ed-0383-4fb6-a2d9-6c1f1fec6dc9/slide6.jpg?preferwebp=true&quality=60&width=425",
+        text: "7. The App redirects to customer profile",
+      },
+    ],
+    apple: [
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--b83606a3-2ecd-4de4-bf68-5aa90b9317c8/my-profile.jpg?quality=60&preferwebp=true&width=425",
+        text: "1. Click on My Account",
+      },
+      {
+        img: "https://www.central.co.th/content/cds/th/en/information/faqs/how-to-login-my-account/_jcr_content/root/container/container/container_copy/accordion_copy_copy/item_1689301566777_c/item_1_copy_copy_cop/container_copy/image.coreimg.60.768.png/1738207832830.png",
+        text: "2. Select Log in",
+      },
+      {
+        img: "https://www.central.co.th/content/cds/th/en/information/faqs/how-to-login-my-account/_jcr_content/root/container/container/container_copy/accordion_copy_copy/item_1689301566777_c/item_1_copy_copy_cop/container_copy_577656386/image.coreimg.60.768.png/1738213617910.png",
+        text: "3. Select Log in with Apple",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--4267ddbe-6714-4b7e-b089-e70f8f569381/---continue.jpg?preferwebp=true&width=768&quality=60",
+        text: "4. Click Continue",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--bca204ed-0383-4fb6-a2d9-6c1f1fec6dc9/slide6.jpg?preferwebp=true&quality=60&width=425",
+        text: "5. Login successful",
+      },
+    ],
+    phone: [
+      {
+        img: "https://www.central.co.th/content/cds/th/en/information/faqs/how-to-login-my-account/_jcr_content/root/container/container/container_copy/accordion_copy_copy/item_1/container/image.coreimg.60.768.png/1738123918684.png",
+        text: "1. Tap on my account",
+      },
+      {
+        img: "https://www.central.co.th/content/cds/th/en/information/faqs/how-to-login-my-account/_jcr_content/root/container/container/container_copy/accordion_copy_copy/item_1/container_copy/image.coreimg.60.768.png/1738124673931.png",
+        text: "2. Tap on Login button",
+      },
+      {
+        img: "https://www.central.co.th/content/cds/th/en/information/faqs/how-to-login-my-account/_jcr_content/root/container/container/container_copy/accordion_copy_copy/item_1/container_copy_577656386/image.coreimg.60.768.png/1738125085837.png",
+        text: "3. Select on Mobile Number",
+      },
+      {
+        img: "https://www.central.co.th/content/cds/th/en/information/faqs/how-to-login-my-account/_jcr_content/root/container/container/container_copy/accordion_copy_copy/item_1/container_copy_2011500225/image.coreimg.60.768.png/1738126863824.png",
+        text: "4. Fill in your Mobile number",
+      },
+      {
+        img: "https://www.central.co.th/content/cds/th/en/information/faqs/how-to-login-my-account/_jcr_content/root/container/container/container_copy/accordion_copy_copy/item_1/container_copy_784557001/image.coreimg.60.768.png/1738127172313.png",
+        text: "5. Click the Continue button",
+      },
+      {
+        img: "https://www.central.co.th/content/cds/th/en/information/faqs/how-to-login-my-account/_jcr_content/root/container/container/container_copy/accordion_copy_copy/item_1/container_copy_78455/image.coreimg.60.768.png/1738127332152.png",
+        text: "6. Enter the OTP code received via SMS.",
+      },
+      {
+        img: "https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--d0608d5b-36a9-47e2-b432-092150bcedcd/slide7.jpg?preferwebp=true&width=768&quality=60",
+        text: "7. After that, the app will direct you to your account page",
+      },
+    ],
+  };
+
+  // Method change function
+  function methodChange(methodName) {
+    const methodBtns = document.querySelectorAll(".method-btn");
+    methodBtns.forEach((el) => {
+      el.classList.remove("active");
+    });
+
+    const activeBtn = document.getElementById(methodName);
+    activeBtn.classList.add("active");
+
+    const allContent = document.querySelectorAll(".method-content");
+    allContent.forEach((el) => el.classList.add("hidden"));
+
+    const targetContent = document.getElementById(`${methodName}-content`);
+    targetContent.classList.remove("hidden");
+  }
+
+  // Render steps
+  function renderSteps(method, steps) {
+    const container = document.getElementById(`${method}-content`);
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    steps.forEach((step) => {
+      const div = document.createElement("div");
+      div.className = "step-card";
+      div.innerHTML = `
+                    <img src="${step.img}" class="step-image" />
+                    <p class="step-text">${step.text}</p>
+                `;
+      container.appendChild(div);
+    });
+  }
+
+  // Initialize on DOM load
+  document.addEventListener("DOMContentLoaded", () => {
+    Object.entries(stepsData).forEach(([method, steps]) => {
+      renderSteps(method, steps);
+    });
+
+    methodChange("phone");
+  });
+</script>

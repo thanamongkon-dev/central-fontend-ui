@@ -1,0 +1,244 @@
+
+
+<style>
+  /* Desktop */
+  .desktop-container {
+    display: none;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    max-width: 1440px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .desktop-container {
+      display: flex;
+    }
+  }
+
+  .desktop-container img {
+    width: 100%;
+    display: block;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-3 img {
+    height: 100%;
+  }
+
+  /* Mobile */
+  .mobile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .mobile-container {
+      display: none;
+    }
+  }
+
+  .mobile-container img {
+    width: 100%;
+    display: block;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-2 img {
+    height: 100%;
+  }
+
+  /* Video wrapper */
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    /* 16:9 ratio */
+    overflow: hidden;
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<!-- Desktop -->
+<div class="desktop-container">
+  <img loading="lazy"
+    src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-web-content-th-chanel-12?$JPG$" />
+  <img loading="lazy" id="chanel-video" style="cursor:pointer"
+    onclick="replaceWithVideo('chanel-video','https://www.youtube.com/embed/rUDdqhZnbr4')"
+    src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-web-content-th-chanel-14?$JPG$" />
+  <img loading="lazy"
+    src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-web-content-th-chanel-16?$JPG$" />
+  <a href="https://www.central.co.th/th/chanel-smooths-revives-gives-eyes-a-wide-awake-look-cds13341626">
+    <img loading="lazy"
+      src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-web-content-th-chanel-2?$JPG$" />
+  </a>
+  <a
+    href="https://www.central.co.th/th/chanel-smooths-and-provides-radiance-for-younger-looking-skin-grcds11823060281#Y29uZmlndXJhYmxlLzkwMC8zOTM3MTI">
+    <img loading="lazy"
+      src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-web-content-th-chanel-3?$JPG$" />
+  </a>
+  <a
+    href="https://www.central.co.th/th/chanel-smooths-and-provides-radiance-for-younger-looking-skin-grcds11823060281#Y29uZmlndXJhYmxlLzkwMC8zOTM3MTI">
+    <img loading="lazy"
+      src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-web-content-th-chanel-4?$JPG$" />
+  </a>
+  <img loading="lazy"
+    src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-web-content-th-chanel-5?$JPG$" />
+
+  <div class="grid-3">
+    <a href="https://www.central.co.th/th/chanel-smooths-revives-gives-eyes-a-wide-awake-look-cds13341626">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-web-content-th-chanel-6?$JPG$" />
+    </a>
+    <a
+      href="https://www.central.co.th/th/chanel-n1-de-chanel-revitalizing-serum-30-ml-and-n1-de-chanel-revitalizing-body-serum-in-mist-140-ml-cds13341640">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-web-content-th-chanel-7?$JPG$" />
+    </a>
+    <a
+      href="https://www.central.co.th/th/chanel-smooths-and-provides-radiance-for-younger-looking-skin-grcds11823060281#Y29uZmlndXJhYmxlLzkwMC8zOTM3MDY=">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-web-content-th-chanel-8?$JPG$" />
+    </a>
+    <a href="https://www.central.co.th/th/chanel-smooths-plumps-provides-comfort-cds87792508">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-web-content-th-chanel-9?$JPG$" />
+    </a>
+    <a href="https://www.central.co.th/th/chanel-exfoliates-evens-smooths-cds680905">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-web-content-th-chanel-10?$JPG$" />
+    </a>
+    <a
+      href="https://www.central.co.th/th/chanel-enhances-colour-nourishes-plumps-grcds10222110017#Y29uZmlndXJhYmxlLzE5NTYvMzkzMDI5">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-web-content-th-chanel-11?$JPG$" />
+    </a>
+    <a href="https://www.central.co.th/th/chanel-anti-dark-circles-anti-puffiness-smooths-cds87792478">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-web-content-th-chanel-13?$JPG$" />
+    </a>
+    <a href="https://www.central.co.th/th/chanel-boosts-skins-radiance-evens-perfects-grcds11823060280">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-web-content-th-chanel-15?$JPG$" />
+    </a>
+    <a
+      href="https://www.central.co.th/th/chanel-illuminates-hydrates-protects-grcds10221120157#Y29uZmlndXJhYmxlLzE5NTYvMzkyNjg0">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-web-content-th-chanel-17?$JPG$" />
+    </a>
+  </div>
+</div>
+
+<!-- Mobile -->
+<!-- Mobile -->
+<div class="mobile-container">
+  <img loading="lazy"
+    src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-mb-content-th-chanel-12?$JPG$" />
+  <img loading="lazy" id="chanel-video-mobile" style="cursor:pointer"
+    onclick="replaceWithVideo('chanel-video-mobile','https://www.youtube.com/embed/rUDdqhZnbr4')"
+    src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-mb-content-th-chanel-14?$JPG$" />
+  <img loading="lazy"
+    src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-mb-content-th-chanel-16?$JPG$" />
+  <a href="https://www.central.co.th/th/chanel-smooths-revives-gives-eyes-a-wide-awake-look-cds13341626">
+    <img loading="lazy"
+      src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-mb-content-th-chanel-2?$JPG$" />
+  </a>
+  <a
+    href="https://www.central.co.th/th/chanel-smooths-and-provides-radiance-for-younger-looking-skin-grcds11823060281#Y29uZmlndXJhYmxlLzkwMC8zOTM3MTI">
+    <img loading="lazy"
+      src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-mb-content-th-chanel-3?$JPG$" />
+  </a>
+  <a
+    href="https://www.central.co.th/th/chanel-smooths-and-provides-radiance-for-younger-looking-skin-grcds11823060281#Y29uZmlndXJhYmxlLzkwMC8zOTM3MTI">
+    <img loading="lazy"
+      src="https://assets.central.co.th/is/image/cenergy/10102024_n1-de-chanel-mb-content-th-chanel-1?$JPG$" />
+  </a>
+  <img loading="lazy"
+    src="https://assets.central.co.th/is/image/cenergy/10102024_n1-de-chanel-mb-content-th-chanel-2?$JPG$" />
+  <img loading="lazy"
+    src="https://assets.central.co.th/is/image/cenergy/10102024_n1-de-chanel-mb-content-th-chanel-3?$JPG$" />
+
+  <div class="grid-2">
+    <a href="https://www.central.co.th/th/chanel-smooths-revives-gives-eyes-a-wide-awake-look-cds13341626">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-mb-content-th-chanel-5?$JPG$" />
+    </a>
+    <a
+      href="https://www.central.co.th/th/chanel-n1-de-chanel-revitalizing-serum-30-ml-and-n1-de-chanel-revitalizing-body-serum-in-mist-140-ml-cds13341640">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-mb-content-th-chanel-6?$JPG$" />
+    </a>
+    <a
+      href="https://www.central.co.th/th/chanel-smooths-and-provides-radiance-for-younger-looking-skin-grcds11823060281#Y29uZmlndXJhYmxlLzkwMC8zOTM3MDY=">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-mb-content-th-chanel-7?$JPG$" />
+    </a>
+    <a href="https://www.central.co.th/th/chanel-smooths-plumps-provides-comfort-cds87792508">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-mb-content-th-chanel-8?$JPG$" />
+    </a>
+    <a href="https://www.central.co.th/th/chanel-exfoliates-evens-smooths-cds680905">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-mb-content-th-chanel-9?$JPG$" />
+    </a>
+    <a
+      href="https://www.central.co.th/th/chanel-enhances-colour-nourishes-plumps-grcds10222110017#Y29uZmlndXJhYmxlLzE5NTYvMzkzMDI5">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-mb-content-th-chanel-10?$JPG$" />
+    </a>
+    <a href="https://www.central.co.th/th/chanel-anti-dark-circles-anti-puffiness-smooths-cds87792478">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-mb-content-th-chanel-11?$JPG$" />
+    </a>
+    <a href="https://www.central.co.th/th/chanel-boosts-skins-radiance-evens-perfects-grcds11823060280">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-mb-content-th-chanel-13?$JPG$" />
+    </a>
+    <a
+      href="https://www.central.co.th/th/chanel-illuminates-hydrates-protects-grcds10221120157#Y29uZmlndXJhYmxlLzE5NTYvMzkyNjg0">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-mb-content-th-chanel-15?$JPG$" />
+    </a>
+    <img loading="lazy"
+      src="https://assets.central.co.th/is/image/cenergy/300924-n1-de-chanel-mb-content-th-chanel-17?$JPG$" />
+  </div>
+</div>
+
+
+<script>
+  function replaceWithVideo(elementId, videoUrl) {
+    const img = document.getElementById(elementId);
+    if (!img) return;
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "video-wrapper";
+    wrapper.innerHTML = `
+    <iframe src="${videoUrl}?autoplay=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  `;
+    img.replaceWith(wrapper);
+  }
+</script>

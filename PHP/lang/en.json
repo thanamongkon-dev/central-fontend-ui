@@ -1,0 +1,236 @@
+{
+  "accordion": {
+    "name": "Accordion Generator",
+    "title": {
+      "label": "Accordion Title",
+      "placeholder": "Enter the title for the accordion section"
+    },
+    "desc": {
+      "label": "Accordion Content"
+    },
+    "addButton": "Add Accordion",
+    "import": {
+      "label": "Import Accordion HTML",
+      "placeholder": "Paste your accordion HTML here"
+    }
+  },
+  "carousel": {
+    "name": "Carousel Generator",
+    "info1": "Carousel info",
+    "info2": "Slide info",
+    "title": {
+      "label": "Carousel Title",
+      "placeholder": "Enter the title for the carousel"
+    },
+    "subtitle": {
+      "label": "Carousel Subtitle",
+      "placeholder": "Enter the subtitle for the carousel"
+    },
+    "img": {
+      "label": "Image URL",
+      "placeholder": "Enter the image URL"
+    },
+    "link": {
+      "label": "Link URL",
+      "placeholder": "Enter the link URL"
+    },
+    "desc": {
+      "label": "Carousel Text",
+      "placeholder": "Enter the Text for the carousel"
+    },
+    "addButton": "Add Slide",
+    "config": {
+      "template": {
+        "label": "Select Template",
+        "label2": "Select Custom Template",
+        "options": {
+          "normal": "Normal",
+          "hero": "Hero",
+          "grid": "Grid",
+          "custom": "Custom"
+        }
+      },
+      "slideby": "Slide By",
+      "shape": {
+        "label": "Shape",
+        "options": {
+          "circle": "Circle",
+          "square": "Square",
+          "rounded": "Rounded"
+        }
+      },
+      "size": "Items Size",
+      "gap": "Items Gap",
+      "color": {
+        "label": "Color Picker",
+        "text": "Text Color",
+        "bg": "Background Color"
+      }
+    }
+  },
+  "promotion": {
+    "name": "Promotions Generator",
+    "title": {
+      "label": "Promotion Title",
+      "placeholder": "Enter the title for the promotion"
+    },
+    "image": {
+      "label": "Image URL",
+      "placeholder": "Enter the image URL"
+    },
+    "link": {
+      "label": "Link URL",
+      "placeholder": "Enter the link URL"
+    },
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "addButton": "Add Promotion",
+    "addList": "Add List Items",
+    "ignore": "Bypass Start Date",
+    "import": {
+      "label": "Import Promotion HTML",
+      "placeholder": "Paste your promotion HTML here"
+    },
+    "importList": {
+      "label": "Import List Items",
+      "placeholder": "Paste your list items here"
+    }
+  },
+  "storeTop": {
+    "name": "Store Discover Creater",
+    "title": {
+      "label": "Store Name",
+      "placeholder": "Enter store name"
+    },
+    "img": {
+      "label": "Store Image URL",
+      "placeholder": "Enter store image URL"
+    },
+    "openTime": {
+      "label": "Open Hours",
+      "days": {
+        "mon": "Monday",
+        "tue": "Tuesday",
+        "wed": "Wednesday",
+        "thu": "Thursday",
+        "fri": "Friday",
+        "sat": "Saturday",
+        "sun": "Sunday",
+        "all": "Every Days"
+      }
+    },
+    "contact": {
+      "label": "Contact",
+      "placeholder": "Enter contact information"
+    },
+    "address": {
+      "label": "Address",
+      "placeholder": "Enter store address"
+    },
+    "desc": {
+      "label": "Discover",
+      "placeholder": "Enter store Discover"
+    }
+  },
+  "storeBot": {
+    "name": "Store Highlight Creater",
+    "event": {
+      "title": {
+        "label": "Event Title",
+        "placeholder": "Enter event title"
+      },
+      "img": {
+        "label": "Event Image URL",
+        "placeholder": "Enter event image URL"
+      },
+      "location": {
+        "label": "Event Location",
+        "placeholder": "Enter event location"
+      },
+      "type": {
+        "label": "Event Type"
+      },
+      "start": "Start Date",
+      "end": "End Date",
+      "desc": {
+        "placeholder": "Enter event description"
+      },
+      "addButton": "Add Event",
+      "ignore": "Bypass Start Date"
+    },
+    "location": {
+      "latitude": {
+        "label": "Latitude",
+        "placeholder": "Enter latitude"
+      },
+      "longitude": {
+        "label": "Longitude",
+        "placeholder": "Enter longitude"
+      },
+      "select": "Select Store",
+      "update": "Update Location"
+    },
+    "restaurant": {
+      "title": {
+        "label": "Restaurant Name",
+        "placeholder": "Enter restaurant name"
+      },
+      "img": {
+        "label": "Restaurant Image URL",
+        "placeholder": "Enter restaurant image URL"
+      },
+      "type": {
+        "label": "Restaurant Type",
+        "placeholder": "Enter restaurant type"
+      },
+      "location": {
+        "label": "Restaurant Location",
+        "placeholder": "Enter restaurant location"
+      },
+      "open": "Restaurant Open Hours",
+      "addBtn": "Add Restaurant"
+    },
+    "directories": {
+      "img": {
+        "label": "Directory Image URL",
+        "placeholder": "Enter directory image URL"
+      },
+      "addBtn": "Add Directory"
+    },
+    "services": {
+      "title": {
+        "label": "Service Name",
+        "placeholder": "Enter service name"
+      },
+      "img": {
+        "label": "Service Image URL",
+        "placeholder": "Enter service image URL"
+      },
+      "tel" : {
+        "label" : "Tel",
+        "placeholder" : "Enter customer service tel"
+      },
+      "desc": {
+        "label": "Service Description",
+        "placeholder": "Enter service description"
+      },
+      "addBtn": "Add Service",
+      "update": "Update Tel"
+    },
+    "config": {
+      "h1": "Used Tabs",
+      "h2": "Select Store",
+      "tabs": {
+        "event": "Event",
+        "location": "Location",
+        "restaurant": "Restaurant",
+        "directories": "Directories",
+        "services": "Services"
+      }
+    }
+  },
+  "preview": "Preview",
+  "copy": "Copy Code",
+  "import": "Import Code",
+  "importPlaceholder": "Paste your HTML code here"
+}

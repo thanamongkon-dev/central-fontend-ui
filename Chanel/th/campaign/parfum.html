@@ -1,0 +1,173 @@
+<!-- Desktop -->
+<div class="desktop-container">
+  <img loading="lazy"
+    src="https://assets.central.co.th/is/image/cenergy/202401016_content-page_web_th-chanel-01?$JPG$" />
+  <a href="https://www.central.co.th/th/promotion-campaign/n-5">
+    <img loading="lazy"
+      src="https://assets.central.co.th/is/image/cenergy/202401016_content-page_web_th-chanel-02?$JPG$" />
+  </a>
+  <a href="https://www.central.co.th/th/promotion-campaign/n-5">
+    <img loading="lazy"
+      src="https://assets.central.co.th/is/image/cenergy/202401016_content-page_web_th-chanel-03?$JPG$" />
+  </a>
+  <a href="https://www.central.co.th/th/promotion-campaign/n-5">
+    <img loading="lazy"
+      src="https://assets.central.co.th/is/image/cenergy/202401016_content-page_web_th-chanel-04?$JPG$" />
+  </a>
+  <img loading="lazy"
+    src="https://assets.central.co.th/is/image/cenergy/202401016_content-page_web_th-chanel-05?$JPG$" />
+  <img loading="lazy" id="chanel-video" style="cursor:pointer"
+    onclick="replaceWithVideo('chanel-video','https://www.youtube.com/embed/suRZbPRFLlo')"
+    src="https://assets.central.co.th/is/image/cenergy/202401016_content-page_web_th-chanel-06?$JPG$" />
+  <div class="grid-3">
+    <a href="https://www.central.co.th/th/chanel-eau-de-parfum-limited-edition-cds16288720">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/202401016_content-page_web_th-chanel-07?$JPG$" />
+    </a>
+    <a href="https://www.central.co.th/th/chanel-eau-premiere-spray-grcds10222110020">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/202401016_content-page_web_th-chanel-08?$JPG$" />
+    </a>
+    <a href="https://www.central.co.th/th/chanel-eau-de-toilette-spray-grcdsco190500243">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/202401016_content-page_web_th-chanel-09?$JPG$" />
+    </a>
+    <a href="https://www.central.co.th/th/chanel-eau-de-toilette-spray-grcds10222110025">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/202401016_content-page_web_th-chanel-10?$JPG$" />
+    </a>
+  </div>
+</div>
+
+<!-- Mobile -->
+<div class="mobile-container">
+  <img loading="lazy"
+    src="https://assets.central.co.th/is/image/cenergy/202401016_content-page_mb_th-chanel-01?$JPG$" />
+  <a href="https://www.central.co.th/th/promotion-campaign/n-5">
+    <img loading="lazy"
+      src="https://assets.central.co.th/is/image/cenergy/202401016_content-page_mb_th-chanel-02?$JPG$" />
+  </a>
+  <a href="https://www.central.co.th/th/promotion-campaign/n-5">
+    <img loading="lazy"
+      src="https://assets.central.co.th/is/image/cenergy/202401016_content-page_mb_th-chanel-03?$JPG$" />
+  </a>
+  <a href="https://www.central.co.th/th/promotion-campaign/n-5">
+    <img loading="lazy"
+      src="https://assets.central.co.th/is/image/cenergy/202401016_content-page_mb_th-chanel-04?$JPG$" />
+  </a>
+  <img loading="lazy"
+    src="https://assets.central.co.th/is/image/cenergy/202401016_content-page_mb_th-chanel-05?$JPG$" />
+  <img loading="lazy" id="chanel-video-mobile" style="cursor:pointer"
+    onclick="replaceWithVideo('chanel-video-mobile','https://www.youtube.com/embed/suRZbPRFLlo')"
+    src="https://assets.central.co.th/is/image/cenergy/202401016_content-page_mb_th-chanel-06?$JPG$" />
+  <div class="grid-2">
+    <a href="https://www.central.co.th/th/chanel-eau-de-parfum-limited-edition-cds16288720">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/202401016_content-page_mb_th-chanel-07?$JPG$" />
+    </a>
+    <a href="https://www.central.co.th/th/chanel-eau-premiere-spray-grcds10222110020">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/202401016_content-page_mb_th-chanel-08?$JPG$" />
+    </a>
+    <a href="https://www.central.co.th/th/chanel-eau-de-toilette-spray-grcdsco190500243">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/202401016_content-page_mb_th-chanel-09?$JPG$" />
+    </a>
+    <a href="https://www.central.co.th/th/chanel-eau-de-toilette-spray-grcds10222110025">
+      <img loading="lazy"
+        src="https://assets.central.co.th/is/image/cenergy/202401016_content-page_mb_th-chanel-10?$JPG$" />
+    </a>
+  </div>
+</div>
+
+<script>
+  function replaceWithVideo(elementId, videoUrl) {
+    const img = document.getElementById(elementId);
+    if (!img) return;
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "video-wrapper";
+    wrapper.innerHTML = `
+    <iframe src="${videoUrl}?autoplay=1&rel=0" class="video-iframe" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  `;
+    img.replaceWith(wrapper);
+  }
+</script>
+
+<style>
+  /* Desktop */
+  .desktop-container {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .desktop-container img {
+    width: 100%;
+    display: block;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .grid-3 img {
+    height: 100%;
+  }
+
+  /* Mobile */
+  .mobile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-2 img {
+    height: 100%;
+  }
+
+  .mobile-container img {
+    width: 100%;
+    display: block;
+  }
+
+  /* Video wrapper */
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    /* 16:9 ratio */
+    overflow: hidden;
+  }
+
+  .video-wrapper .video-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Media Queries */
+  @media(min-width: 768px) {
+    .desktop-container {
+      display: flex;
+    }
+
+    .mobile-container {
+      display: none;
+    }
+  }
+</style>

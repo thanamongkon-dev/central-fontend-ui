@@ -1,0 +1,179 @@
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+<!-- ✅ เพิ่มใน <head> เพื่อให้ใช้ axios ได้ -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<div class="container flex flex-col min-h-screen p-6 mx-auto font-sans bg-gray-50">
+    <div class="flex items-center justify-between mb-6">
+        <h1 class="text-2xl font-semibold text-gray-800">User Management</h1>
+        <button class="btn btn-primary" onclick="my_modal_5.showModal()">Add User</button>
+    </div>
+
+    <!-- Open the modal using ID.showModal() method -->
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+        <div class="flex flex-col modal-box">
+            <h3 class="text-lg font-bold">Add New User</h3>
+
+
+            <fieldset class="w-full fieldset">
+                <label class="label">Username</label>
+                <input id="username" type="text" class="input" placeholder="Enter Username" />
+
+                <label class="label">Password</label>
+                <input id="password" type="password" class="input" placeholder="Enter password" />
+
+                <label class="label">Menu List</label>
+                <div id="menu-list" class="grid grid-cols-2 gap-4">
+                    <!-- Menu items will be populated here -->
+
+                </div>
+            </fieldset>
+
+            <div class="modal-action">
+                <form method="dialog">
+                    <button class="btn btn-primary" onclick="saveUser()">Save</button>
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn">Close</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
+
+    <table class="table w-full">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Username</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="userTableBody">
+            <!-- User rows will be populated here -->
+        </tbody>
+    </table>
+
+    <script>
+        let userData = [];
+        const menulist = {
+            "accordion": "accordion-creater.php",
+            "carousel": "carousel-creater.php",
+            "promotions": "promotions-creater.php",
+            "store-top": "top-discover-creater.php",
+            "store-bottom": "store-bottom-creater.php",
+            "extract-url": "./sku-tools/extract-url.php",
+            "context-rule": "./sku-tools/context-rule.php",
+            "product-stock": "./sku-tools/sku.php",
+            "management": "./json/index.php",
+            "users-management": "./json/users-manage.php",
+        }
+
+        const menuListElement = document.getElementById('menu-list');
+        Object.keys(menulist).forEach(key => {
+            const menu = document.createElement('label');
+            menu.className = 'label cursor-pointer flex-row-reverse justify-end';
+            menu.innerHTML = `<span class="label-text">${key.charAt(0).toUpperCase() + key.slice(1).replace(/-/g, ' ')}</span>`;
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.className = 'checkbox';
+            checkbox.value = menulist[key];
+            checkbox.name = key;
+            menu.appendChild(checkbox);
+
+            menuListElement.appendChild(menu);
+        });
+
+        async function getUsers() {
+            await axios.get('./json/get-users.php')
+                .then(response => {
+                    const users = response.data;
+                    console.log(users);
+                    userData = users; // Store the fetched users in userData
+                    const userTableBody = document.getElementById('userTableBody');
+                    userTableBody.innerHTML = ''; // Clear existing rows
+
+                    users.forEach((user, index) => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${index + 1}</td>
+                            <td>${user.username}</td>
+                            <td>
+                                <button class="btn btn-warning btn-sm" onclick="editUser('${user.username}')">Edit</button>
+                            </td>
+                        `;
+                        userTableBody.appendChild(row);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching users:', error);
+                });
+        }
+
+        getUsers();
+
+        function editUser(username) {
+            const user = userData.find(u => u.username === username);
+            if (!user) {
+                Swal.fire('Error', 'User not found!', 'error');
+                return;
+            }
+
+            document.getElementById('username').value = user.username;
+            document.getElementById('password').value = ''; // Clear password field for security
+            const menuCheckboxes = document.querySelectorAll('#menu-list input[type="checkbox"]');
+            menuCheckboxes.forEach(checkbox => {
+                checkbox.checked = user.menu && user.menu[checkbox.name] ? true : false;
+            });
+
+            my_modal_5.showModal();
+        }
+
+        function saveUser() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const menuCheckboxes = document.querySelectorAll('#menu-list input[type="checkbox"]');
+            const selectedMenus = Array.from(menuCheckboxes)
+                .filter(checkbox => checkbox.checked)
+                .reduce((acc, checkbox) => {
+                    acc[checkbox.name] = checkbox.value;
+                    return acc;
+                }, {});
+
+            if (!username || !password) {
+                Swal.fire('Error', 'Username and Password are required!', 'error');
+                return;
+            }
+
+            console.log('Saving user:', {
+                username: username,
+                password: password,
+                menus: selectedMenus
+            });
+
+            axios.post('../save-user.php', {
+                username: username,
+                password: password,
+                menu: selectedMenus
+            })
+                .then(response => {
+                    Swal.fire('Success', response.data.message, 'success');
+                    getUsers(); // Refresh the user list
+                    clearInputFields(); // Clear input fields after saving
+                    my_modal_5.close();
+                })
+                .catch(error => {
+                    Swal.fire('Error', error.response?.data?.message || 'Failed to add user!', 'error');
+                });
+        }
+
+        function clearInputFields() {
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+            const menuCheckboxes = document.querySelectorAll('#menu-list input[type="checkbox"]');
+            menuCheckboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+        }
+    </script>
+
+</div>

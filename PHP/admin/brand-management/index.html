@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cupcake">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Brands JSON</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+    <!-- ✅ เพิ่มใน <head> เพื่อให้ใช้ axios ได้ -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        .btn {
+            color: white;
+        }
+
+        .btn.btn-base-content {
+            color: black
+        }
+    </style>
+</head>
+
+<body class="container flex flex-col min-h-screen p-6 mx-auto font-sans bg-gray-50">
+    <h1 class="mb-4 text-2xl font-bold">Brand List Editor</h1>
+
+    <div class="flex justify-between mb-4">
+        <div class="select max-w-fit">
+            <label class="label">List Per Page</label>
+            <select id="per-page">
+                <option class="border-none" value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+        </div>
+        <input id="searchInput" oninput="handleSearch()" placeholder="Search brand name or ID..." class="w-1/3 input" />
+    </div>
+
+    <div class="flex gap-2 mb-4 max-md:flex-col">
+        <div class="flex gap-2 max-md:flex-col">
+            <input id="brandId" placeholder="ID" class="input" />
+            <input id="brandName" placeholder="Name" class="input" />
+        </div>
+        <button onclick="addOrUpdateBrand()" class="btn btn-primary">Add / Update</button>
+        <button onclick="saveBrands()" class="btn btn-success">Save JSON</button>
+        <!-- เพิ่มปุ่ม import -->
+        <button onclick="importExcelData()" class="btn btn-info">Import Excel Data</button>
+        <button onclick="deleteAllData()" class="btn btn-error">Delete All Data</button>
+    </div>
+
+    <table class="table w-full bg-white shadow table-auto">
+        <thead>
+            <tr class="text-center">
+                <th class="px-3 py-2 w-[10%]">NO.</th>
+                <th class="px-3 py-2 w-[10%] sortable cursor-pointer" onclick="sortBy('id')">ID <span
+                        id="arrow-id"></span></th>
+                <th class="px-3 py-2 w-[60%] sortable text-left cursor-pointer" onclick="sortBy('name')">Name
+                    <span id="arrow-name"></span>
+                </th>
+                <th class="px-3 py-2 w-[20%]">Actions</th>
+            </tr>
+        </thead>
+        <tbody id="brandTable"></tbody>
+    </table>
+
+    <!-- ใส่ไว้ใต้ table -->
+    <div id="loadingIndicator" class="items-center justify-center hidden w-full gap-2 py-4 text-center">
+        <span class="loading loading-spinner text-primary">Loading data...</span>
+        <p class="text-gray-500">Loading data...</p>
+    </div>
+
+    <div id="noDataMessage" class="hidden py-4 text-center text-gray-500">
+        No data found
+    </div>
+
+    <!-- Pagination Container -->
+    <div id="pagination" class="self-end mt-4"></div>
+
+    <script>
+        let allBrands = []; // <-- เก็บทั้งหมด
+        let pageSize = 10;
+        let currentPage = 1;
+        let filteredBrands = []; // ← เก็บข้อมูลที่ค้นหาแล้ว
+        let isSaved = true;
+        let currentSortField = '';
+        let currentSortDirection = 'asc';
+        const loadingIndicator = document.getElementById("loadingIndicator");
+        const noDataMessage = document.getElementById("noDataMessage");
+
+        const perPage = document.getElementById('per-page');
+        perPage.addEventListener("input", () => {
+            pageSize = perPage.value;
+            renderTable();
+        });
+
+        // โหลดทั้งหมดจาก server
+        loadingIndicator.classList.remove("hidden");
+        loadingIndicator.classList.add("flex");
+        axios.get('/json/get-brands.php')
+            .then(response => {
+                allBrands = response.data;
+                filteredBrands = [...allBrands];
+                renderTable();
+                renderPagination();
+            })
+            .catch(error => {
+                console.error("โหลดข้อมูลล้มเหลว", error);
+                // alert("เกิดข้อผิดพลาดในการโหลดข้อมูล");
+            })
+            .finally(() => {
+                loadingIndicator.classList.add("hidden");
+                loadingIndicator.classList.remove("flex");
+            });
+
+        function sortBy(field) {
+            if (currentSortField === field) {
+                currentSortDirection = currentSortDirection === 'asc' ? 'desc' : 'asc';
+            } else {
+                currentSortField = field;
+                currentSortDirection = 'asc';
+            }
+
+            filteredBrands.sort((a, b) => {
+                const valA = a[field].toString().toLowerCase();
+                const valB = b[field].toString().toLowerCase();
+                if (valA < valB) return currentSortDirection === 'asc' ? -1 : 1;
+                if (valA > valB) return currentSortDirection === 'asc' ? -1 : 1;
+                return 0;
+            });
+
+            // อัปเดตลูกศร
+            document.getElementById('arrow-id').textContent = field === 'id' ? (currentSortDirection === 'asc' ? '▲' : '▼') : '';
+            document.getElementById('arrow-name').textContent = field === 'name' ? (currentSortDirection === 'asc' ? '▲' : '▼') : '';
+
+            renderTable();
+        }
+
+        function renderTable() {
+            const start = (currentPage - 1) * pageSize;
+            const pageData = filteredBrands.slice(start, start + pageSize);
+
+            const table = document.getElementById("brandTable");
+            table.innerHTML = '';
+
+            if (pageData.length === 0) {
+                noDataMessage.classList.remove("hidden");
+                return;
+            } else {
+                noDataMessage.classList.add("hidden");
+            }
+
+            pageData.forEach((brand, index) => {
+                const actualIndex = allBrands.findIndex(b => b.id === brand.id);
+                table.innerHTML += `
+        <tr class="text-center hover:bg-primary">
+            <td class="px-3 py-2 w-[10%]">${(currentPage - 1) * pageSize + index + 1}</td>
+            <td class="px-3 py-2 w-[10%]">${brand.id}</td>
+            <td class="px-3 py-2 w-[60%] text-left">${brand.name}</td>
+            <td class="px-3 py-2 w-[20%]">
+            <button onclick="editBrand(${actualIndex})" class="text-white btn btn-warning">Edit</button>
+            <button onclick="deleteBrand(${actualIndex})" class="text-white btn btn-error">Delete</button>
+            </td>
+        </tr>`;
+            });
+        }
+
+        function handleSearch() {
+            const keyword = document.getElementById('searchInput').value.trim().toLowerCase();
+
+            // filter จาก allBrands
+            filteredBrands = allBrands.filter(b =>
+                b.name.toLowerCase().includes(keyword) ||
+                b.id.includes(keyword)
+            );
+
+            currentPage = 1; // reset หน้า
+            renderTable();
+            renderPagination();
+        }
+
+        function renderPagination() {
+            const totalPages = Math.ceil(filteredBrands.length / pageSize);
+            const container = document.getElementById("pagination");
+            container.innerHTML = '';
+
+            const maxVisible = 5;
+
+            function addButton(page) {
+                container.innerHTML += `<button onclick="goToPage(${page})" class="btn m-1 ${page === currentPage ? 'btn-primary text-white' : 'btn-base-content'}">${page}</button>`;
+            }
+
+            function addEllipsis() {
+                container.innerHTML += `<span class="px-2 py-1 m-1">...</span>`;
+            }
+
+            if (totalPages <= maxVisible + 2) {
+                // แสดงทุกหน้า
+                for (let i = 1; i <= totalPages; i++) addButton(i);
+            } else {
+                addButton(1);
+
+                if (currentPage > 3) addEllipsis();
+
+                let start = Math.max(2, currentPage - 1);
+                let end = Math.min(totalPages - 1, currentPage + 1);
+
+                for (let i = start; i <= end; i++) addButton(i);
+
+                if (currentPage < totalPages - 2) addEllipsis();
+
+                addButton(totalPages);
+            }
+        }
+
+        function goToPage(page) {
+            currentPage = page;
+            renderTable();
+            renderPagination();
+        }
+
+        function addOrUpdateBrand() {
+            const id = document.getElementById('brandId').value.trim();
+            const name = document.getElementById('brandName').value.trim();
+            if (!id || !name) {
+                Swal.fire('กรุณาใส่ให้ครบ', 'ต้องกรอกทั้ง ID และ Name', 'warning');
+                return;
+            }
+
+            const index = allBrands.findIndex(b => b.id === id);
+            if (index >= 0) {
+                allBrands[index].name = name;
+                Swal.fire('อัปเดตแล้ว', `Brand ID ${id} ถูกอัปเดต`, 'success');
+            } else {
+                allBrands.push({ id, name });
+                Swal.fire('เพิ่มรายการแล้ว', `Brand ID ${id} ถูกเพิ่มเรียบร้อย`, 'success');
+            }
+
+            markAsUnsaved();
+
+            // อัปเดต filteredBrands ให้ตรงกับ keyword ปัจจุบัน
+            const keyword = document.getElementById('searchInput').value.trim().toLowerCase();
+            filteredBrands = keyword
+                ? allBrands.filter(b => b.name.toLowerCase().includes(keyword) || b.id.includes(keyword))
+                : [...allBrands];
+
+            document.getElementById('brandId').value = '';
+            document.getElementById('brandName').value = '';
+            document.getElementById('brandId').readOnly = false;
+            document.getElementById('brandId').focus();
+            renderTable();
+            renderPagination();
+        }
+
+        function editBrand(index) {
+            const brand = allBrands[index];
+            console.log("✏️ Editing brand:", brand, "at index:", index);
+
+            document.getElementById('brandId').value = brand.id;
+            document.getElementById('brandName').value = brand.name;
+
+            // editingIndex = index;
+        }
+
+        function saveBrands() {
+            axios.post('/json/save.php', allBrands, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => {
+                    isSaved = true;
+                    Swal.fire('บันทึกสำเร็จ', response.data, 'success');
+                })
+                .catch(error => {
+                    console.error("❌ Error saving data:", error);
+                    Swal.fire('เกิดข้อผิดพลาด', 'ไม่สามารถบันทึกข้อมูลได้', 'error');
+                });
+        }
+
+        function deleteAllData() {
+            Swal.fire({
+                title: '⚠️ ต้องการลบข้อมูลทั้งหมด?',
+                text: 'ข้อมูลทั้งหมดในรายการจะถูกลบและไม่สามารถกู้คืนได้!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'ใช่ ลบทั้งหมด',
+                cancelButtonText: 'ยกเลิก'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    allBrands = [];
+                    filteredBrands = [];
+                    currentPage = 1;
+
+                    axios.post('/json/save.php', [], {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                        .then(res => {
+                            Swal.fire('🗑️ ลบและบันทึกแล้ว!', res.data, 'success');
+                            isSaved = true;
+                            renderTable();
+                            renderPagination();
+                        })
+                        .catch(err => {
+                            console.error(err);
+                            Swal.fire('เกิดข้อผิดพลาด', 'ไม่สามารถบันทึกได้', 'error');
+                        });
+                }
+            });
+        }
+
+        function deleteBrand(index) {
+            const brand = allBrands[index];
+
+            Swal.fire({
+                title: 'ยืนยันการลบ?',
+                text: `คุณต้องการลบ "${brand.name}" หรือไม่`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'ใช่, ลบเลย',
+                cancelButtonText: 'ยกเลิก'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    allBrands.splice(index, 1);
+                    markAsUnsaved();
+                    // อัปเดต filteredBrands
+                    const keyword = document.getElementById('searchInput').value.trim().toLowerCase();
+                    filteredBrands = keyword
+                        ? allBrands.filter(b => b.name.toLowerCase().includes(keyword) || b.id.includes(keyword))
+                        : [...allBrands];
+
+                    currentPage = 1;
+                    renderTable();
+                    renderPagination();
+
+                    Swal.fire('ลบแล้ว!', `"${brand.name}" ถูกลบเรียบร้อย`, 'success');
+                }
+            });
+        }
+
+        function importExcelData() {
+            Swal.fire({
+                title: 'วางข้อมูล Excel ที่นี่',
+                html: `<textarea id="excelDataInput" class="w-full textarea textarea-bordered" rows="8" placeholder="วางข้อมูล เช่น&#13;
+10525   100 PERCENT&#13;
+8288    111 SKIN&#13;
+..."></textarea>`,
+                showCancelButton: true,
+                confirmButtonText: 'Import',
+                preConfirm: () => {
+                    const text = Swal.getPopup().querySelector('#excelDataInput').value.trim();
+                    if (!text) {
+                        Swal.showValidationMessage('กรุณาวางข้อมูลก่อน');
+                        return false;
+                    }
+                    return text;
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    if (!Array.isArray(allBrands)) {
+                        allBrands = [];
+                    }
+
+                    const lines = result.value.split('\n');
+                    let newCount = 0;
+                    let updatedCount = 0;
+                    let newItems = [];
+                    let updatedItems = [];
+
+                    lines.forEach(line => {
+                        const parts = line.trim().split(/\s{2,}|\t/);
+                        if (parts.length >= 2) {
+                            const id = parts[0].trim();
+                            const name = parts.slice(1).join(' ').trim();
+
+                            const existing = allBrands.find(b => b.id === id);
+                            if (existing) {
+                                if (existing.name !== name) {
+                                    existing.name = name;
+                                    updatedCount++;
+                                    updatedItems.push(`${id} : ${name}`);
+                                }
+                            } else {
+                                allBrands.push({ id, name });
+                                newCount++;
+                                newItems.push(`${id} : ${name}`);
+                            }
+                        }
+                    });
+
+                    const keyword = document.getElementById('searchInput').value.trim().toLowerCase();
+                    filteredBrands = keyword
+                        ? allBrands.filter(b => b.name.toLowerCase().includes(keyword) || b.id.includes(keyword))
+                        : [...allBrands];
+
+                    currentPage = 1;
+                    renderTable();
+                    renderPagination();
+
+                    let message = `✅ เพิ่มใหม่ ${newCount} รายการ\n`;
+                    if (newItems.length > 0) message += `\n🟢 เพิ่ม:\n${newItems.join('\n')}`;
+                    if (updatedCount > 0) {
+                        message += `\n\n✏️ อัปเดตชื่อ ${updatedCount} รายการ:\n${updatedItems.join('\n')}`;
+                    }
+
+                    Swal.fire({
+                        title: 'Import เสร็จสิ้น',
+                        icon: 'success',
+                        html: `<pre style="text-align:left; white-space:pre-wrap;">${message}</pre>`,
+                        width: '600px'
+                    });
+                }
+            });
+        }
+
+        function markAsUnsaved() {
+            isSaved = false;
+        }
+
+        window.onbeforeunload = function (e) {
+            if (!isSaved) {
+                const confirmationMessage = 'คุณยังไม่ได้บันทึกข้อมูล ต้องการออกจากหน้านี้หรือไม่?';
+                e.returnValue = confirmationMessage; // สำหรับบาง browser
+                return confirmationMessage;         // สำหรับบาง browser
+            }
+        };
+    </script>
+
+</body>
+
+</html>

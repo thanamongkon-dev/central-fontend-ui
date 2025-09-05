@@ -1,0 +1,431 @@
+<style>
+  .qa-content-container {
+    width: 100%;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3rem;
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .qa-content-container {
+      padding: 0 3rem;
+      gap: 1.5rem;
+    }
+  }
+
+  .qa-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    align-content: center;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .qa-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  .qa-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+    border: 1px solid #8b8b8b;
+    border-top: 6px solid #ef4444;
+    border-radius: 0.25rem;
+    padding: 0.75rem 0.75rem 1.5rem 0.75rem;
+    gap: 0.75rem;
+    height: 100%;
+  }
+
+  .qa-card a {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    display: block;
+    color: #1d1d1f;
+    text-decoration: none;
+  }
+
+  .qa-card a:hover {
+    text-decoration: underline;
+  }
+
+  .qa-card h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .qa-card {
+        padding: 1.5rem;
+        gap: 1.5rem;
+        min-height: 300px;
+    }
+
+    .qa-card a {
+        font-size: 1rem;
+    }
+  }
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<div class="qa-content-container">
+    <div class="qa-grid"></div>
+</div>
+
+<script>
+  function renderQA() {
+    const qaData = [
+      {
+        header: "My account",
+        questions: [
+          {
+            text: "How to register",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-register",
+          },
+          {
+            text: "How to login my account",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-login",
+          },
+          {
+            text: "How to unsubscribe news letter email",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-unsubscribe-news-letter-email",
+          },
+          {
+            text: "How to add/remove my address",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-add-remove-my-address",
+          },
+          {
+            text: "How to add/remove my credit card",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-add-remove-my-credit-card",
+          },
+          {
+            text: "How to close my account in central",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-close-my-account-in-central",
+          },
+          {
+            text: "How to turn on/off notification",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-turn-on-and-off-notification",
+          },
+        ],
+      },
+      {
+        header: "Payments",
+        questions: [
+          {
+            text: "How to pay by credit card / Debit Card",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-pay-by-credit-card-debit-card",
+          },
+          {
+            text: "How to pay by bank transfer / QR code",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-pay-by-bank-transfer-qr-code",
+          },
+          {
+            text: "How to pay by The1 points",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-pay-by-the1-points",
+          },
+          {
+            text: "How to pay by pay on delivery",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-pay-by-pay-on-delivery",
+          },
+          // {
+          //   text: "How to pay by installment (Out of Service)",
+          //   link: "",
+          // },
+          // {
+          //   text: "How to pay at store (Out of Service)",
+          //   link: "",
+          // },
+        ],
+      },
+      {
+        header: "Product",
+        questions: [
+          {
+            text: "How to find product by brand or category",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-find-product-by-brand-or-category#Login-item-d8f9efa358",
+          },
+          {
+            text: "How to see product description & size",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-see-product-discription-and-size",
+          },
+          {
+            text: "How to see type of seller",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-see-type-of-seller",
+          },
+          {
+            text: "How to get warranty information",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-get-warranty-information",
+          },
+        ],
+      },
+      {
+        header: "Coupons",
+        questions: [
+          {
+            text: "How to collect coupon",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-collect-coupon",
+          },
+          {
+            text: "How to check my collected coupons",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-check-my-collected-coupons#Login-item-561ae59283",
+          },
+          {
+            text: "How to apply discount coupon",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-use-coupon#Login-item-52bf1f83e6",
+          },
+          {
+            text: "How to use coupon at store",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-use-coupon-at-store",
+          },
+          {
+            text: "How to see coupon condition",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-see-coupon-condition",
+          },
+        ],
+      },
+      {
+        header: "In-Store",
+        questions: [
+          {
+            text: "Central Chat & Shop",
+            link: "https://prod-web.central.co.th/en/faqs/chat-and-shop",
+          },
+          // {
+          //   text: "Central personal shopper",
+          //   link: "https://prod-web.central.co.th/en/faqs/central-robinson-personal-shopper-1425",
+          // },
+          {
+            text: "Western Union",
+            link: "https://www.westernunion.com/en/en/web/user/login",
+          },
+          {
+            text: "Central gift card",
+            link: "https://prod-web.central.co.th/en/faqs/central-gift-card",
+          },
+          {
+            text: "Store locations and Hours",
+            link: "https://prod-web.central.co.th/en/faqs/store-locations",
+          },
+          {
+            text: "Store promotion and event",
+            link: "https://www.central.co.th/e-shopping/instore-promo",
+          },
+          {
+            text: "Tourist guide",
+            link: "https://www.central.co.th/en/tourist",
+          },
+        ],
+      },
+      {
+        header: "Promotion",
+        questions: [
+          {
+            text: "How to check my free gift",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-check-my-free-gift",
+          },
+          {
+            text: "Credit card promotions",
+            link: "https://prod-web.central.co.th/en/faqs/credit-card-promotions",
+          },
+          // {
+          //   text: "How to apply installment promotion (Out of Service)",
+          //   link: "",
+          // },
+        ],
+      },
+      {
+        header: "Services",
+        questions: [
+          {
+            text: "Quick pickup at the branch",
+            link: "https://prod-web.central.co.th/en/faqs/click-and-collect",
+          },
+          // {
+          //   text: "3 hours delivery (Out of Service)",
+          //   link: "",
+          // },
+          {
+            text: "Click and collect",
+            link: "https://prod-web.central.co.th/en/faqs/click-and-collect",
+          },
+          {
+            text: "Standard Delivery",
+            link: "https://prod-web.central.co.th/en/faqs/standard-delivery",
+          },
+        ],
+      },
+      {
+        header: "The1",
+        questions: [
+          {
+            text: "How to collect The1 points",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-collect-the1-points",
+          },
+          {
+            text: "How to redeem The1 points",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-redeem-the1-points",
+          },
+          {
+            text: "How to connect my account with The1",
+            link: "https://prod-web.central.co.th/th/faqs/how-to-connect-my-account-with-the1",
+          },
+          {
+            text: "The1 Excusive benefit",
+            link: "https://www.the1.co.th/the1Exclusive/privileges",
+          },
+        ],
+      },
+      {
+        header: "Policies",
+        questions: [
+          {
+            text: "Delivery policy",
+            link: "https://prod-web.central.co.th/en/faqs/delivery-policy",
+          },
+          {
+            text: "Cancel policy",
+            link: "https://prod-web.central.co.th/en/faqs/cancel-policy",
+          },
+          {
+            text: "Return & refund policy",
+            link: "https://prod-web.central.co.th/en/faqs/return-policy",
+          },
+          {
+            text: "Privacy policy",
+            link: "https://prod-web.central.co.th/en/faqs/privacy-policy",
+          },
+          {
+            text: "Cookie policy",
+            link: "https://prod-web.central.co.th/en/faqs/cookie-policy",
+          },
+          {
+            text: "Gift Wrap Policy",
+            link: "https://prod-web.central.co.th/en/faqs/gift-wrap-policy",
+          },
+          {
+            text: "Term & Conditions",
+            link: "https://prod-web.central.co.th/en/faqs/terms-conditions",
+          },
+          {
+            text: "Whistle – Blowing & Complaints",
+            link: "https://prod-web.central.co.th/en/faqs/whistle-blowing-complaints",
+          },
+          // {
+          //   text: "e-Tax 2025’s policy",
+          //   link: "https://prod-web.central.co.th/en/faqs/easy-e-receipt",
+          // },
+        ],
+      },
+      {
+        header: "Order",
+        questions: [
+          {
+            text: "How to place an order",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-place-an-order",
+          },
+          {
+            text: "How to track my order",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-track-my-order",
+          },
+          {
+            text: "How to cancel my order",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-cancel-my-order",
+          },
+          {
+            text: "How to return my order",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-return",
+          },
+          {
+            text: "How to request tax invoice",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-request-tax-invoice",
+          },
+          {
+            text: "How to change tax invoice details",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-change-tax-invoice-details",
+          },
+          {
+            text: "How to purchase e-Tax campaign products",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-purchase-etax-campaign-products",
+          },
+          {
+            text: "How to request gift wrapping",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-request-gift-wrapping#how-to-apply-discount-coupon-item-6ebf776b3f",
+          },
+          {
+            text: "How to change shopping address",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-change-shopping-address",
+          },
+          {
+            text: "Why I received multiple parcels in different time?",
+            link: "https://prod-web.central.co.th/en/faqs/why-i-received-multiple-parcels-in-different-time",
+          },
+          {
+            text: "Why I can't track my order on the courier tracking page?",
+            link: "https://prod-web.central.co.th/en/faqs/why-i-can-t-track-my-order-on-the-courier-tracking-page",
+          },
+          {
+            text: "How to ship to an international address",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-ship-to-an-international-address",
+          },
+        ],
+      },
+      {
+        header: "Our forms",
+        questions: [
+          {
+            text: "Tax invoice (new request, follow up, edit, credit note)",
+            link: "https://prod-web.central.co.th/en/faqs/tax-invoice-new-request-follow-up-edit-credit-note",
+          },
+          {
+            text: "Report fact Web/Facebook page",
+            link: "https://prod-web.central.co.th/en/faqs/report-fact-web-facebook-page#Login-item-e9150ab97f",
+          },
+        ],
+      },
+      {
+        header: "Contact us",
+        questions: [
+          {
+            text: "How to contact customer service",
+            link: "https://prod-web.central.co.th/en/faqs/how-to-contact-customer-service",
+          },
+        ],
+      },
+    ];
+
+    const qaContainer = document.querySelector(".qa-grid");
+
+    qaData.forEach((item) => {
+      const qaItem = document.createElement("div");
+      qaItem.className =
+        "qa-card";
+
+      const header = document.createElement("h2");
+      header.textContent = item.header;
+      qaItem.appendChild(header);
+
+      item.questions.forEach((q) => {
+        const link = document.createElement("a");
+        link.href = q.link || "#";
+        link.textContent = q.text;
+        qaItem.appendChild(link);
+      });
+
+      qaContainer.appendChild(qaItem);
+    });
+  }
+
+  renderQA();
+</script>

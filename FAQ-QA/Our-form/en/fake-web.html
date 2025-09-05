@@ -1,0 +1,313 @@
+<style>
+  /* Base styles */
+  /* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    color: #1d1d1f;
+    background-color: #fff;
+    line-height: 1.5;
+  } */
+
+  /* Container */
+  .faq-content-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .faq-content-container {
+      padding: 0;
+      gap: 1.5rem;
+    }
+  }
+
+  /* Typography */
+  .heading-primary {
+    font-size: 1.375rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .heading-primary {
+      font-size: 2.5rem;
+      margin-bottom: 0;
+      line-height: 3rem;
+    }
+  }
+
+  /* Tab navigation */
+  .tab-nav {
+    width: 100%;
+    display: flex;
+    font-weight: 700;
+    border-bottom: 1px solid #e5e7eb;
+    overflow-x: auto;
+  }
+
+  .tab-button {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-bottom: 2px solid transparent;
+    text-align: center;
+    white-space: nowrap;
+    color: #6b7280;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .tab-button:hover {
+    color: #1d1d1f;
+    border-bottom: 2px solid #1d1d1f;
+    font-weight: 700;
+  }
+
+  .tab-button.active {
+    color: #1d1d1f;
+    border-bottom: 2px solid #1d1d1f;
+    font-weight: 700;
+  }
+
+  /* Content area */
+  .content-area {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #8b8b8b;
+    border-top: 6px solid #ef4444;
+    border-radius: 0.25rem;
+    color: #1d1d1f;
+  }
+
+  @media (min-width: 768px) {
+    .content-area {
+      padding: 1.5rem 2rem;
+    }
+  }
+
+  /* Tab content */
+  .tab-content {
+    display: grid;
+    gap: 0.5rem;
+    font-weight: 700;
+    text-align: left;
+    place-items: center;
+  }
+
+  .tab-content.hidden {
+    display: none;
+  }
+
+  /* Desktop container */
+  #Desktop-container {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    #Desktop-container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  /* Mobile container */
+  #Mobile-container {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    #Mobile-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 768px) {
+    #Mobile-container {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    #Mobile-container {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* Step card */
+  .step-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .desktop-step-card {
+    width: 100%;
+  }
+
+  .mobile-step-card {
+    max-width: 240px;
+  }
+
+  .step-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .step-text {
+    width: 100%;
+  }
+
+  .desktop-step-text {
+    min-height: 80px;
+  }
+
+  .mobile-step-text {
+    min-height: 120px;
+  }
+
+  @media (min-width: 768px) {
+    .md\:text-lg {
+      font-size: 1.125rem /* 18px */;
+      line-height: 1.75rem /* 28px */;
+    }
+    .md\:text-base {
+      font-size: 1rem /* 16px */;
+      line-height: 1.5rem /* 24px */;
+    }
+    .md\:mt-8 {
+      margin-top: 2rem /* 32px */;
+    }
+    .md\:text-3xl {
+      font-size: 1.875rem /* 30px */;
+      line-height: 2.25rem /* 36px */;
+    }
+  }
+</style>
+
+<div class="faq-content-container">
+  <h1 class="heading-primary">Step to Report a Fake Page</h1>
+
+  <h2 class="text-base font-bold md:text-lg">
+    In case you suffer damages from other channels impersonating Central Online.
+  </h2>
+
+  <div class="space-y-4 text-sm md:text-base">
+    <ul class="pl-6 list-decimal">
+      <li>
+        Bring the documents or evidence of the damages to file a police report.
+      </li>
+      <li>
+        Contact the Call Center at 1425, press 2, Monday to Sunday from 09:00 AM
+        to 09:00 PM
+      </li>
+      <li>
+        Attach the documents via email :
+        <a href="mailto:contact@central.co.th" class="text-blue-500 underline"
+          >contact@central.co.th</a
+        >
+        Monday to Sunday from 09:00 AM to 09:00 PM as follows
+      </li>
+    </ul>
+
+    <ul class="pl-6 list-disc">
+      <li>Police report document</li>
+      <li>Evidence of the money transfer or the damages incurred</li>
+      <li>Information of the complainant or the victim</li>
+      <li>The page name and the URL of that page</li>
+    </ul>
+  </div>
+
+  <p class="font-bold md:text-lg">
+    Note: After receiving the complaint information, your case will be forwarded
+    to the legal department for further action.
+  </p>
+
+  <h2 class="text-base font-bold md:text-lg">
+    In case no damages are found from the impersonation of Central Online.
+  </h2>
+  <div>
+    <ul class="pl-6 text-sm list-decimal md:text-base">
+      <li>Report the details of that page</li>
+      <li>
+        Contact the Call Center at 1425, press 2, Monday to Sunday from 09:00 AM
+        to 09:00 PM
+      </li>
+    </ul>
+  </div>
+
+  <div class="w-full mt-4 space-y-4 text-center md:mt-8">
+    <h2 class="text-xl font-bold md:text-3xl">
+      To determine whether the page is an official Central page, we recommend
+      you verify it.
+    </h2>
+    <div class="content-area">
+      <!-- Mobile container 4 cols -->
+      <div id="Mobile-container" class="tab-content"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const mobileSteps = [
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Report-Fake-Page_th1.png",
+      text: "1. Account name: Central Online Shop, with 1.3M followers.",
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Report-Fake-Page_th2.png",
+      text: "2. Central Department Store, with 2.7M followers.",
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Report-Fake-Page_th3.png",
+      text: "3. The page must have the Verified Badge, which is a blue circle        with a checkmark symbol.",
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Report-Fake-Page_th4.png",
+      text: "4. When clicking the link from the page to the product purchase        page, the URL must be Central.co.th only.",
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Report-Fake-Page_th5.png",
+      text: "5. Webprode or Central application.",
+    },
+  ];
+
+  // Render steps function
+  function renderStep(steps, containerId) {
+    const container = document.getElementById(containerId);
+
+    steps.forEach((step) => {
+      const div = document.createElement("div");
+
+      // Apply appropriate classes based on container
+      div.className = "step-card mobile-step-card";
+      div.innerHTML = `
+          <img src="${step.img}" class="step-image" />
+          <p class="step-text mobile-step-text">${step.text}</p>
+          `;
+
+      container.appendChild(div);
+    });
+  }
+
+  // Initialize on DOM load
+  window.addEventListener("load", () => {
+    renderStep(mobileSteps, "Mobile-container");
+  });
+</script>

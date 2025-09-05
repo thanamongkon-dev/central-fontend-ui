@@ -1,0 +1,446 @@
+<style>
+  /* Container */
+  .faq-content-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .faq-content-container {
+      padding: 0;
+      gap: 1.5rem;
+    }
+  }
+
+  /* Typography */
+  .heading-primary {
+    font-size: 1.375rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .heading-primary {
+      font-size: 2.5rem;
+      margin-bottom: 0;
+    }
+  }
+
+  /* Method tabs container */
+  .method-tabs-container {
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    margin: 0 auto;
+  }
+
+  /* Method buttons */
+  .method-btn {
+    display: flex;
+    flex-grow: 1;
+    scroll-snap-align: start;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #1d1d1f;
+    background-color: white;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .method-btn:hover {
+    background-color: #f3f4f6;
+  }
+
+  .method-btn:active {
+    transform: scale(0.95);
+  }
+
+  .method-btn.active {
+    background-color: #e60023;
+    color: white;
+    border-color: #e60023;
+  }
+
+  /* Tab navigation */
+  .tab-nav {
+    width: 100%;
+    display: flex;
+    font-weight: 700;
+    border-bottom: 1px solid #e5e7eb;
+    overflow-x: auto;
+  }
+
+  .tab-item {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-bottom: 2px solid #1d1d1f;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  /* Content area */
+  .content-area {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #8b8b8b;
+    border-top: 6px solid #ef4444;
+    border-radius: 0.25rem;
+    color: #1d1d1f;
+  }
+
+  @media (min-width: 768px) {
+    .content-area {
+      padding: 1.5rem 2rem;
+    }
+  }
+
+  /* Method content */
+  .method-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    font-weight: 700;
+    text-align: left;
+    place-items: center;
+  }
+
+  @media (min-width: 640px) {
+    .method-content {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .method-content {
+      gap: 1.25rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .method-content {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .method-content.hidden {
+    display: none;
+  }
+
+  /* Step card */
+  .step-card {
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .step-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .step-text {
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .step-text {
+      min-height: 70px;
+    }
+  }
+</style>
+
+<div class="faq-content-container">
+  <h1 class="heading-primary">วิธีการลงทะเบียน</h1>
+
+  <!-- Method tab -->
+  <div class="method-tabs-container">
+    <button id="phone" onclick="methodChange('phone')" class="method-btn active">
+      ลงทะเบียนด้วยเบอร์โทรศัพท์
+    </button>
+    <button id="email" onclick="methodChange('email')" class="method-btn">
+      ลงทะเบียนด้วยอีเมล
+    </button>
+    <button id="the1" onclick="methodChange('the1')" class="method-btn">
+      ลงทะเบียนด้วยบัญชี The1
+    </button>
+    <button id="apple" onclick="methodChange('apple')" class="method-btn">
+      ลงทะเบียนด้วยบัญชี Apple (เฉพาะบนอุปกรณ์ iOS)
+    </button>
+    <button id="google" onclick="methodChange('google')" class="method-btn">
+      ลงทะเบียนด้วยบัญชี Google
+    </button>
+    <button id="facebook" onclick="methodChange('facebook')" class="method-btn">
+      ลงทะเบียนด้วยบัญชี Facebook
+    </button>
+  </div>
+
+  <!-- TAB -->
+  <div class="tab-nav">
+    <div class="tab-item">Mobile</div>
+  </div>
+
+  <div class="content-area">
+    <!-- phone -->
+    <div id="phone-content" class="method-content"></div>
+
+    <!-- email -->
+    <div id="email-content" class="hidden method-content"></div>
+
+    <!-- the1 -->
+    <div id="the1-content" class="hidden method-content"></div>
+
+    <!-- apple -->
+    <div id="apple-content" class="hidden method-content"></div>
+
+    <!-- google -->
+    <div id="google-content" class="hidden method-content"></div>
+
+    <!-- facebook -->
+    <div id="facebook-content" class="hidden method-content"></div>
+  </div>
+</div>
+
+<script>
+  // Steps data
+  const stepsData = {
+    email: [
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/email1.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "1. แตะที่บัญชีของฉัน"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/email2.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "2. แตะปุ่มเข้าสู่ระบบ"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/email3.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "3. เลือกเข้าสู่ระบบด้วยอีเมล"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/email4.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "4. กดยืนยันอีเมล"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/email5.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "5. การเข้าสู่ระบบด้วยอีเมลสำเร็จ"
+      }
+    ],
+    the1: [
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/theone1.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "1. แตะที่บัญชีของฉัน"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/theone2.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "2. แตะปุ่มเข้าสู่ระบบ"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/theone3.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "3. แตะปุ่ม The1"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/theone4.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "4. กรอกเบอร์โทรศัพท์ของคุณ หรือแตะที่อีเมลเพื่อเข้าสู่ระบบด้วยอีเมล"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/theone5.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "5. แตะปุ่มเข้าสู่ระบบ"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/theone6.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "6. กรอกรหัส PIN ของคุณ"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/theone7.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "7. แตะปุ่มดำเนินการต่อ"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/theone8.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "8. กรอกข้อมูลของคุณ"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/theone9.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "9. เข้าสู่ระบบสำเร็จ"
+      }
+    ],
+    facebook: [
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/facebook1.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "1. แตะที่บัญชีของฉัน"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/facebook2.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "2. แตะปุ่มเข้าสู่ระบบ"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/facebook3.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "3. แตะปุ่ม Facebook"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/facebook4.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "4. แตะปุ่ม Continue เพื่ออนุญาตให้ Central ใช้ Facebook"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/facebook5.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "5. แตะปุ่ม Open"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/facebook6.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "6. แตะปุ่ม Continue"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/facebook7.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "7. เลือกดำเนินการต่อ"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/facebook8.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "8. เข้าสู่ระบบสำเร็จ"
+      }
+    ],
+    google: [
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/google1.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "1. แตะที่บัญชีของฉัน"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/google2.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "2. แตะปุ่มเข้าสู่ระบบ"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/google3.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "3. แตะปุ่ม Google"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/google4.webp?preferwebp=true&width=768&quality=60",
+        "text": "4. เลือกบัญชีอีเมล"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/google5.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "5. เลือกดำเนินการต่อ"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/google6.jpeg?preferwebp=true&quality=60&width=425",
+        "text": "6. เข้าสู่ระบบสำเร็จ"
+      }
+    ],
+    apple: [
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/ios1.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "1. แตะที่บัญชีของฉัน"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/ios2.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "2. แตะปุ่มเข้าสู่ระบบ"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/ios3.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "3. เลือกเข้าสู่ระบบด้วย Apple"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/ios4.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "4. กด Continue"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/ios5.jpeg?preferwebp=true&quality=60&width=425",
+        "text": "5. เข้าสู่ระบบสำเร็จ"
+      }
+    ],
+    phone: [
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/phone1.webp?quality=60&preferwebp=true&width=425",
+        "text": "1. แตะที่บัญชีของฉัน"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/phone2.jpeg?quality=60&preferwebp=true&width=425",
+        "text": "2. แตะปุ่มเข้าสู่ระบบ"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/select-mobile-number.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "3. เลือกหมายเลขโทรศัพท์"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/4.webp?preferwebp=true&width=768&quality=60",
+        "text": "4. กรอกเบอร์โทรศัพท์"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/5.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "5. กดที่ปุ่มดำเนินการต่อ"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/6.jpeg?preferwebp=true&width=768&quality=60",
+        "text": "6. กรอกรหัส OTP ที่ได้จาก SMS"
+      },
+      {
+        "img": "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/7.webp?preferwebp=true&width=768&quality=60",
+        "text": "7. เข้าสู่ระบบสำเร็จ"
+      }
+    ],
+  };
+
+  // Method change function
+  function methodChange(methodName) {
+    const methodBtns = document.querySelectorAll(".method-btn");
+    methodBtns.forEach((el) => {
+      el.classList.remove("active");
+    });
+
+    const activeBtn = document.getElementById(methodName);
+    activeBtn.classList.add("active");
+
+    const allContent = document.querySelectorAll(".method-content");
+    allContent.forEach((el) => el.classList.add("hidden"));
+
+    const targetContent = document.getElementById(`${methodName}-content`);
+    targetContent.classList.remove("hidden");
+  }
+
+  // Render steps
+  function renderSteps(method, steps) {
+    const container = document.getElementById(`${method}-content`);
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    steps.forEach((step) => {
+      const div = document.createElement("div");
+      div.className = "step-card";
+      div.innerHTML = `
+                    <img src="${step.img}" class="step-image" />
+                    <p class="step-text">${step.text}</p>
+                `;
+      container.appendChild(div);
+    });
+  }
+
+  // Initialize on DOM load
+  document.addEventListener("DOMContentLoaded", () => {
+    Object.entries(stepsData).forEach(([method, steps]) => {
+      renderSteps(method, steps);
+    });
+
+    methodChange("phone");
+  });
+</script>

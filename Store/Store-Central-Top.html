@@ -1,0 +1,112 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<div
+  class="container text-sm md:text-base font-cpn mx-auto max-w-[1440px] flex flex-col items-center justify-center text-left my-6 text-[#1d1d1f] md:gap-6 gap-4"
+>
+  <div class="flex flex-col w-full items-start bg-[#F7F6F5]">
+    <div class="grid grid-cols-1 md:grid-cols-2">
+      <img
+        class="w-full h-full"
+        src="https://www.central.co.th/adobe/dynamicmedia/deliver/dm-aid--a34fdadc-dd2d-4614-b6b4-8d4a24c35da1/10104-central-lardprao.jpg?width=768&preferwebp=true&quality=60"
+        alt="Central Ladprao"
+      />
+      <div
+        class="flex flex-col w-full items-start justify-center md:gap-4 gap-2 sm:px-8 pt-3 px-4 pb-4 sm:pt-[64px] sm:pb-8"
+      >
+        <h2
+          class="md:text-[52px] text-4xl tracking-[-0.02em] leading-none lead font-medium text-left font-central-sang-bleu"
+        >
+          CENTRAL <br />
+          LADPRAO
+        </h2>
+        <table class="text-left text-[#1D1D1F]">
+          <tbody>
+            <tr class="h-2"></tr>
+            <tr>
+              <td class="pr-3">Hours</td>
+              <td class="pl-3 border-l border-[#333]">
+                Everyday at 10:00 - 22:00
+              </td>
+            </tr>
+            <tr class="h-2"></tr>
+            <tr>
+              <td class="pr-3">Contact</td>
+              <td class="pl-3 border-l border-[#333]">02-5411111</td>
+            </tr>
+            <tr class="h-2"></tr>
+            <tr>
+              <td class="pr-3">Address</td>
+              <td class="pl-3 border-l border-[#333]">
+                1691 Pahonyothin Road, Bangkok, 10900
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="flex flex-col items-start gap-2 px-4 pt-3 pb-6 text-sm md:px-8">
+      <p id="Discover" class="text-left line-clamp-2">
+        Central Ladprao (Central Plaza Ladprao) is one of the most popular
+        shopping malls in the Central Group in Thailand. It is notable for being
+        the country's first comprehensive shopping center, having opened its
+        doors in 1983. Located on Vibhavadi Rangsit Road, the mall spans over
+        78,700 square meters. The surrounding area includes condominiums,
+        educational institutions, and public parks. The complex features a
+        7-story shopping center, a 25-story office building, and the Centara
+        Grand Hotel. Its proximity to the Ladprao intersection makes it easily
+        accessible by private car or public transport, including the MRT and BTS
+        Skytrain. Future plans include transforming the area into a major
+        transportation hub linking all 7 train lines. The design concept of
+        Central Ladprao is contemporary, blending modern elements with a
+        nature-inspired theme ("Trend Eco + Modern Green"). This concept brings
+        nature into the urban environment through the addition of green spaces,
+        natural light via skylight installations, roof gardens, and the use of
+        sustainable materials to reduce energy consumption and pollution. The
+        exterior of the building features LED lighting and more than 1,000
+        square meters of interactive displays, seamlessly integrating modern
+        lifestyle elements with a natural theme.
+      </p>
+      <button id="show-btn" onclick="show()" class="underline">
+        View more
+      </button>
+      <button id="hide-btn" onclick="hide()" class="hidden underline">
+        View less
+      </button>
+    </div>
+  </div>
+</div>
+<script>
+  function show() {
+    const discover = document.getElementById("Discover");
+    const showBtn = document.getElementById("show-btn");
+    const hideBtn = document.getElementById("hide-btn");
+
+    if (!discover || !showBtn || !hideBtn) {
+      console.warn("❌ Missing elements. Aborting.");
+      return;
+    }
+
+    discover.classList.remove("line-clamp-2");
+    discover.classList.remove("hidden");
+    showBtn.classList.add("hidden");
+    showBtn.classList.remove("md:block");
+    hideBtn.classList.remove("hidden");
+  }
+
+  function hide() {
+    const discover = document.getElementById("Discover");
+    const showBtn = document.getElementById("show-btn");
+    const hideBtn = document.getElementById("hide-btn");
+
+    if (!discover || !showBtn || !hideBtn) {
+      console.warn("❌ Missing elements. Aborting.");
+      return;
+    }
+
+    discover.classList.add("line-clamp-2");
+    showBtn.classList.remove("hidden");
+    showBtn.classList.add("md:block");
+    hideBtn.classList.add("hidden");
+  }
+</script>

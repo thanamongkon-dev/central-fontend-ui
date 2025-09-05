@@ -1,0 +1,329 @@
+<style>
+  /* Base styles */
+  /* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    color: #1d1d1f;
+    background-color: #fff;
+    line-height: 1.5;
+  } */
+
+  /* Container */
+  .faq-content-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .faq-content-container {
+      padding: 0;
+      gap: 1.5rem;
+    }
+  }
+
+  /* Typography */
+  .heading-primary {
+    font-size: 1.375rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .heading-primary {
+      font-size: 2.5rem;
+      margin-bottom: 0;
+      line-height: 3rem;
+    }
+  }
+
+  /* Tab navigation */
+  .tab-nav {
+    width: 100%;
+    display: flex;
+    font-weight: 700;
+    border-bottom: 1px solid #e5e7eb;
+    overflow-x: auto;
+  }
+
+  .tab-button {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-bottom: 2px solid transparent;
+    text-align: center;
+    white-space: nowrap;
+    color: #6b7280;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .tab-button:hover {
+    color: #1d1d1f;
+    border-bottom: 2px solid #1d1d1f;
+    font-weight: 700;
+  }
+
+  .tab-button.active {
+    color: #1d1d1f;
+    border-bottom: 2px solid #1d1d1f;
+    font-weight: 700;
+  }
+
+  /* Content area */
+  .content-area {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #8b8b8b;
+    border-top: 6px solid #ef4444;
+    border-radius: 0.25rem;
+    color: #1d1d1f;
+  }
+
+  @media (min-width: 768px) {
+    .content-area {
+      padding: 1.5rem 2rem;
+    }
+  }
+
+  /* Tab content */
+  .tab-content {
+    display: grid;
+    gap: 0.5rem;
+    font-weight: 700;
+    text-align: left;
+    place-items: center;
+  }
+
+  .tab-content.hidden {
+    display: none;
+  }
+
+  /* Desktop container */
+  #Desktop-container {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    #Desktop-container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  /* Mobile container */
+  #Mobile-container {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    #Mobile-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 768px) {
+    #Mobile-container {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  /* Step card */
+  .step-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .desktop-step-card {
+    width: 100%;
+  }
+
+  .mobile-step-card {
+    max-width: 240px;
+  }
+
+  .step-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .step-text {
+    width: 100%;
+  }
+
+  .desktop-step-text {
+    min-height: 80px;
+  }
+
+  .mobile-step-text {
+    min-height: 120px;
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    text-align: left;
+  }
+
+  .text-container h2 {
+    font-weight: 700;
+  }
+
+  .bg-\[\#F50A3C\] {
+    --tw-bg-opacity: 1;
+    background-color: rgb(245 10 60 / var(--tw-bg-opacity, 1)) /* #f50a3c */;
+  }
+
+  @media (min-width: 768px) {
+    .md\:w-1\/2 {
+      width: 50%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .md\:w-auto {
+      width: auto;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .sm\:text-3xl {
+      font-size: 1.875rem /* 30px */;
+      line-height: 2.25rem /* 36px */;
+    }
+  }
+</style>
+<script src="https://cdn.tailwindcss.com"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<div class="faq-content-container">
+  <h1 class="heading-primary">รับสินค้าที่สาขา</h1>
+
+  <div class="text-container">
+    <div>
+      <h2>ข้อกำหนดและเงื่อนไข CLICK & COLLECT</h2>
+      <p>
+        รหัสรับสินค้าจะถูกส่งไปยังอีเมลและ SMS ของผู้รับสินค้า<br />
+        สามารถรับสินค้าได้ที่สาขาที่เลือกไว้เท่านั้น<br />
+        สินค้าจะถูกเก็บไว้ให้สูงสุด 7 วัน หลังจากส่งรหัสรับสินค้าทางอีเมลและ SMS
+      </p>
+    </div>
+    <div>
+      <h2>ระยะเวลาจัดส่ง CLICK & COLLECT</h2>
+      <p>
+        กรุงเทพฯ: 3-5 วันทำการ<br />
+        ต่างจังหวัด: 4-6 วันทำการ
+      </p>
+    </div>
+    <div>
+      <h2>หลักฐานการรับสินค้า</h2>
+      <p>
+        หากรับสินค้าด้วยตนเอง กรุณาแสดงรหัสรับสินค้าขณะรับสินค้า<br />
+        หากมอบหมายให้ผู้อื่นรับแทน ต้องแสดงรหัสรับสินค้าเช่นกัน
+      </p>
+    </div>
+  </div>
+
+  <div class="flex flex-col items-center w-full">
+    <h2 class="font-bold">ค่าจัดส่ง</h2>
+    <div class="grid grid-cols-3 border border-gray-300 md:w-1/2">
+      <div class="p-4 font-bold bg-gray-100 border">พื้นที่จัดส่ง</div>
+      <div class="p-4 font-bold bg-gray-100 border">เงื่อนไขการจัดส่ง</div>
+      <div class="p-4 font-bold bg-gray-100 border">ค่าขนส่งสินค้า</div>
+
+      <div class="col-span-1 p-4 border">
+        Click & Collect ที่ Central, Robinson, Tops & Family Mart
+      </div>
+      <div class="col-span-1 p-4 border">ไม่มีขั้นต่ำ</div>
+      <div class="col-span-1 p-4 border">ฟรี</div>
+
+      <div class="col-span-3 p-4 text-sm border bg-gray-50">
+        หมายเหตุ: เฉพาะสาขาที่ร่วมรายการ กรุณาตรวจสอบรายชื่อด้านล่าง<br />
+        สินค้าขนาดใหญ่หรือหนัก อาจมีค่าบริการเพิ่มเติม<br />
+        ข้อมูลเพิ่มเติมสามารถดูได้ที่หน้าสินค้า<br />
+      </div>
+    </div>
+  </div>
+
+  <div style="width: 100%">
+    <h2 class="my-6 text-xl font-bold">
+      3 ขั้นตอนการใช้บริการ Click & Collect
+    </h2>
+    <div class="content-area">
+      <!-- Mobile container 4 cols -->
+      <div id="Mobile-container" class="tab-content"></div>
+    </div>
+  </div>
+
+  <div
+    class="w-full py-4 text-base text-center text-white bg-[#F50A3C] rounded sm:text-3xl"
+  >
+    <a
+      href="https://www.central.co.th/en/faqs/refund-return-at-store"
+      class="cursor-pointer hover:underline"
+      >สามารถตรวจสอบจุดรับ-คืนสินค้าออนไลน์ ได้ที่นี่ คลิก</a
+    >
+  </div>
+</div>
+
+<script>
+  (function () {
+    const steps = [
+      {
+        title: "1. เลือกบริการ CLICK & COLLECT",
+        description:
+          'คลิก "เลือกสาขารับสินค้า" ในขั้นตอนการสั่งซื้อและชำระเงิน จากนั้นเลือกสาขาที่ต้องการดูรายละเอียดเพิ่มเติมเกี่ยวกับเงื่อนไข กรุณาคลิก "ดูรายละเอียด..."',
+        image:
+          "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/click_and_collect1.png",
+      },
+      {
+        title: "2. รับรหัสรับสินค้า",
+        description:
+          "เราจะส่งรหัสรับสินค้าไปยังอีเมลและ SMS ที่คุณลงทะเบียนไว้ โดยรหัสนี้จะใช้สำหรับรับสินค้าที่สาขา",
+        image:
+          "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/click_and_collect2.png",
+      },
+      {
+        title: "3. รับสินค้าที่สาขา",
+        description:
+          "กรุณาแสดงรหัสรับสินค้าที่เคาน์เตอร์ Click & Collect ณ สาขาที่คุณเลือกไว้",
+        image:
+          "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/click_and_collect3.png",
+      },
+    ];
+
+    const container = document.getElementById("Mobile-container");
+    steps.forEach((step) => {
+      const stepDiv = document.createElement("div");
+      stepDiv.className =
+        "flex flex-col items-center text-center min-h-full w-[290px] gap-3";
+
+      stepDiv.innerHTML = `
+              <img src="${step.image}" alt="${step.title}" class="w-full h-auto md:w-auto" />
+              <div class="flex flex-col w-full gap-4">
+                <h3 class="h-12 text-lg font-bold">${step.title}</h3>
+                <p class="text-sm font-normal">${step.description}</p>
+              </div>
+            `;
+      container.appendChild(stepDiv);
+    });
+  })();
+</script>

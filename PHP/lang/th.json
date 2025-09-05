@@ -1,0 +1,236 @@
+{
+  "accordion": {
+    "name": "ตัวสร้างแอคคอร์เดียน",
+    "title": {
+      "label": "ชื่อแอคคอร์เดียน",
+      "placeholder": "กรอกชื่อสำหรับส่วนแอคคอร์เดียน"
+    },
+    "desc": {
+      "label": "เนื้อหาแอคคอร์เดียน"
+    },
+    "addButton": "เพิ่มแอคคอร์เดียน",
+    "import": {
+      "label": "นำเข้า HTML แอคคอร์เดียน",
+      "placeholder": "วาง HTML แอคคอร์เดียนของคุณที่นี่"
+    }
+  },
+  "carousel": {
+    "name": "ตัวสร้างแครูเซล",
+    "info1": "ข้อมูลแครูเซล",
+    "info2": "ข้อมูลสไลด์",
+    "title": {
+      "label": "ชื่อแครูเซล",
+      "placeholder": "กรอกชื่อสำหรับแครูเซล"
+    },
+    "subtitle": {
+      "label": "แครูเซล หัวข้อรอง",
+      "placeholder": "กรอกหัวข้อรองสำหรับแครูเซล"
+    },
+    "img": {
+      "label": "URL รูปภาพ",
+      "placeholder": "กรอก URL รูปภาพ"
+    },
+    "link": {
+      "label": "URL ลิงก์",
+      "placeholder": "กรอก URL ลิงก์"
+    },
+    "desc": {
+      "label": "ข้อความแครูเซล",
+      "placeholder": "กรอกข้อความสำหรับแครูเซล"
+    },
+    "addButton": "เพิ่มสไลด์",
+    "config": {
+      "template": {
+        "label": "เลือกเทมเพลต",
+        "label2": "เลือกเทมเพลตแบบกำหนดเอง",
+        "options": {
+          "normal": "ปกติ",
+          "hero": "ฮีโร่",
+          "grid": "กริด",
+          "custom": "กำหนดเอง"
+        }
+      },
+      "slideby": "เลื่อนโดย",
+      "shape": {
+        "label": "รูปร่าง",
+        "options": {
+          "circle": "วงกลม",
+          "square": "สี่เหลี่ยม",
+          "rounded": "มุมมน"
+        }
+      },
+      "size": "ขนาดรายการ",
+      "gap": "ช่องว่างรายการ",
+      "color": {
+        "label": "ตัวเลือกสี",
+        "text": "สีข้อความ",
+        "bg": "สีพื้นหลัง"
+      }
+    }
+  },
+  "promotion": {
+    "name": "ตัวสร้างโปรโมชั่น",
+    "title": {
+      "label": "ชื่อโปรโมชั่น",
+      "placeholder": "กรอกชื่อโปรโมชั่น"
+    },
+    "image": {
+      "label": "URL รูปภาพ",
+      "placeholder": "กรอก URL รูปภาพ"
+    },
+    "link": {
+      "label": "URL ลิงก์",
+      "placeholder": "กรอก URL ลิงก์"
+    },
+    "startDate": "วันที่เริ่มต้น",
+    "endDate": "วันที่สิ้นสุด",
+    "addButton": "เพิ่มโปรโมชั่น",
+    "addList": "เพิ่มรายการ",
+    "ignore": "ข้ามวันที่เริ่มต้น",
+    "import": {
+      "label": "นำเข้า HTML โปรโมชั่น",
+      "placeholder": "วาง HTML โปรโมชั่นของคุณที่นี่"
+    },
+    "importList": {
+      "label": "นำเข้ารายการ",
+      "placeholder": "วางรายการของคุณที่นี่"
+    }
+  },
+  "storeTop": {
+    "name": "ตัวสร้างร้านค้าแนะนำ",
+    "title": {
+      "label": "ชื่อร้านค้า",
+      "placeholder": "กรอกชื่อร้านค้า"
+    },
+    "img": {
+      "label": "URL รูปภาพร้านค้า",
+      "placeholder": "กรอก URL รูปภาพร้านค้า"
+    },
+    "openTime": {
+      "label": "เวลาทำการ",
+      "days": {
+        "mon": "วันจันทร์",
+        "tue": "วันอังคาร",
+        "wed": "วันพุธ",
+        "thu": "วันพฤหัสบดี",
+        "fri": "วันศุกร์",
+        "sat": "วันเสาร์",
+        "sun": "วันอาทิตย์",
+        "all": "ทุกวัน"
+      }
+    },
+    "contact": {
+      "label": "ข้อมูลติดต่อ",
+      "placeholder": "กรอกข้อมูลติดต่อ"
+    },
+    "address": {
+      "label": "ที่อยู่",
+      "placeholder": "กรอกที่อยู่ร้านค้า"
+    },
+    "desc": {
+      "label": "รายละเอียด",
+      "placeholder": "กรอกรายละเอียดร้านค้า"
+    }
+  },
+  "storeBot": {
+    "name": "ตัวสร้างร้านค้าไฮไลท์",
+    "event": {
+      "title": {
+        "label": "ชื่อกิจกรรม",
+        "placeholder": "กรอกชื่อกิจกรรม"
+      },
+      "img": {
+        "label": "URL รูปภาพกิจกรรม",
+        "placeholder": "กรอก URL รูปภาพกิจกรรม"
+      },
+      "location": {
+        "label": "สถานที่จัดกิจกรรม",
+        "placeholder": "กรอกสถานที่จัดกิจกรรม"
+      },
+      "type": {
+        "label": "ประเภทกิจกรรม"
+      },
+      "start": "วันที่เริ่มต้น",
+      "end": "วันที่สิ้นสุด",
+      "desc": {
+        "placeholder": "กรอกรายละเอียดกิจกรรม"
+      },
+      "addButton": "เพิ่มกิจกรรม",
+      "ignore": "ข้ามวันที่เริ่มต้น"
+    },
+    "location": {
+      "latitude": {
+        "label": "ละติจูด",
+        "placeholder": "กรอกละติจูด"
+      },
+      "longitude": {
+        "label": "ลองจิจูด",
+        "placeholder": "กรอกลองจิจูด"
+      },
+      "select": "เลือกร้านค้า",
+      "update": "อัปเดตตำแหน่ง"
+    },
+    "restaurant": {
+      "title": {
+        "label": "ชื่อร้านอาหาร",
+        "placeholder": "กรอกชื่อร้านอาหาร"
+      },
+      "img": {
+        "label": "URL รูปภาพร้านอาหาร",
+        "placeholder": "กรอก URL รูปภาพร้านอาหาร"
+      },
+      "type": {
+        "label": "ประเภทร้านอาหาร",
+        "placeholder": "กรอกประเภทร้านอาหาร"
+      },
+      "location": {
+        "label": "ที่ตั้งร้านอาหาร",
+        "placeholder": "กรอกที่ตั้งร้านอาหาร"
+      },
+      "open": "เวลาทำการร้านอาหาร",
+      "addBtn": "เพิ่มร้านอาหาร"
+    },
+    "directories": {
+      "img": {
+        "label": "URL รูปภาพ Directory",
+        "placeholder": "กรอก URL รูปภาพ Directory"
+      },
+      "addBtn": "เพิ่ม Directory"
+    },
+    "services": {
+      "title": {
+        "label": "ชื่อบริการ",
+        "placeholder": "กรอกชื่อบริการ"
+      },
+      "img": {
+        "label": "URL รูปภาพบริการ",
+        "placeholder": "กรอก URL รูปภาพบริการ"
+      },
+      "tel" : {
+        "label" : "เบอร์โทร",
+        "placeholder" : "กรอก เบอร์ บริการลูกค้า"
+      },
+      "desc": {
+        "label": "รายละเอียดบริการ",
+        "placeholder": "กรอกรายละเอียดบริการ"
+      },
+      "addBtn": "เพิ่มบริการ",
+      "update": "อัพเดทเบอร์"
+    },
+    "config": {
+      "h1": "แท็บที่ใช้",
+      "h2": "เลือกร้านค้า",
+      "tabs": {
+        "event": "กิจกรรม",
+        "location": "ตำแหน่ง",
+        "restaurant": "ร้านอาหาร",
+        "directories": "Directory",
+        "services": "บริการ"
+      }
+    }
+  },
+  "preview": "ตัวอย่าง",
+  "copy": "คัดลอกโค้ด",
+  "import": "นำเข้าโค้ด",
+  "importPlaceholder": "วางโค้ด HTML ของคุณที่นี่"
+}

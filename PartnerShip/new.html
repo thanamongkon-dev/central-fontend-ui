@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0 solid;
+            box-sizing: border-box;
+            font-family: CPN;
+        }
+
+        @font-face {
+            font-family: 'CPN';
+            font-display: swap;
+            src: url(https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/fonts/CPN-Regular.woff2) format("woff2"),
+                url(https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/fonts/CPN-Regular.woff) format("woff");
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'CPN';
+            font-display: swap;
+            src: url(https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/fonts/CPN-Bold.woff2) format("woff2"),
+                url(https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/fonts/CPN-Bold.woff) format("woff");
+            font-weight: 700;
+            font-style: normal;
+        }
+    </style>
+    
+    <style>
+        @font-face {
+            font-family: 'BebasNeue';
+            font-display: swap;
+            src: url(https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/fonts/BebasNeue-Regular.woff2) format("woff2"),
+                url(https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/fonts/BebasNeue-Regular.woff) format("woff");
+            font-style: normal;
+            font-stretch: normal;
+        }
+
+        .font-bebas-neue {
+            font-family: 'BebasNeue';
+        }
+
+        html,
+        body {
+            touch-action: manipulation;
+            overscroll-behavior: contain;
+        }
+
+        .title-wrapper {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin: 1.5rem 0;
+            padding: 0 16px;
+        }
+
+        .title-wrapper .partner-title {
+            font-size: 1.12rem;
+            line-height: 1.75rem;
+            font-weight: 700;
+            margin: 0 1rem;
+            color: #1d1d1f;
+        }
+
+        @media (min-width: 768px) {
+            .title-wrapper {
+                padding: 0;
+            }
+
+            .title-wrapper .partner-title {
+                font-size: 1.875rem;
+                line-height: 2.25rem;
+            }
+        }
+
+        .title-wrapper hr {
+            display: flex;
+            flex-grow: 1;
+            height: 4px;
+            border: none;
+            border-radius: 9999px;
+            background: #ef4444;
+        }
+
+        .partner-wrapper {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            width: 100%;
+            gap: 0.5rem;
+            color: #1d1d1f;
+            padding: 0 1rem;
+            min-height: 100%;
+        }
+
+        @media (min-width: 786px) {
+            .partner-wrapper {
+                gap: 1.5rem;
+                padding: 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .partner-wrapper {
+                gap: 1.5rem;
+                padding: 0;
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .promo-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .card-top {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .card-top {
+                display: flex;
+                align-items: center;
+                padding: 16px 12px;
+            }
+        }
+
+        .card-top img {
+            object-position: center;
+            width: 43px;
+            height: 43px;
+            border: 1px solid #fff;
+            border-radius: 9999px;
+        }
+
+        @media (min-width: 640px) {
+            .card-top img {
+                width: 74px;
+                height: 74px;
+            }
+
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            gap: 4px;
+        }
+
+        @media (min-width: 768px) {
+            .card-content p:nth-child(1) {
+                font-size: 18px;
+                line-height: 28px;
+                font-weight: 700;
+            }
+
+            .card-content p:nth-child(2) {
+                font-size: 36px;
+                line-height: 40px;
+                font-weight: 700;
+            }
+
+            .card-content p:nth-child(3) {
+                font-size: 18px;
+                line-height: 150%;
+                font-weight: 400;
+                display: block;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+                line-clamp: 1;
+            }
+        }
+
+        .card-bot {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+        }
+
+        .card-bot p {
+            font-size: 9px;
+            line-height: 12px;
+        }
+
+        .card-bot p:nth-child(2) {
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        @media (min-width: 768px) {
+            .card-bot {
+                padding: 12px;
+            }
+
+            .card-bot p {
+                font-size: 14px;
+                line-height: 20px;
+            }
+        }
+
+        .badge {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 0 4px;
+            text-transform: uppercase;
+            font-size: 10px;
+            line-height: 14px;
+            color: #fff;
+            background-color: #ef4444;
+        }
+
+        @media (min-width: 786px) {
+            .badge {
+                font-size: 12px;
+                line-height: 16px;
+            }
+        }
+
+        .card-top-mobile {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding: 16px 8px 8px 8px;
+        }
+
+        @media (min-width: 768px) {
+            .card-top-mobile {
+                display: none;
+            }
+        }
+
+        .m-grid {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .m-grid img {
+            width: 43px;
+            height: 43px;
+            border: 1px solid #fff;
+            border-radius: 9999px;
+        }
+
+        .m-grid p:nth-child(1) {
+            font-size: 10px;
+            line-height: 12px;
+            font-weight: 700;
+        }
+
+        .m-grid p:nth-child(2) {
+            font-size: 26px;
+            line-height: 32px;
+            font-weight: 700;
+        }
+
+        .card-top-mobile .m-bot {
+            font-size: 10px;
+            line-height: 150%;
+            font-weight: 400;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            line-clamp: 1;
+        }
+
+        .promo-link {
+            position: absolute;
+            inset: 0px;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="title-wrapper">
+        <hr>
+        <h1 class="partner-title">ล่าสุด 2</h1>
+        <hr>
+    </div>
+
+    <div class="partner-wrapper">
+        <div class="promo-card">
+            <a href="https://prod-web.central.co.th/en/chanel" target="_blank" class="promo-link"></a>
+            <p class="badge font-bebas-neue">master card friday</p>
+            <div class="card-top" style="background-color: #F0EFEB;">
+                <div class="card-content">
+                    <p>รับคูปองแทนเงินสดสูงสุด</p>
+                    <p>฿500*</p>
+                    <p>สะสมยอดช้อป ณ ร้านค้า ในเครือ เซ็นทรัลรีเทล*</p>
+                </div>
+                <img src="https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/partner/true-money-logo.png"
+                    alt="">
+            </div>
+
+            <div class="card-top-mobile" style="background-color: #F0EFEB;">
+                <div class="m-grid">
+                    <div class="m-content">
+                        <p>รับคูปองแทนเงินสดสูงสุด</p>
+                        <p>฿500*</p>
+                    </div>
+                    <img
+                        src="https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/partner/true-money-logo.png">
+                </div>
+                <p class="m-bot">สะสมยอดช้อป ณ ร้านค้า ในเครือ เซ็นทรัลรีเทล*</p>
+            </div>
+
+            <div class="card-bot">
+                <p>1 มิ.ย. 2568 - 31 ส.ค. 2568</p>
+                <p>ดูเพิ่มเติม</p>
+            </div>
+        </div>
+
+        <div class="promo-card">
+            <p class="badge font-bebas-neue">master card friday</p>
+            <div class="card-top" style="background-color: #00A850;">
+                <div class="card-content" style="color: #fff">
+                    <p>แลกรับเครดิตเงินคืนสูงสุด</p>
+                    <p>18%*</p>
+                    <p>สะสมยอดช้อป ณ ร้านค้า ในเครือ เซ็นทรัลรีเทล*</p>
+                </div>
+                <img
+                    src="https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/partner/kasikorn-logo.png">
+            </div>
+
+            <div class="card-top-mobile" style="background-color: #00A850; color: #fff;">
+                <div class="m-grid">
+                    <div class="m-content">
+                        <p>แลกรับเครดิตเงินคืนสูงสุด</p>
+                        <p>18%*</p>
+                    </div>
+                    <img
+                        src="https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/partner/kasikorn-logo.png">
+                </div>
+                <p class="m-bot">สะสมยอดช้อป ณ ร้านค้า ในเครือ เซ็นทรัลรีเทล*</p>
+            </div>
+            <div class="card-bot">
+                <p>1 มิ.ย. 2568 - 31 ส.ค. 2568</p>
+                <p>ดูเพิ่มเติม</p>
+            </div>
+        </div>
+
+        <div class="promo-card">
+            <div class="card-top" style="background-color: #000;">
+                <div class="card-content" style="color: #fff">
+                    <p>รับส่วนลดสูงสุด</p>
+                    <p>10%*</p>
+                    <p>+ รับคะแนน THE1 สูงสุด X4*</p>
+                </div>
+                <img src="https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/partner/the1-logo.png"
+                    style="background-color: #fff;">
+            </div>
+            <div class="card-top-mobile" style="background-color: #000; color: #fff;">
+                <div class="m-grid">
+                    <div class="m-content">
+                        <p>รับส่วนลดสูงสุด</p>
+                        <p>10%*</p>
+                    </div>
+                    <img src="https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/partner/the1-logo.png"
+                        style="background-color: #fff;">
+                </div>
+                <p class="m-bot">+ รับคะแนน THE1 สูงสุด X4*</p>
+            </div>
+
+            <div class="card-bot">
+                <p>1 มิ.ย. 2568 - 31 ส.ค. 2568</p>
+                <p>ดูเพิ่มเติม</p>
+            </div>
+        </div>
+
+        <div class="promo-card">
+            <div class="card-top" style="background-color: #FED229;">
+                <div class="card-content">
+                    <p>ส่วนลดสูงสุด</p>
+                    <p>10%*</p>
+                    <p>เมื่อช้อปครบ ฿5,000 เฉพาะสินค้าที่ร่วมรายการ</p>
+                </div>
+                <img src="https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/partner/krungsi-logo.jpg"
+                    alt="">
+            </div>
+            <div class="card-top-mobile" style="background-color: #FED229; color: #1d1d1f;">
+                <div class="m-grid">
+                    <div class="m-content">
+                        <p>ส่วนลดสูงสุด</p>
+                        <p>10%*</p>
+                    </div>
+                    <img src="https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/partner/krungsi-logo.jpg"
+                        alt="">
+                </div>
+                <p class="m-bot">เมื่อช้อปครบ ฿5,000 เฉพาะสินค้าที่ร่วมรายการ</p>
+            </div>
+            <div class="card-bot">
+                <p>1 มิ.ย. 2568 - 31 ส.ค. 2568</p>
+                <p>ดูเพิ่มเติม</p>
+            </div>
+        </div>
+
+        <div class="promo-card">
+            <div class="card-top" style="background-color: #2F4F88;">
+                <div class="card-content" style="color: #fff">
+                    <p>แคชแบ็คสูงสุด</p>
+                    <p>5%*</p>
+                    <p>คะแนนสะสม x3* สูงสุด 25,000*</p>
+                </div>
+                <img src="https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/partner/first-choice-logo.png"
+                    alt="">
+            </div>
+            <div class="card-top-mobile" style="background-color: #2F4F88; color: #fff;">
+                <div class="m-grid">
+                    <div class="m-content">
+                        <p>แคชแบ็คสูงสุด</p>
+                        <p>5%*</p>
+                    </div>
+                    <img src="https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/partner/first-choice-logo.png"
+                        alt="">
+                </div>
+                <p class="m-bot">คะแนนสะสม x3* สูงสุด 25,000*</p>
+            </div>
+            <div class="card-bot">
+                <p>1 มิ.ย. 2568 - 31 ส.ค. 2568</p>
+                <p>ดูเพิ่มเติม</p>
+            </div>
+        </div>
+
+        <div class="promo-card">
+            <div class="card-top" style="background-color: #FF007F;">
+                <div class="card-content" style="color: #fff">
+                    <p>รับเครดิตเงินคืนสูงสุด</p>
+                    <p>10%*</p>
+                    <p>เมื่อใช้จ่ายผ่านบัตรและใช้คะแนนแลกเท่ายอดช้อป</p>
+                </div>
+                <img src="https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/partner/gsb-logo.jpg"
+                    alt="">
+            </div>
+            <div class="card-top-mobile" style="background-color: #FF007F; color: #fff;">
+                <div class="m-grid">
+                    <div class="m-content">
+                        <p>รับเครดิตเงินคืนสูงสุด</p>
+                        <p>10%*</p>
+                    </div>
+                    <img src="https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/partner/gsb-logo.jpg"
+                        alt="">
+                </div>
+                <p class="m-bot">เมื่อใช้จ่ายผ่านบัตรและใช้คะแนนแลกเท่ายอดช้อป</p>
+            </div>
+            <div class="card-bot">
+                <p>1 มิ.ย. 2568 - 31 ส.ค. 2568</p>
+                <p>ดูเพิ่มเติม</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="title-wrapper">
+        <hr>
+        <h1 class="partner-title">Lifestyle Promotion</h1>
+        <hr>
+    </div>
+
+    <div class="partner-wrapper" style="padding-bottom: 50px;">
+
+        <div class="promo-card">
+            <a href="https://prod-web.central.co.th/en/chanel" target="_blank" class="promo-link"></a>
+            <p class="badge font-bebas-neue">master card friday</p>
+            <div class="card-top" style="background-color: #F0EFEB;">
+                <div class="card-content">
+                    <p>รับคูปองแทนเงินสดสูงสุด</p>
+                    <p>฿500*</p>
+                    <p>สะสมยอดช้อป ณ ร้านค้า ในเครือ เซ็นทรัลรีเทล*</p>
+                </div>
+                <img src="https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/partner/true-money-logo.png"
+                    alt="">
+            </div>
+
+            <div class="card-top-mobile" style="background-color: #F0EFEB;">
+                <div class="m-grid">
+                    <div class="m-content">
+                        <p>รับคูปองแทนเงินสดสูงสุด</p>
+                        <p>฿500*</p>
+                    </div>
+                    <img
+                        src="https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/partner/true-money-logo.png">
+                </div>
+                <p class="m-bot">สะสมยอดช้อป ณ ร้านค้า ในเครือ เซ็นทรัลรีเทล*</p>
+            </div>
+
+            <div class="card-bot">
+                <p>1 มิ.ย. 2568 - 31 ส.ค. 2568</p>
+                <p>ดูเพิ่มเติม</p>
+            </div>
+        </div>
+
+        <div class="promo-card">
+            <div class="card-top" style="background-color: #00A850;">
+                <div class="card-content" style="color: #fff">
+                    <p>แลกรับเครดิตเงินคืนสูงสุด</p>
+                    <p>18%*</p>
+                    <p>สะสมยอดช้อป ณ ร้านค้า ในเครือ เซ็นทรัลรีเทล*</p>
+                </div>
+                <img
+                    src="https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/partner/kasikorn-logo.png">
+            </div>
+
+            <div class="card-top-mobile" style="background-color: #00A850; color: #fff;">
+                <div class="m-grid">
+                    <div class="m-content">
+                        <p>แลกรับเครดิตเงินคืนสูงสุด</p>
+                        <p>18%*</p>
+                    </div>
+                    <img
+                        src="https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/partner/kasikorn-logo.png">
+                </div>
+                <p class="m-bot">สะสมยอดช้อป ณ ร้านค้า ในเครือ เซ็นทรัลรีเทล*</p>
+            </div>
+            <div class="card-bot">
+                <p>1 มิ.ย. 2568 - 31 ส.ค. 2568</p>
+                <p>ดูเพิ่มเติม</p>
+            </div>
+        </div>
+
+        <div class="promo-card">
+            <div class="card-top" style="background-color: #000;">
+                <div class="card-content" style="color: #fff">
+                    <p>รับส่วนลดสูงสุด</p>
+                    <p>10%*</p>
+                    <p>+ รับคะแนน THE1 สูงสุด X4*</p>
+                </div>
+                <img src="https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/partner/the1-logo.png"
+                    style="background-color: #fff;">
+            </div>
+            <div class="card-top-mobile" style="background-color: #000; color: #fff;">
+                <div class="m-grid">
+                    <div class="m-content">
+                        <p>รับส่วนลดสูงสุด</p>
+                        <p>10%*</p>
+                    </div>
+                    <img src="https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/partner/the1-logo.png"
+                        style="background-color: #fff;">
+                </div>
+                <p class="m-bot">+ รับคะแนน THE1 สูงสุด X4*</p>
+            </div>
+
+            <div class="card-bot">
+                <p>1 มิ.ย. 2568 - 31 ส.ค. 2568</p>
+                <p>ดูเพิ่มเติม</p>
+            </div>
+        </div>
+
+        <div class="promo-card">
+            <div class="card-top" style="background-color: #FED229;">
+                <div class="card-content">
+                    <p>ส่วนลดสูงสุด</p>
+                    <p>10%*</p>
+                    <p>เมื่อช้อปครบ ฿5,000 เฉพาะสินค้าที่ร่วมรายการ</p>
+                </div>
+                <img src="https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/partner/krungsi-logo.jpg"
+                    alt="">
+            </div>
+            <div class="card-top-mobile" style="background-color: #FED229; color: #1d1d1f;">
+                <div class="m-grid">
+                    <div class="m-content">
+                        <p>ส่วนลดสูงสุด</p>
+                        <p>10%*</p>
+                    </div>
+                    <img src="https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/partner/krungsi-logo.jpg"
+                        alt="">
+                </div>
+                <p class="m-bot">เมื่อช้อปครบ ฿5,000 เฉพาะสินค้าที่ร่วมรายการ</p>
+            </div>
+            <div class="card-bot">
+                <p>1 มิ.ย. 2568 - 31 ส.ค. 2568</p>
+                <p>ดูเพิ่มเติม</p>
+            </div>
+        </div>
+
+        <div class="promo-card">
+            <div class="card-top" style="background-color: #2F4F88;">
+                <div class="card-content" style="color: #fff">
+                    <p>แคชแบ็คสูงสุด</p>
+                    <p>5%*</p>
+                    <p>คะแนนสะสม x3* สูงสุด 25,000*</p>
+                </div>
+                <img src="https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/partner/first-choice-logo.png"
+                    alt="">
+            </div>
+            <div class="card-top-mobile" style="background-color: #2F4F88; color: #fff;">
+                <div class="m-grid">
+                    <div class="m-content">
+                        <p>แคชแบ็คสูงสุด</p>
+                        <p>5%*</p>
+                    </div>
+                    <img src="https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/partner/first-choice-logo.png"
+                        alt="">
+                </div>
+                <p class="m-bot">คะแนนสะสม x3* สูงสุด 25,000*</p>
+            </div>
+            <div class="card-bot">
+                <p>1 มิ.ย. 2568 - 31 ส.ค. 2568</p>
+                <p>ดูเพิ่มเติม</p>
+            </div>
+        </div>
+
+        <div class="promo-card">
+            <div class="card-top" style="background-color: #FF007F;">
+                <div class="card-content" style="color: #fff">
+                    <p>รับเครดิตเงินคืนสูงสุด</p>
+                    <p>10%*</p>
+                    <p>เมื่อใช้จ่ายผ่านบัตรและใช้คะแนนแลกเท่ายอดช้อป</p>
+                </div>
+                <img src="https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/partner/gsb-logo.jpg"
+                    alt="">
+            </div>
+            <div class="card-top-mobile" style="background-color: #FF007F; color: #fff;">
+                <div class="m-grid">
+                    <div class="m-content">
+                        <p>รับเครดิตเงินคืนสูงสุด</p>
+                        <p>10%*</p>
+                    </div>
+                    <img src="https://uat-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/partner/gsb-logo.jpg"
+                        alt="">
+                </div>
+                <p class="m-bot">เมื่อใช้จ่ายผ่านบัตรและใช้คะแนนแลกเท่ายอดช้อป</p>
+            </div>
+            <div class="card-bot">
+                <p>1 มิ.ย. 2568 - 31 ส.ค. 2568</p>
+                <p>ดูเพิ่มเติม</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

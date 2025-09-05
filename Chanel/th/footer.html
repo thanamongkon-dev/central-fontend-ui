@@ -1,0 +1,42 @@
+<style>
+    .hr-custom {
+        height: 6px;
+        /* md:h-2 = 0.5rem = 8px แต่เราสามารถใช้ 6px ตาม h-1.5 ถ้าต้องการตรงกลาง */
+        background-color: black;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .footer-wrapper {
+        display: flex;
+        margin-top: 0.5rem;
+        justify-content: center;
+        width: 100%;
+        height: 200px;
+    }
+
+    .footer-logo {
+        width: auto;
+        max-height: 9rem;
+    }
+
+    @media (min-width: 768px) {
+        .footer-wrapper {
+            margin-top: 1rem;
+        }
+
+        .hr-custom {
+            height: 8px;
+            /* md:h-2 = 0.5rem */
+        }
+
+        .footer-logo {
+            max-height: 10rem; 
+        }
+    }
+</style>
+<hr class="hr-custom">
+<div class="footer-wrapper">
+    <img src="https://sit-assets.central.co.th/file-assets/assets/CMS/chanel/bottom-logo/chnl-e-retail-logo.png"
+        class="footer-logo">
+</div>

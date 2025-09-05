@@ -1,0 +1,171 @@
+<style>
+  .faq-content-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 1.5rem 0;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .faq-content-container {
+      padding: 0;
+      gap: 1.5rem;
+      margin: 1.5rem 0 3rem;
+    }
+  }
+
+  /* Typography */
+  .heading-primary {
+    font-size: 1.375rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .heading-primary {
+      font-size: 2.5rem;
+      margin-bottom: 0;
+    }
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-content: center;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .faq-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  .faq-card {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    border: 1px solid #8b8b8b;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    gap: 1rem;
+    min-height: 150px;
+  }
+
+  .faq-card a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: #1d1d1f;
+  }
+
+  .faq-card img {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .faq-card p {
+    line-height: 1.25rem;
+    overflow-wrap: break-word;
+  }
+
+  @media (min-width: 768px) {
+    .faq-card {
+        padding: 1.25rem;
+        gap: 1.5rem;
+    }
+  }
+</style>
+
+<div class="faq-content-container">
+  <h1 class="heading-primary">Frequently Asked Questions</h1>
+
+  <div class="faq-grid"></div>
+</div>
+
+
+<script>
+  function renderFAQ() {
+    const faqData = [
+      {
+      icon: "https://sit-assets.central.co.th/file-assets/assets/CMS/faq/faqs-icon/receipt-register-print.svg",
+      question: "How to request text invoice",
+      link: "https://prod-web.central.co.th/en/faqs/how-to-request-tax-invoice",
+      },
+      {
+      icon: "https://sit-assets.central.co.th/file-assets/assets/CMS/faq/faqs-icon/Delivery, Truck, Fast.svg",
+      question: "How to track my order",
+      link: "https://prod-web.central.co.th/en/faqs/how-to-track-my-order",
+      },
+      {
+      icon: "https://sit-assets.central.co.th/file-assets/assets/CMS/faq/faqs-icon/box-delivery-letter-group.svg",
+      question: "Why I received multiple parcels in different time?",
+      link: "https://prod-web.central.co.th/en/faqs/why-i-received-multiple-parcels-in-different-time",
+      },
+      {
+      icon: "https://sit-assets.central.co.th/file-assets/assets/CMS/faq/faqs-icon/hand-credit-card.svg",
+      question: "How to pay awaiting payment",
+      link: "https://prod-web.central.co.th/en/faqs/how-to-pay-by-credit-card-debit-card",
+      },
+      {
+      icon: "https://sit-assets.central.co.th/file-assets/assets/CMS/faq/faqs-icon/Return.svg",
+      question: "Return & Refund policy",
+      link: "https://prod-web.central.co.th/en/faqs/return-refund-policy",
+      },
+      {
+      icon: "https://sit-assets.central.co.th/file-assets/assets/CMS/faq/faqs-icon/Mobile, Devices.svg",
+      question: "How do I shop with Central Online",
+      link: "https://prod-web.central.co.th/en/faqs/how-to-place-an-order",
+      },
+      {
+      icon: "https://sit-assets.central.co.th/file-assets/assets/CMS/faq/faqs-icon/Delivery, Truck, Checkmark.svg",
+      question: "Delivery policy",
+      link: "https://prod-web.central.co.th/en/faqs/delivery-policy",
+      },
+      {
+      icon: "https://sit-assets.central.co.th/file-assets/assets/CMS/faq/faqs-icon/Sale, Discount, Promotion.svg",
+      question: "How to collect and apply a coupon",
+      link: "https://prod-web.central.co.th/en/faqs/how-to-collect-coupon",
+      },
+    ];
+
+    const faqContainer = document.querySelector(".faq-grid");
+    if (!faqContainer) return;
+    faqData.forEach((item) => {
+      const faqItem = document.createElement("div");
+      faqItem.className =
+        "faq-card";
+
+      const link = document.createElement("a");
+      link.href = item.link || "#";
+
+      const img = document.createElement("img");
+      img.src = item.icon;
+      img.alt = item.question;
+
+      const paragraph = document.createElement("p");
+      paragraph.textContent = item.question;
+
+      link.appendChild(img);
+      link.appendChild(paragraph);
+      faqItem.appendChild(link);
+      faqContainer.appendChild(faqItem);
+    });
+  }
+
+  renderFAQ();
+</script>

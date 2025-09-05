@@ -1,0 +1,329 @@
+<style>
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .text-\[10px\] {
+    font-size: 10px;
+  }
+
+  /* Layout container */
+  .menu-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 10px 0;
+    list-style: none;
+    overflow: visible;
+    /* overflow-x: auto;
+    overflow-y: visible; */
+    color: inherit;
+  }
+
+  .desktop-menu {
+    display: block;
+  }
+
+  /* Menu item */
+  .menu-item {
+    font-weight: 700;
+    white-space: nowrap;
+    font-size: 0.875rem;
+    /* text-sm */
+    padding: 10px 32px;
+    cursor: pointer;
+  }
+
+  .gap-y-4 {
+    row-gap: 1rem;
+  }
+
+  .submenu-item {
+    font-weight: 700;
+    font-size: 10px;
+  }
+
+  /* Dropdown */
+  .dropdown-menu {
+    position: absolute;
+    left: 0;
+    display: none;
+    width: 100%;
+    justify-content: center;
+    padding-top: 14px;
+    padding-right: 10px;
+    margin-top: 10px;
+    z-index: 10;
+    background-color: white;
+  }
+
+  .dropdown-menu li {
+    padding: 0 20px;
+    list-style: none;
+    white-space: nowrap;
+  }
+
+  /* Show dropdown on hover */
+  .group:hover .dropdown-menu {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+  }
+
+  @media (max-width: 768px) {
+    .menu-container {
+      justify-content: flex-start;
+    }
+
+    .desktop-menu {
+      display: none;
+    }
+  }
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<div class="desktop-menu">
+  <ul
+    class="menu-container font-century">
+    <li class="menu-item group">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/womens-fragrance" class="block">WOMEN'S FRAGRANCE</a>
+      <ul
+        class="overflow-x-auto dropdown-menu gap-y-4">
+        <li class="submenu-item">
+          <a href="https://prod-web.central.co.th/en/promotion-campaign/j-adore" class="">J'ADORE</a>
+        </li>
+        <li class="submenu-item">
+          <a href="https://prod-web.central.co.th/en/promotion-campaign/miss-dior" class="font-century">MISS DIOR</a>
+        </li>
+        <li class="submenu-item">
+          <a href="https://prod-web.central.co.th/en/promotion-campaign/joy-by-dior" class="font-century">JOY BY DIOR</a>
+        </li>
+        <li class="submenu-item">
+          <a href="https://prod-web.central.co.th/en/promotion-campaign/dior-addict" class="font-century">DIOR ADDICT</a>
+        </li>
+      </ul>
+    </li>
+    <li class="menu-item group">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/mens-fragrance" class="block">MEN'S FRAGRANCE</a>
+      <ul class="dropdown-menu gap-y-4">
+        <li class="submenu-item">
+          <a class="li-navlink" href="https://prod-web.central.co.th/en/promotion-campaign/sauvage">SAUVAGE</a>
+        </li>
+        <li class="submenu-item">
+          <a class="li-navlink" href="https://prod-web.central.co.th/en/promotion-campaign/dior-homme">DIOR HOMME</a>
+        </li>
+        <li class="submenu-item">
+          <a class="li-navlink" href="https://prod-web.central.co.th/en/promotion-campaign/dior-mens-others">OTHERS</a>
+        </li>
+      </ul>
+    </li>
+    <li class="menu-item group">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/makeup" class="block">MAKEUP</a>
+      <ul class="dropdown-menu gap-y-4">
+        <li class="submenu-item">
+          <a href="https://prod-web.central.co.th/en/promotion-campaign/dior-eyes" class="font-century">EYES</a>
+        </li>
+        <li class="submenu-item">
+          <a href="https://prod-web.central.co.th/en/promotion-campaign/dior-lips" class="font-century">LIPS</a>
+        </li>
+        <li class="submenu-item">
+          <a href="https://prod-web.central.co.th/en/promotion-campaign/dior-nails" class="font-century">NAILS</a>
+        </li>
+        <li class="submenu-item">
+          <a href="https://prod-web.central.co.th/en/promotion-campaign/dior-complexion"
+            class="font-century">COMPLEXION</a>
+        </li>
+      </ul>
+    </li>
+    <li class="menu-item group">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/skincare" class="block">SKINCARE</a>
+      <ul class="dropdown-menu gap-y-4">
+        <li class="submenu-item">
+          <a href="https://prod-web.central.co.th/en/promotion-campaign/cleansing-with-nymphea"
+            class="font-century">CLEANSING WITH NYMPHEA</a>
+        </li>
+        <li class="submenu-item">
+          <a href="https://prod-web.central.co.th/en/promotion-campaign/dior-prestige" class="font-century">DIOR
+            PRESTIGE</a>
+        </li>
+        <li class="submenu-item">
+          <a href="https://prod-web.central.co.th/en/promotion-campaign/prestige-light-in-white"
+            class="font-century">PRESTIGE LIGHT-IN-WHITE</a>
+        </li>
+        <li class="submenu-item">
+          <a href="https://prod-web.central.co.th/en/promotion-campaign/capture-totale" class="font-century">CAPTURE
+            TOTALE</a>
+        </li>
+        <li class="submenu-item">
+          <a href="https://prod-web.central.co.th/en/promotion-campaign/capture-dreamskin" class="font-century">CAPTURE
+            DREAMSKIN</a>
+        </li>
+        <li class="submenu-item">
+          <a href="https://prod-web.central.co.th/en/promotion-campaign/dior-snow" class="font-century">DIOR SNOW</a>
+        </li>
+        <li class="submenu-item">
+          <a href="https://prod-web.central.co.th/en/promotion-campaign/dior-hydra-life" class="font-century">DIOR HYDRA
+            LIFE</a>
+        </li>
+        <li class="submenu-item">
+          <a href="https://prod-web.central.co.th/en/promotion-campaign/le-baume" class="font-century">LE BAUME</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<!-- Mobile Menu -->
+<nav class="flex px-4 border-b mobile-menu md:hidden font-century color-text">
+  <ul class="flex justify-start px-4 mx-0 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory">
+
+    <li class="font-semibold snap-start text-nowrap text-sm px-6 py-2.5">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/womens-fragrance"
+        onclick="return showSubmenu(event,'womens-fragrance')">WOMEN'S FRAGRANCE</a>
+    </li>
+
+    <li class="font-semibold snap-start text-nowrap text-sm px-6 py-2.5">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/mens-fragrance"
+        onclick="return showSubmenu(event,'mens-fragrance')">MEN'S FRAGRANCE</a>
+    </li>
+
+    <li class="font-semibold snap-start text-nowrap text-sm px-6 py-2.5">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/makeup"
+        onclick="return showSubmenu(event,'makeup')">MAKEUP</a>
+    </li>
+
+    <li class="font-semibold snap-start text-nowrap text-sm px-6 py-2.5">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/skincare"
+        onclick="return showSubmenu(event,'skincare')">SKINCARE</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Mobile Submenus -->
+<div id="submenu-container"
+  class="font-century flex md:hidden text-start text-[#1D1D1F] font-semibold w-full px-4 py-4 min-h-12 bg-white z-50 overflow-y-auto">
+  <!-- Women -->
+  <ul id="submenu-womens-fragrance" class="z-50 hidden w-full overflow-x-auto text-sm bg-white submenu no-scrollbar">
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/j-adore" class="font-century">J'ADORE</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/miss-dior" class="font-century">MISS DIOR</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/joy-by-dior" class="font-century">JOY BY DIOR</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/dior-addict" class="font-century">DIOR ADDICT</a>
+    </li>
+  </ul>
+
+  <!-- Men -->
+  <ul id="submenu-mens-fragrance"
+    class="z-50 hidden w-full overflow-x-auto text-sm bg-white submenu no-scrollbar scroll-smooth snap-x snap-mandatory">
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/sauvage" class="font-century">SAUVAGE</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/dior-homme" class="font-century">DIOR HOMME</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/dior-mens-others" class="font-century">OTHERS</a>
+    </li>
+  </ul>
+
+  <!-- Makeup -->
+  <ul id="submenu-makeup"
+    class="z-50 hidden w-full overflow-x-auto text-sm bg-white submenu no-scrollbar scroll-smooth snap-x snap-mandatory">
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/dior-complexion" class="font-century">COMPLEXION</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/dior-eyes" class="font-century">EYES</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/dior-lips" class="font-century">LIPS</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/dior-nails" class="font-century">NAILS</a>
+    </li>
+  </ul>
+
+  <!-- Skincare -->
+  <ul id="submenu-skincare"
+    class="z-50 hidden w-full overflow-x-auto text-sm bg-white submenu no-scrollbar scroll-smooth snap-x snap-mandatory">
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/cleansing-with-nymphea" class="font-century">CLEANSING
+        WITH NYMPHEA</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/dior-prestige" class="font-century">DIOR PRESTIGE</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/prestige-light-in-white" class="font-century">PRESTIGE
+        LIGHT-IN-WHITE</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/capture-totale" class="font-century">CAPTURE
+        TOTALE</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/capture-dreamskin" class="font-century">CAPTURE
+        DREAMSKIN</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/dior-snow" class="font-century">DIOR SNOW</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/dior-hydra-life" class="font-century">DIOR HYDRA
+        LIFE</a>
+    </li>
+    <li class="px-6 py-0 snap-start whitespace-nowrap">
+      <a href="https://prod-web.central.co.th/en/promotion-campaign/le-baume" class="font-century">LE BAUME</a>
+    </li>
+  </ul>
+</div>
+<script>
+  let lastOpenedSubmenu = "";
+
+  function showSubmenu(event, name) {
+    const submenu = document.getElementById("submenu-" + name);
+    const submenuContainer = document.querySelectorAll(".submenu");
+
+    /* ถ้ากดซ้ำเมนูเดิม ให้ปล่อยให้ href ทำงาน */
+    if (lastOpenedSubmenu === name && submenu.classList.contains("flex")) {
+      return true; /* ไม่กัน default behavior */
+    }
+
+    event.preventDefault(); /* กันไม่ให้ href ทำงาน */
+
+    /* ปิดทุกเมนูย่อยก่อน */
+    submenuContainer.forEach((el) => {
+      el.classList.add("hidden");
+      el.classList.remove("flex");
+    });
+
+    /* แสดงเมนูย่อยของตัวที่เลือก */
+    submenu.classList.remove("hidden");
+    submenu.classList.add("flex");
+
+    /* อัปเดตค่าชื่อ submenu ล่าสุด */
+    lastOpenedSubmenu = name;
+
+    return false;
+  }
+
+</script>

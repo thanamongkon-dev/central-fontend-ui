@@ -1,0 +1,140 @@
+<style>
+    .video-gallery .section-title {
+        letter-spacing: .125rem;
+        line-height: 2.5rem;
+        text-align: center;
+    }
+
+    .video-gallery .section-title h2 {
+        margin-top: 0;
+        margin-bottom: 40px;
+        font-size: 36px;
+    }
+
+    .video-gallery .video-wrapper {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%; /* 16:9 ratio */
+    }
+
+    .video-gallery .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .video-gallery {
+        margin-top: 100px;
+        margin-bottom: 50px;
+        color: #1d1d1f;
+    }
+
+    .video-gallery .thumbnail-list {
+        display: flex;
+        column-gap: 15px;
+        padding-top: 15px;
+    }
+
+    .video-gallery .thumbnail {
+        width: 20%;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .video-gallery .thumbnail img {
+        width: 100%;
+    }
+
+    .video-gallery .thumbnail .thumb-title {
+        font-size: .75rem;
+        text-align: center;
+        line-height: 1.2;
+        margin-top: .625rem;
+    }
+
+    @media (max-width: 900px) {
+        .video-gallery .section-title h2 {
+            font-size: 28px;
+            letter-spacing: .125rem;
+            line-height: 1.2;
+        }
+
+        .video-gallery .section-title {
+            font-size: 1.25rem;
+            margin: 1.875rem 0;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .video-gallery .thumbnail-list {
+            column-gap: 7px;
+            padding-top: 7px;
+        }
+    }
+
+    @media (max-width: 550px) {
+        .video-gallery .thumbnail-list {
+            overflow: auto;
+        }
+
+        .video-gallery .thumbnail {
+            width: auto;
+        }
+
+        .video-gallery .thumbnail img {
+            width: 124px;
+        }
+    }
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<div class="container video-gallery central_container font-chanel">
+    <div class="section-title">
+        <h2 class="font-chanel">THE FILMS</h2>
+    </div>
+
+    <!-- Main iframe -->
+    <div class="video-wrapper">
+        <iframe id="mainVideo" 
+            src="https://www.youtube.com/embed/uRDrixpp62U" 
+            frameborder="0"
+            allow="autoplay; encrypted-media; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- Thumbnail list -->
+    <div class="thumbnail-list">
+        <div class="thumbnail" data-video="uRDrixpp62U">
+            <img src="https://img.youtube.com/vi/uRDrixpp62U/maxresdefault.jpg" />
+            <div class="thumb-title font-chanel">SUBLIMAGE</div>
+        </div>
+        <div class="thumbnail" data-video="E9LACofU4Mw">
+            <img src="https://img.youtube.com/vi/E9LACofU4Mw/maxresdefault.jpg" />
+            <div class="thumb-title font-chanel">LIMITED EDITION <br> LES PERLES</div>
+        </div>
+        <div class="thumbnail" data-video="wyK5NU6m2QI">
+            <img src="https://img.youtube.com/vi/wyK5NU6m2QI/maxresdefault.jpg" />
+            <div class="thumb-title font-chanel">N°1 DE CHANEL</div>
+        </div>
+        <div class="thumbnail" data-video="suRZbPRFLlo">
+            <img src="https://img.youtube.com/vi/suRZbPRFLlo/maxresdefault.jpg" />
+            <div class="thumb-title font-chanel">N°5</div>
+        </div>
+        <div class="thumbnail" data-video="7HnYmMEkx_c">
+            <img src="https://img.youtube.com/vi/7HnYmMEkx_c/maxresdefault.jpg" />
+            <div class="thumb-title font-chanel">ALLURE HOMME SPORT</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.video-gallery .thumbnail').forEach(item => {
+        item.addEventListener('click', function () {
+            const videoId = this.getAttribute('data-video');
+            const iframe = document.getElementById('mainVideo');
+            iframe.src = `https://www.youtube.com/embed/${videoId}`;
+        });
+    });
+</script>

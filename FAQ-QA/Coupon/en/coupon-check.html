@@ -1,0 +1,238 @@
+<style>
+  /* Base styles */
+  /* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    color: #1d1d1f;
+    background-color: #fff;
+    line-height: 1.5;
+  } */
+
+  /* Container */
+  .faq-content-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .faq-content-container {
+      padding: 0;
+      gap: 1.5rem;
+    }
+  }
+
+  /* Typography */
+  .heading-primary {
+    font-size: 1.375rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .heading-primary {
+      font-size: 2.5rem;
+      margin-bottom: 0;
+      line-height: 3rem;
+    }
+  }
+
+  /* Tab navigation */
+  .tab-nav {
+    width: 100%;
+    display: flex;
+    font-weight: 700;
+    border-bottom: 1px solid #e5e7eb;
+    overflow-x: auto;
+  }
+
+  .tab-button {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-bottom: 2px solid transparent;
+    text-align: center;
+    white-space: nowrap;
+    color: #6b7280;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .tab-button:hover {
+    color: #1d1d1f;
+    border-bottom: 2px solid #1d1d1f;
+    font-weight: 700;
+  }
+
+  .tab-button.active {
+    color: #1d1d1f;
+    border-bottom: 2px solid #1d1d1f;
+    font-weight: 700;
+  }
+
+  /* Content area */
+  .content-area {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #8b8b8b;
+    border-top: 6px solid #ef4444;
+    border-radius: 0.25rem;
+    color: #1d1d1f;
+  }
+
+  @media (min-width: 768px) {
+    .content-area {
+      padding: 1.5rem 2rem;
+    }
+  }
+
+  /* Tab content */
+  .tab-content {
+    display: grid;
+    gap: 0.5rem;
+    font-weight: 700;
+    text-align: left;
+    place-items: center;
+  }
+
+  .tab-content.hidden {
+    display: none;
+  }
+
+  /* Desktop container */
+  #Desktop-container {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    #Desktop-container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  /* Mobile container */
+  #Mobile-container {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    #Mobile-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 768px) {
+    #Mobile-container {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    #Mobile-container {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* Step card */
+  .step-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .desktop-step-card {
+    width: 100%;
+  }
+
+  .mobile-step-card {
+    max-width: 240px;
+  }
+
+  .step-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .step-text {
+    width: 100%;
+  }
+
+  .desktop-step-text {
+    min-height: 80px;
+  }
+
+  .mobile-step-text {
+    min-height: 120px;
+  }
+</style>
+
+<div class="faq-content-container">
+  <h1 class="heading-primary">How to check my collected coupons</h1>
+
+  <!-- Tab -->
+  <div class="tab-nav">
+    <button class="tab-button active" id="Mobile">Mobile</button>
+  </div>
+
+  <div class="content-area">
+    <!-- Mobile container 4 cols -->
+    <div id="Mobile-container" class="tab-content"></div>
+  </div>
+</div>
+
+<script>
+  const mobileSteps = [
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/checkcouponEng1.png",
+      text: "1. Tap on the Shopping Bag Icon",
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/checkcouponEng2.png",
+      text: '2. Tap on "My Coupons" to Check Available Coupons',
+    },
+    {
+      img: "https://prod-assets.central.co.th/file-assets/assets/CMS/evm/assets/images/faq/Register/checkcouponEng3.png",
+      text: '3. All Collected Coupons: Click "Use" to Redeem a Coupon',
+    },
+  ];
+
+  // Render steps function
+  function renderStep(steps, containerId) {
+    const container = document.getElementById(containerId);
+
+    steps.forEach((step) => {
+      const div = document.createElement("div");
+
+      // Apply appropriate classes based on container
+      div.className = "step-card mobile-step-card";
+      div.innerHTML = `
+          <img src="${step.img}" class="step-image" />
+          <p class="step-text mobile-step-text">${step.text}</p>
+          `;
+
+      container.appendChild(div);
+    });
+  }
+
+  // Initialize on DOM load
+  window.addEventListener("load", () => {
+    renderStep(mobileSteps, "Mobile-container");
+  });
+</script>
